@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page Portfolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-alt: #0f172a;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --border: #dbe3f0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #eff6ff, #ffffff);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 48px 32px;
+      margin-bottom: 32px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 16px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .stat,
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    section {
+      margin-top: 40px;
+    }
+
+    .section-heading {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card span {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: #e2e8f0;
+      color: #334155;
+    }
+
+    .card .live {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .card .planned {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .cta {
+      margin-top: 40px;
+      background: var(--surface-alt);
+      color: #ffffff;
+      border-radius: 24px;
+      padding: 32px;
+    }
+
+    .cta p {
+      color: #cbd5e1;
+      max-width: 680px;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 640px) {
+      .hero,
+      .cta {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Landing Page Portfolio</p>
+      <h1>Simple landing pages built to help small businesses look ready for clients.</h1>
+      <p>
+        This portfolio is the starting point for a small landing page business. It features three mockups
+        that show my design direction and three real-life projects I am building for friends for free to
+        create a strong set of launch examples.
+      </p>
+      <div class="hero-stats">
+        <article class="stat">
+          <strong>3</strong>
+          <div>Mockup concepts ready to showcase</div>
+        </article>
+        <article class="stat">
+          <strong>3</strong>
+          <div>Free real-client builds currently lined up</div>
+        </article>
+        <article class="stat">
+          <strong>1</strong>
+          <div>Goal: turn practice work into a client-ready portfolio</div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="mockups-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="mockups-title">Mockup landing pages</h2>
+          <p>These concept pieces demonstrate the kinds of layouts, messaging, and call-to-action sections I can build for future clients.</p>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span>Mockup 01</span>
+          <h3>Modern Barber Studio</h3>
+          <p>A bold landing page focused on trust, online bookings, service highlights, and strong local branding.</p>
+        </article>
+        <article class="card">
+          <span>Mockup 02</span>
+          <h3>Fitness Coaching Launch</h3>
+          <p>A high-energy one-page site built to collect leads for a personal trainer offering new transformation programs.</p>
+        </article>
+        <article class="card">
+          <span>Mockup 03</span>
+          <h3>Home Cleaning Service</h3>
+          <p>A conversion-focused layout with pricing previews, testimonials, and a clear path to request a quote.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="projects-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="projects-title">Real-life portfolio projects</h2>
+          <p>These are the first real landing pages I am creating for friends for free so I can build experience, collect testimonials, and launch with proven work.</p>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="planned">Free friend project 01</span>
+          <h3>Mobile Detailing Service</h3>
+          <p>An upcoming client page centered on package options, before-and-after visuals, and a fast booking inquiry form.</p>
+        </article>
+        <article class="card">
+          <span class="planned">Free friend project 02</span>
+          <h3>Event Makeup Artist</h3>
+          <p>A personal brand landing page designed to showcase services, availability, and portfolio images for bookings.</p>
+        </article>
+        <article class="card">
+          <span class="planned">Free friend project 03</span>
+          <h3>Local Food Startup</h3>
+          <p>A launch page for a small food business with product highlights, social proof, and an email signup for first customers.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <h2 id="cta-title">Building the first six examples with intention.</h2>
+      <p>
+        The plan is simple: start with three polished mockups, deliver three free projects for friends, and use those six examples
+        to show potential clients what a focused landing page can do for their business.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
