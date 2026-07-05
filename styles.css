@@ -421,7 +421,7 @@ ul { list-style: none; }
 .floating-badge div { display: flex; flex-direction: column; }
 .floating-badge strong { font-size: 0.9rem; font-weight: 700; line-height: 1.2; }
 .floating-badge span { font-size: 0.68rem; color: var(--text-muted); }
-.fb-icon { font-size: 1.4rem; }
+.fb-icon { display: none; }
 .fb-1 { top: -20px; right: -20px; animation: floatBadge1 4s ease-in-out infinite; }
 .fb-2 { bottom: 30px; left: -30px; animation: floatBadge2 5s ease-in-out infinite 1s; }
 @keyframes floatBadge1 {
@@ -1208,7 +1208,7 @@ ul { list-style: none; }
     transition: border-color 0.3s;
 }
 .condition-item:hover { border-color: rgba(26,107,255,0.3); }
-.cond-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+.cond-icon { display: none; }
 .condition-item strong { font-size: 0.92rem; font-weight: 700; display: block; margin-bottom: 4px; }
 .condition-item p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; margin: 0; }
 
