@@ -11,20 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.iframe-card').forEach(card => {
             const iframe = card.querySelector('.site-iframe');
             if (!iframe) return;
-            const cardW = card.offsetWidth;
-            const cardH = card.offsetHeight;
-            const iframeW = 1280;
-            const iframeH = 900;
-            const scale = Math.min(cardW / iframeW, cardH / iframeH);
+            // Scale based on card width vs iframe rendered width (1280px)
+            const scale = card.offsetWidth / 1280;
             iframe.style.transform = `scale(${scale})`;
+            // Set iframe height so scaled content fills the card height
+            iframe.style.height = (card.offsetHeight / scale) + 'px';
         });
     }
 
-    // Scale on load and on resize
     scaleIframes();
     window.addEventListener('resize', scaleIframes);
 
-    // Hide skeleton and fade in iframe when loaded
+    // Hide skeleton and show iframe once loaded
     document.querySelectorAll('.site-iframe').forEach(iframe => {
         const skeleton = iframe.previousElementSibling;
         iframe.addEventListener('load', () => {
