@@ -1217,3 +1217,27 @@ ul { list-style: none; }
     .pricing-conditions { grid-template-columns: 1fr; }
     .pricing-single { padding: 28px 20px; }
 }
+
+/* =============================================
+   SCREENSHOT PREVIEW CARDS
+   ============================================= */
+.screenshot-card {
+    background: #0a0a14;
+    padding: 0;
+    overflow: hidden;
+}
+.card-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.5s ease;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.screenshot-card:hover .card-screenshot {
+    transform: scale(1.03);
+}
+.screenshot-card .card-overlay {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
