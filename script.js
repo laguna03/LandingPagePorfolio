@@ -5,6 +5,37 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* -------------------------------------------
+       IFRAME PREVIEWS — scale to fit card
+    ------------------------------------------- */
+    function scaleIframes() {
+        document.querySelectorAll('.iframe-card').forEach(card => {
+            const iframe = card.querySelector('.site-iframe');
+            if (!iframe) return;
+            const cardW = card.offsetWidth;
+            const cardH = card.offsetHeight;
+            const iframeW = 1280;
+            const iframeH = 900;
+            const scale = Math.min(cardW / iframeW, cardH / iframeH);
+            iframe.style.transform = `scale(${scale})`;
+        });
+    }
+
+    // Scale on load and on resize
+    scaleIframes();
+    window.addEventListener('resize', scaleIframes);
+
+    // Hide skeleton and fade in iframe when loaded
+    document.querySelectorAll('.site-iframe').forEach(iframe => {
+        const skeleton = iframe.previousElementSibling;
+        iframe.addEventListener('load', () => {
+            iframe.classList.add('loaded');
+            if (skeleton && skeleton.classList.contains('iframe-skeleton')) {
+                skeleton.classList.add('hidden');
+            }
+        });
+    });
+
+    /* -------------------------------------------
        NAVBAR — scroll effect + mobile menu
     ------------------------------------------- */
     const navbar  = document.getElementById('navbar');

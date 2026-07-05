@@ -1219,8 +1219,53 @@ ul { list-style: none; }
 }
 
 /* =============================================
-   SCREENSHOT PREVIEW CARDS
+   IFRAME PREVIEW CARDS
    ============================================= */
+.iframe-card {
+    background: #fff;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Skeleton shimmer shown while iframe loads */
+.iframe-skeleton {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #1a1a2e 0%, #2a2a45 40%, #1a1a2e 80%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+    z-index: 1;
+    transition: opacity 0.4s;
+}
+.iframe-skeleton.hidden { opacity: 0; pointer-events: none; }
+@keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* The iframe itself — scaled down to look like a full page preview */
+.site-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    width: 1280px;      /* full desktop width */
+    height: 900px;      /* full desktop height to capture whole page */
+    transform-origin: top left;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+}
+.site-iframe.loaded { opacity: 1; }
+
+.iframe-card .card-overlay {
+    z-index: 3;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+/* Screenshot card styles (kept for fallback) */
 .screenshot-card {
     background: #0a0a14;
     padding: 0;
@@ -1235,9 +1280,5 @@ ul { list-style: none; }
     transition: transform 0.5s ease;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
-.screenshot-card:hover .card-screenshot {
-    transform: scale(1.03);
-}
-.screenshot-card .card-overlay {
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-}
+.screenshot-card:hover .card-screenshot { transform: scale(1.03); }
+.screenshot-card .card-overlay { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
