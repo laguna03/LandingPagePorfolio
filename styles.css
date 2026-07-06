@@ -7,8 +7,8 @@
     --primary: #1A6BFF;
     --primary-dark: #1050D0;
     --primary-light: #80AFFF;
-    --accent: #FF6B6B;
-    --accent2: #FFD93D;
+    --accent: #fe3280;
+    --accent2: #6bb5ff;
     --dark: #060A14;
     --dark-2: #08101E;
     --dark-3: #0D1828;
@@ -50,7 +50,7 @@ ul { list-style: none; }
    TYPOGRAPHY HELPERS
    ============================================= */
 .gradient-text {
-    background: linear-gradient(135deg, #1A6BFF 0%, #FF6B6B 50%, #FFD93D 100%);
+    background: linear-gradient(135deg, #1A6BFF 0%, #fe3280 50%, #6bb5ff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
