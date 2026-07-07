@@ -99,6 +99,45 @@ const translations = {
         'footer.nav': 'Navegación',
         'footer.contact': 'Contáctame',
         'footer.available': 'Disponible en todo el mundo',
+        'footer.nav.work': 'Trabajos',
+        'footer.nav.services': 'Servicios',
+        'footer.nav.process': 'Proceso',
+        'footer.nav.pricing': 'Precios',
+        'footer.nav.contact': 'Contacto',
+        'footer.rights': '© 2026 Laguna Tech. Todos los derechos reservados.',
+        'footer.credit': 'Diseñado y Desarrollado por Laguna Tech',
+        'hero.badge1': 'Tasa de conversión',
+        'hero.badge2_num': '3-5 días',
+        'hero.badge2': 'Tiempo de entrega',
+        'portfolio.c2.desc': 'Página de estudio fitness con diseño oscuro y audaz que generó un 60% más de suscripciones mensuales.',
+        'portfolio.c3.desc': 'Página de agencia inmobiliaria que triplicó las consultas de clientes calificados por semana.',
+        'portfolio.c4.desc': 'Concepto de página SaaS enfocado en la claridad de funciones y una conversión sin fricción.',
+        'portfolio.c5.desc': 'Concepto de marca de moda premium con visuales audaces y una experiencia de compra fluida.',
+        'portfolio.c6.desc': 'Página de agencia creativa diseñada para captar atención y convertir visitantes en leads al instante.',
+        'testimonials.q1': '"Pedro entregó una landing page increíble en solo 4 días. Nuestras reservas en línea aumentaron significativamente en la primera semana. ¡Valió cada centavo!"',
+        'testimonials.q2': '"El diseño nos dejó sin palabras. Se ve exactamente como las grandes cadenas de gimnasios pero es 100% nuestro. Los registros han estado por las nubes desde que lanzamos."',
+        'testimonials.q3': '"Profesional, rápido e increíblemente creativo. Pedro entendió exactamente lo que nuestra marca necesitaba sin que tuviéramos que explicarlo dos veces. ¡Totalmente recomendado!"',
+        'testimonials.a1.role': 'Dueño, Caribe Industries Supply Corp.',
+        'testimonials.a2.role': 'Fundador, Peak Performance Gym',
+        'testimonials.a3.role': 'Agente, Sunset Realty Group',
+        'pricing.f1': 'Landing page de una sola sección',
+        'pricing.f2': 'Diseño 100% personalizado',
+        'pricing.f3': '100% responsive (móvil)',
+        'pricing.f4': 'Formulario de contacto / leads',
+        'pricing.f5': 'Botón de WhatsApp integrado',
+        'pricing.f6': 'Optimización básica SEO',
+        'pricing.f7': 'Entrega en 3 a 5 días hábiles',
+        'pricing.f8': 'Revisiones incluidas',
+        'pricing.c1.title': 'Formulario obligatorio',
+        'pricing.c1.desc': 'El proyecto inicia una vez recibido el formulario de información completo y el depósito del 50%.',
+        'pricing.c2.title': 'Tiempo de entrega',
+        'pricing.c2.desc': '3 a 5 días hábiles contados desde la recepción del depósito y la información completa del cliente.',
+        'pricing.c3.title': 'Revisiones y cambios',
+        'pricing.c3.desc': 'Se aplica la política de revisiones acordada. Cambios mayores fuera del alcance pueden tener costo adicional.',
+        'pricing.c4.title': 'Estructura de pago',
+        'pricing.c4.desc': '50% al iniciar ($90) + 50% al entregar ($90). Sin costos ocultos.',
+        'contact.f.sending': 'Enviando...',
+        'site.title': 'LAGVNSoftware. | Landing Pages de Alta Conversión',
     },
     en: {
         'nav.work': 'Work',
@@ -193,6 +232,45 @@ const translations = {
         'footer.nav': 'Quick Links',
         'footer.contact': 'Get In Touch',
         'footer.available': 'Available worldwide',
+        'footer.nav.work': 'Work',
+        'footer.nav.services': 'Services',
+        'footer.nav.process': 'Process',
+        'footer.nav.pricing': 'Pricing',
+        'footer.nav.contact': 'Contact',
+        'footer.rights': '© 2026 Laguna Tech. All rights reserved.',
+        'footer.credit': 'Designed & Built by Laguna Tech',
+        'hero.badge1': 'Conversion rate',
+        'hero.badge2_num': '3-5 days',
+        'hero.badge2': 'Delivery time',
+        'portfolio.c2.desc': 'Fitness studio page with bold dark design that generated 60% more monthly memberships.',
+        'portfolio.c3.desc': 'Real estate agency page that tripled qualified client inquiries per week.',
+        'portfolio.c4.desc': 'SaaS landing page concept focused on feature clarity and frictionless conversion.',
+        'portfolio.c5.desc': 'Premium fashion brand concept with bold visuals and a smooth shopping experience.',
+        'portfolio.c6.desc': 'Creative agency page designed to capture attention and convert visitors into leads instantly.',
+        'testimonials.q1': '"Pedro delivered an incredible landing page in just 4 days. Our online bookings increased significantly in the first week. Worth every penny!"',
+        'testimonials.q2': '"The design blew us away. It looks just like a major gym chain but it\'s 100% ours. Sign-ups have been through the roof since we launched."',
+        'testimonials.q3': '"Professional, fast, and incredibly creative. Pedro understood exactly what our brand needed without us having to explain it twice. Highly recommended!"',
+        'testimonials.a1.role': 'Owner, Caribe Industries Supply Corp.',
+        'testimonials.a2.role': 'Founder, Peak Performance Gym',
+        'testimonials.a3.role': 'Agent, Sunset Realty Group',
+        'pricing.f1': 'Single-section landing page',
+        'pricing.f2': '100% custom design',
+        'pricing.f3': '100% mobile responsive',
+        'pricing.f4': 'Contact / leads form',
+        'pricing.f5': 'Integrated WhatsApp button',
+        'pricing.f6': 'Basic SEO optimization',
+        'pricing.f7': 'Delivery in 3–5 business days',
+        'pricing.f8': 'Revisions included',
+        'pricing.c1.title': 'Required form',
+        'pricing.c1.desc': 'The project starts once the complete business info form and the 50% deposit are received.',
+        'pricing.c2.title': 'Delivery time',
+        'pricing.c2.desc': '3–5 business days counted from receipt of deposit and complete client information.',
+        'pricing.c3.title': 'Revisions & changes',
+        'pricing.c3.desc': 'The agreed revision policy applies. Major changes outside scope may have an additional cost.',
+        'pricing.c4.title': 'Payment structure',
+        'pricing.c4.desc': '50% to start ($90) + 50% on delivery ($90). No hidden fees.',
+        'contact.f.sending': 'Sending...',
+        'site.title': 'LAGVNSoftware. | High-Converting Landing Pages',
     }
 };
 
@@ -212,6 +290,8 @@ function applyTranslations(lang) {
     });
     // html lang attribute
     document.documentElement.lang = lang;
+    // Page title
+    if (t['site.title']) document.title = t['site.title'];
     // Toggle button state
     document.querySelectorAll('.lang-option').forEach(opt => {
         opt.classList.toggle('active', opt.dataset.lang === lang);
@@ -377,20 +457,22 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalHTML = submitBtn.innerHTML;
 
             // Loading state
+            const sendingLabel = translations[currentLang]['contact.f.sending'] || 'Enviando...';
             submitBtn.innerHTML = `
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation: spin 0.9s linear infinite">
                     <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
                 </svg>
-                Enviando...
+                ${sendingLabel}
             `;
             submitBtn.disabled = true;
             submitBtn.style.opacity = '0.8';
 
             // Simulate send (replace with your backend / Formspree / EmailJS)
             setTimeout(() => {
+                const successMsg = translations[currentLang]['contact.success'] || '🎉 ¡Mensaje enviado! Te respondo en menos de 24 horas.';
                 contactForm.innerHTML = `
                     <div class="form-success" style="display:block">
-                        🎉 ¡Mensaje enviado! Te respondo en menos de 24 horas.
+                        🎉 ${successMsg}
                     </div>
                 `;
             }, 1800);
