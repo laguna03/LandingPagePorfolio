@@ -1289,3 +1289,31 @@ ul { list-style: none; }
 }
 .screenshot-card:hover .card-screenshot { transform: scale(1.03); }
 .screenshot-card .card-overlay { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+
+/* =============================================
+   LANGUAGE TOGGLE
+   ============================================= */
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255,255,255,0.05);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: 50px;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-family: var(--ff);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    transition: border-color 0.2s, background 0.2s;
+    flex-shrink: 0;
+}
+.lang-toggle:hover { border-color: rgba(26,107,255,0.4); background: rgba(26,107,255,0.06); }
+.lang-option { transition: color 0.2s; }
+.lang-option.active { color: var(--text-main); }
+.lang-sep { color: var(--text-subtle); }
+
+@media (max-width: 768px) {
+    .lang-toggle { padding: 4px 10px; font-size: 0.72rem; }
+}

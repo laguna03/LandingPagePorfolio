@@ -21,12 +21,17 @@
                 <span class="logo-accent">LAGVN</span>Software<span class="logo-dot">.</span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#portfolio" class="nav-link">Trabajos</a></li>
-                <li><a href="#services" class="nav-link">Servicios</a></li>
-                <li><a href="#process" class="nav-link">Proceso</a></li>
-                <li><a href="#pricing" class="nav-link">Precios</a></li>
-                <li><a href="#contact" class="nav-link nav-cta">Iniciar Proyecto</a></li>
+                <li><a href="#portfolio" class="nav-link" data-i18n="nav.work">Trabajos</a></li>
+                <li><a href="#services" class="nav-link" data-i18n="nav.services">Servicios</a></li>
+                <li><a href="#process" class="nav-link" data-i18n="nav.process">Proceso</a></li>
+                <li><a href="#pricing" class="nav-link" data-i18n="nav.pricing">Precios</a></li>
+                <li><a href="#contact" class="nav-link nav-cta" data-i18n="nav.cta">Iniciar Proyecto</a></li>
             </ul>
+            <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                <span class="lang-option active" data-lang="es">ES</span>
+                <span class="lang-sep">/</span>
+                <span class="lang-option" data-lang="en">EN</span>
+            </button>
             <button class="hamburger" id="hamburger" aria-label="Abrir menú">
                 <span></span>
                 <span></span>
@@ -45,20 +50,20 @@
         <div class="container hero-inner">
             <div class="hero-text">
                 <h1 class="hero-title">
-                    Landing Pages Que<br>
-                    <span class="gradient-text">Convierten Visitas</span><br>
-                    en Clientes
+                    <span data-i18n="hero.title1">Landing Pages Que</span><br>
+                    <span class="gradient-text" data-i18n="hero.title2">Convierten Visitas</span><br>
+                    <span data-i18n="hero.title3">en Clientes</span>
                 </h1>
-                <p class="hero-subtitle">
+                <p class="hero-subtitle" data-i18n="hero.subtitle">
                     Diseño y construyo landing pages de alta conversión para negocios que quieren crecer.
                     Entrega rápida. Resultados reales. Diseño 100% personalizado.
                 </p>
                 <div class="hero-actions">
                     <a href="#portfolio" class="btn btn-primary">
-                        Ver Mi Trabajo
+                        <span data-i18n="hero.btn1">Ver Mi Trabajo</span>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
-                    <a href="#contact" class="btn btn-secondary">Cotización Gratis</a>
+                    <a href="#contact" class="btn btn-secondary" data-i18n="hero.btn2">Cotización Gratis</a>
                 </div>
                 <div class="hero-proof">
                     <div class="proof-avatars">
@@ -66,7 +71,7 @@
                         <div class="avatar" style="background: linear-gradient(135deg,#667eea,#764ba2)">JP</div>
                         <div class="avatar" style="background: linear-gradient(135deg,#0f9b58,#00c9a7)">SR</div>
                     </div>
-                    <span class="proof-text"><strong>6+</strong> clientes satisfechos</span>
+                    <span class="proof-text"><strong>6+</strong> <span data-i18n="hero.proof">clientes satisfechos</span></span>
                 </div>
             </div>
 
@@ -160,22 +165,22 @@
             <div class="stats-grid">
                 <div class="stat-item">
                     <span class="stat-num" data-target="6">0</span><span class="stat-sym">+</span>
-                    <span class="stat-label">Proyectos Entregados</span>
+                    <span class="stat-label" data-i18n="stats.projects">Proyectos Entregados</span>
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat-item">
                     <span class="stat-num" data-target="100">0</span><span class="stat-sym">%</span>
-                    <span class="stat-label">Clientes Satisfechos</span>
+                    <span class="stat-label" data-i18n="stats.satisfaction">Clientes Satisfechos</span>
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat-item">
-                    <span class="stat-num" data-target="5">0</span><span class="stat-sym"> días</span>
-                    <span class="stat-label">Entrega Promedio</span>
+                    <span class="stat-num" data-target="5">0</span><span class="stat-sym"> <span data-i18n="stats.days_sym">días</span></span>
+                    <span class="stat-label" data-i18n="stats.delivery">Entrega Promedio</span>
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat-item">
                     <span class="stat-num" data-target="3">0</span><span class="stat-sym">x</span>
-                    <span class="stat-label">Más Conversiones</span>
+                    <span class="stat-label" data-i18n="stats.conversions">Más Conversiones</span>
                 </div>
             </div>
         </div>
@@ -185,52 +190,52 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag">Lo Que Ofrezco</span>
-                <h2 class="section-title">Todo Lo Que Necesitas Para<br><span class="gradient-text">Convertir y Crecer</span></h2>
-                <p class="section-subtitle">Cada landing page se construye con un solo objetivo en mente: convertir tus visitas en clientes reales.</p>
+                <span class="section-tag" data-i18n="services.tag">Lo Que Ofrezco</span>
+                <h2 class="section-title"><span data-i18n="services.title">Todo Lo Que Necesitas Para</span><br><span class="gradient-text" data-i18n="services.title2">Convertir y Crecer</span></h2>
+                <p class="section-subtitle" data-i18n="services.subtitle">Cada landing page se construye con un solo objetivo en mente: convertir tus visitas en clientes reales.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card reveal">
                     <div class="service-icon-wrap">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                     </div>
-                    <h3>Diseño de Alta Conversión</h3>
-                    <p>Cada elemento está colocado estratégicamente para guiar al visitante a tomar acción. Sin relleno, solo resultados que mueven la aguja.</p>
+                    <h3 data-i18n="services.s1.title">Diseño de Alta Conversión</h3>
+                    <p data-i18n="services.s1.desc">Cada elemento está colocado estratégicamente para guiar al visitante a tomar acción. Sin relleno, solo resultados que mueven la aguja.</p>
                 </div>
                 <div class="service-card reveal">
                     <div class="service-icon-wrap">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
                     </div>
-                    <h3>100% Responsive (Móvil)</h3>
-                    <p>Más del 70% del tráfico es móvil. Tu página se verá perfecta en cualquier dispositivo y tamaño de pantalla, garantizado.</p>
+                    <h3 data-i18n="services.s2.title">100% Responsive (Móvil)</h3>
+                    <p data-i18n="services.s2.desc">Más del 70% del tráfico es móvil. Tu página se verá perfecta en cualquier dispositivo y tamaño de pantalla, garantizado.</p>
                 </div>
                 <div class="service-card reveal">
                     <div class="service-icon-wrap">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                     </div>
-                    <h3>Entrega en 3–5 Días Hábiles</h3>
-                    <p>Sin esperas interminables. Tu landing page profesional lista y en vivo en tan solo 3 a 5 días hábiles desde que recibo el depósito.</p>
+                    <h3 data-i18n="services.s3.title">Entrega en 3–5 Días Hábiles</h3>
+                    <p data-i18n="services.s3.desc">Sin esperas interminables. Tu landing page profesional lista y en vivo en tan solo 3 a 5 días hábiles desde que recibo el depósito.</p>
                 </div>
                 <div class="service-card reveal">
                     <div class="service-icon-wrap">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
                     </div>
-                    <h3>Optimizada para SEO</h3>
-                    <p>Construida con código limpio y semántico bajo las mejores prácticas de SEO para que los motores de búsqueda puedan encontrarte fácilmente.</p>
+                    <h3 data-i18n="services.s4.title">Optimizada para SEO</h3>
+                    <p data-i18n="services.s4.desc">Construida con código limpio y semántico bajo las mejores prácticas de SEO para que los motores de búsqueda puedan encontrarte fácilmente.</p>
                 </div>
                 <div class="service-card reveal">
                     <div class="service-icon-wrap">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
                     </div>
-                    <h3>Diseño 100% Personalizado</h3>
-                    <p>Cero plantillas. Cada página es diseñada desde cero, adaptada a tu marca, tu audiencia y tus objetivos de negocio.</p>
+                    <h3 data-i18n="services.s5.title">Diseño 100% Personalizado</h3>
+                    <p data-i18n="services.s5.desc">Cero plantillas. Cada página es diseñada desde cero, adaptada a tu marca, tu audiencia y tus objetivos de negocio.</p>
                 </div>
                 <div class="service-card reveal">
                     <div class="service-icon-wrap">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.92 2.72h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     </div>
-                    <h3>Soporte Post-Lanzamiento</h3>
-                    <p>El lanzamiento es solo el comienzo. Ofrezco soporte continuo para que tu página siga funcionando al máximo nivel.</p>
+                    <h3 data-i18n="services.s6.title">Soporte Post-Lanzamiento</h3>
+                    <p data-i18n="services.s6.desc">El lanzamiento es solo el comienzo. Ofrezco soporte continuo para que tu página siga funcionando al máximo nivel.</p>
                 </div>
             </div>
         </div>
@@ -239,16 +244,14 @@
     <!-- ===== PORTFOLIO ===== -->
     <section class="portfolio" id="portfolio">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Mi Trabajo</span>
-                <h2 class="section-title">Diseños Que <span class="gradient-text">Hablan Por Sí Solos</span></h2>
-                <p class="section-subtitle">Una combinación de proyectos reales para clientes y diseños de ejemplo — cada uno construido para impresionar y convertir.</p>
+            <div class="section-header reveal">                <span class="section-tag" data-i18n="portfolio.tag">Mi Trabajo</span>
+                <h2 class="section-title"><span data-i18n="portfolio.title">Diseños Que </span><span class="gradient-text" data-i18n="portfolio.title2">Hablan Por Sí Solos</span></h2>
+                <p class="section-subtitle" data-i18n="portfolio.subtitle">Una combinación de proyectos reales para clientes y diseños de ejemplo — cada uno construido para impresionar y convertir.</p>
             </div>
-
             <div class="portfolio-tabs reveal">
-                <button class="tab-btn active" data-filter="all">Todo</button>
-                <button class="tab-btn" data-filter="real">Proyectos Reales</button>
-                <button class="tab-btn" data-filter="example">Diseños de Ejemplo</button>
+                <button class="tab-btn active" data-filter="all" data-i18n="portfolio.tab.all">Todo</button>
+                <button class="tab-btn" data-filter="real" data-i18n="portfolio.tab.real">Proyectos Reales</button>
+                <button class="tab-btn" data-filter="example" data-i18n="portfolio.tab.example">Diseños de Ejemplo</button>
             </div>
 
             <div class="portfolio-grid" id="portfolioGrid">
@@ -269,12 +272,11 @@
                             title="Caribe Industries Supply Corp."
                             loading="lazy"
                         ></iframe>
-                        <div class="card-overlay">
-                            <a href="https://www.caribeindustriessupply.com/" target="_blank" class="overlay-cta">Ver Proyecto <span>→</span></a>
-                        </div>
+                        <div class="card-overlay">                        <a href="https://www.caribeindustriessupply.com/" target="_blank" class="overlay-cta"><span data-i18n="portfolio.viewproject">Ver Proyecto</span> <span>→</span></a>
+                    </div>
                     </div>
                     <div class="card-meta">
-                        <span class="card-badge real-badge">Negocio Real</span>
+                        <span class="card-badge real-badge" data-i18n="portfolio.realbadge">Negocio Real</span>
                         <span class="card-year">2025</span>
                     </div>
                     <h3 class="card-title">Caribe Industries Supply Corp.</h3>
@@ -472,9 +474,9 @@
     <section class="process" id="process">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag">Cómo Funciona</span>
-                <h2 class="section-title">Proceso Simple,<br><span class="gradient-text">Resultados Extraordinarios</span></h2>
-                <p class="section-subtitle">Cinco pasos claros desde cero hasta tu landing page en vivo que convierte.</p>
+                <span class="section-tag" data-i18n="process.tag">Cómo Funciona</span>
+                <h2 class="section-title"><span data-i18n="process.title">Proceso Simple,</span><br><span class="gradient-text" data-i18n="process.title2">Resultados Extraordinarios</span></h2>
+                <p class="section-subtitle" data-i18n="process.subtitle">Cinco pasos claros desde cero hasta tu landing page en vivo que convierte.</p>
             </div>
             <div class="process-steps process-steps-5">
                 <div class="process-step reveal">
@@ -484,8 +486,8 @@
                         <div class="step-icon-circle">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
                         </div>
-                        <h3>Formulario del Cliente</h3>
-                        <p>Llenas el formulario de información del negocio. Es obligatorio para iniciar — define todo: objetivos, servicios, estilo visual y más.</p>
+                        <h3 data-i18n="process.s1.title">Formulario del Cliente</h3>
+                        <p data-i18n="process.s1.desc">Llenas el formulario de información del negocio. Es obligatorio para iniciar — define todo: objetivos, servicios, estilo visual y más.</p>
                     </div>
                 </div>
                 <div class="process-step reveal">
@@ -495,8 +497,8 @@
                         <div class="step-icon-circle">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
                         </div>
-                        <h3>Depósito Inicial</h3>
-                        <p>Una vez recibido el formulario completo, realizas el pago del 50% ($90). El tiempo de entrega comienza en ese momento.</p>
+                        <h3 data-i18n="process.s2.title">Depósito Inicial</h3>
+                        <p data-i18n="process.s2.desc">Una vez recibido el formulario completo, realizas el pago del 50% ($90). El tiempo de entrega comienza en ese momento.</p>
                     </div>
                 </div>
                 <div class="process-step reveal">
@@ -506,8 +508,8 @@
                         <div class="step-icon-circle">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                         </div>
-                        <h3>Diseño y Desarrollo</h3>
-                        <p>Diseño y programo tu landing page desde cero en 3 a 5 días hábiles. Recibirás un preview para revisión antes del lanzamiento.</p>
+                        <h3 data-i18n="process.s3.title">Diseño y Desarrollo</h3>
+                        <p data-i18n="process.s3.desc">Diseño y programo tu landing page desde cero en 3 a 5 días hábiles. Recibirás un preview para revisión antes del lanzamiento.</p>
                     </div>
                 </div>
                 <div class="process-step reveal">
@@ -517,8 +519,8 @@
                         <div class="step-icon-circle">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                         </div>
-                        <h3>Revisiones y Ajustes</h3>
-                        <p>Revisamos juntos, aplicamos los ajustes finales según la política de revisiones. Tu opinión es parte del proceso.</p>
+                        <h3 data-i18n="process.s4.title">Revisiones y Ajustes</h3>
+                        <p data-i18n="process.s4.desc">Revisamos juntos, aplicamos los ajustes finales según la política de revisiones. Tu opinión es parte del proceso.</p>
                     </div>
                 </div>
                 <div class="process-step reveal">
@@ -528,8 +530,8 @@
                         <div class="step-icon-circle">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
                         </div>
-                        <h3>Pago Final y Lanzamiento</h3>
-                        <p>Realizas el pago del segundo 50% ($90) y tu página sale en vivo. Listo para recibir clientes.</p>
+                        <h3 data-i18n="process.s5.title">Pago Final y Lanzamiento</h3>
+                        <p data-i18n="process.s5.desc">Realizas el pago del segundo 50% ($90) y tu página sale en vivo. Listo para recibir clientes.</p>
                     </div>
                 </div>
             </div>
@@ -540,8 +542,8 @@
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag">Opiniones</span>
-                <h2 class="section-title">Lo Que Dicen <span class="gradient-text">Mis Clientes</span></h2>
+                <span class="section-tag" data-i18n="testimonials.tag">Opiniones</span>
+                <h2 class="section-title"><span data-i18n="testimonials.title">Lo Que Dicen </span><span class="gradient-text" data-i18n="testimonials.title2">Mis Clientes</span></h2>
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card reveal">
@@ -585,36 +587,34 @@
     <section class="pricing" id="pricing">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag">Inversión</span>
-                <h2 class="section-title">Precio Simple y <span class="gradient-text">Transparente</span></h2>
-                <p class="section-subtitle">Sin costos ocultos. Sin sorpresas. Solo resultados.</p>
+                <span class="section-tag" data-i18n="pricing.tag">Inversión</span>
+                <h2 class="section-title"><span data-i18n="pricing.title">Precio Simple y </span><span class="gradient-text" data-i18n="pricing.title2">Transparente</span></h2>
+                <p class="section-subtitle" data-i18n="pricing.subtitle">Sin costos ocultos. Sin sorpresas. Solo resultados.</p>
             </div>
 
             <!-- SINGLE PRICING CARD -->
             <div class="pricing-single-wrap">
                 <div class="pricing-card featured-card pricing-single reveal">
-                    <div class="popular-tag">Landing Page Completa</div>
-                    <div class="pricing-single-inner">
-                        <div class="pricing-single-left">
-                            <div class="pricing-name">Tu Landing Page Profesional</div>
+                    <div class="popular-tag" data-i18n="pricing.badge">Landing Page Completa</div>
+                        <div class="pricing-name" data-i18n="pricing.name">Tu Landing Page Profesional</div>
                             <div class="pricing-price-row">
                                 <div class="pricing-price-block">
                                     <div class="pricing-price"><span class="currency">$</span>180</div>
-                                    <div class="pricing-period">pago total (en 2 partes)</div>
+                                    <div class="pricing-period" data-i18n="pricing.period">pago total (en 2 partes)</div>
                                 </div>
                                 <div class="pricing-split-badge">
                                     <div class="split-item">
                                         <span class="split-num">$90</span>
-                                        <span class="split-label">Al iniciar</span>
+                                        <span class="split-label" data-i18n="pricing.split1">Al iniciar</span>
                                     </div>
                                     <div class="split-divider">+</div>
                                     <div class="split-item">
                                         <span class="split-num">$90</span>
-                                        <span class="split-label">Al entregar</span>
+                                        <span class="split-label" data-i18n="pricing.split2">Al entregar</span>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#contact" class="btn-price primary-price" style="margin-top: 8px; display: inline-block; text-align:center;">Iniciar Mi Proyecto</a>
+                    <a href="#contact" class="btn-price primary-price" style="margin-top: 8px; display: inline-block; text-align:center;" data-i18n="pricing.cta">Iniciar Mi Proyecto</a>
                         </div>
                         <div class="pricing-single-right">
                             <ul class="pricing-features">
@@ -668,41 +668,41 @@
         <div class="container">
             <div class="contact-wrapper">
                 <div class="contact-left reveal">
-                    <span class="section-tag">Trabajemos Juntos</span>
-                    <h2>¿Listo para una Landing Page Que<br><span class="gradient-text">Realmente Convierte?</span></h2>
-                    <p>Cuéntame sobre tu proyecto y te respondo en menos de 24 horas con un plan personalizado.</p>
+                    <span class="section-tag" data-i18n="contact.tag">Trabajemos Juntos</span>
+                    <h2><span data-i18n="contact.title">¿Listo para una Landing Page Que</span><br><span class="gradient-text" data-i18n="contact.title2">Realmente Convierte?</span></h2>
+                    <p data-i18n="contact.subtitle">Cuéntame sobre tu proyecto y te respondo en menos de 24 horas con un plan personalizado.</p>
                     <div class="contact-perks">
-                        <div class="perk"><span>✓</span> Consulta gratuita</div>
-                        <div class="perk"><span>✓</span> Cotización personalizada en 24h</div>
-                        <div class="perk"><span>✓</span> Sin compromiso</div>
+                        <div class="perk"><span>✓</span> <span data-i18n="contact.perk1">Consulta gratuita</span></div>
+                        <div class="perk"><span>✓</span> <span data-i18n="contact.perk2">Cotización personalizada en 24h</span></div>
+                        <div class="perk"><span>✓</span> <span data-i18n="contact.perk3">Sin compromiso</span></div>
                     </div>
                 </div>
                 <div class="contact-right reveal">
                     <form class="contact-form" id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Tu Nombre</label>
-                                <input type="text" placeholder="Juan Pérez" required>
+                                <label data-i18n="contact.f.name">Tu Nombre</label>
+                                <input type="text" placeholder="Juan Pérez" data-i18n-placeholder="contact.f.name_ph" required>
                             </div>
                             <div class="form-group">
-                                <label>WhatsApp / Teléfono</label>
+                                <label data-i18n="contact.f.phone">WhatsApp / Teléfono</label>
                                 <input type="text" placeholder="+1 809 000 0000" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Nombre del Negocio</label>
-                            <input type="text" placeholder="Mi Negocio Increíble">
+                            <label data-i18n="contact.f.business">Nombre del Negocio</label>
+                            <input type="text" placeholder="Mi Negocio Increíble" data-i18n-placeholder="contact.f.business_ph">
                         </div>
                         <div class="form-group">
-                            <label>Email (opcional)</label>
+                            <label data-i18n="contact.f.email">Email (opcional)</label>
                             <input type="email" placeholder="correo@negocio.com">
                         </div>
                         <div class="form-group">
-                            <label>Cuéntame sobre tu proyecto</label>
-                            <textarea rows="4" placeholder="Describe tu negocio, tus objetivos y cualquier idea que tengas para tu landing page..." required></textarea>
+                            <label data-i18n="contact.f.message">Cuéntame sobre tu proyecto</label>
+                            <textarea rows="4" placeholder="Describe tu negocio, tus objetivos y cualquier idea que tengas para tu landing page..." data-i18n-placeholder="contact.f.message_ph" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary submit-btn">
-                            Enviar Mensaje
+                            <span data-i18n="contact.f.send">Enviar Mensaje</span>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </button>
                     </form>
@@ -719,10 +719,10 @@
                     <a href="#home" class="nav-logo footer-logo">
                         <span class="logo-accent">LAGVN</span>Software<span class="logo-dot">.</span>
                     </a>
-                    <p>Landing pages de alta conversión para negocios que quieren crecer.</p>
+                    <p data-i18n="footer.tagline">Landing pages de alta conversión para negocios que quieren crecer.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Navegación</h4>
+                    <h4 data-i18n="footer.nav">Navegación</h4>
                     <ul>
                         <li><a href="#portfolio">Trabajos</a></li>
                         <li><a href="#services">Servicios</a></li>
@@ -732,10 +732,10 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Contáctame</h4>
+                    <h4 data-i18n="footer.contact">Contáctame</h4>
                     <!-- UPDATE with your real contact info -->
                     <p class="footer-contact-item">lagunap321@outlook.com</p>
-                    <p class="footer-contact-item">Disponible en todo el mundo</p>
+                    <p class="footer-contact-item" data-i18n="footer.available">Disponible en todo el mundo</p>
                     <div class="social-row">
                         <!-- UPDATE with your real social links -->
                         <a href="#" class="social-btn">in</a>
