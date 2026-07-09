@@ -13,6 +13,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // ⚠️ REEMPLAZA con tu Public Key de EmailJS
+        (function(){ emailjs.init({ publicKey: "TU_PUBLIC_KEY" }); })();
+    </script>
 </head>
 <body>
 
@@ -684,24 +690,24 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label data-i18n="contact.f.name">Tu Nombre</label>
-                                <input type="text" placeholder="Juan Pérez" data-i18n-placeholder="contact.f.name_ph" required>
+                                <input type="text" name="from_name" placeholder="Juan Pérez" data-i18n-placeholder="contact.f.name_ph" required>
                             </div>
                             <div class="form-group">
                                 <label data-i18n="contact.f.phone">WhatsApp / Teléfono</label>
-                                <input type="text" placeholder="+1 809 000 0000" required>
+                                <input type="text" name="phone" placeholder="+1 809 000 0000" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label data-i18n="contact.f.business">Nombre del Negocio</label>
-                            <input type="text" placeholder="Mi Negocio Increíble" data-i18n-placeholder="contact.f.business_ph">
+                            <input type="text" name="business" placeholder="Mi Negocio Increíble" data-i18n-placeholder="contact.f.business_ph">
                         </div>
                         <div class="form-group">
                             <label data-i18n="contact.f.email">Email (opcional)</label>
-                            <input type="email" placeholder="correo@negocio.com">
+                            <input type="email" name="reply_to" placeholder="correo@negocio.com">
                         </div>
                         <div class="form-group">
                             <label data-i18n="contact.f.message">Cuéntame sobre tu proyecto</label>
-                            <textarea rows="4" placeholder="Describe tu negocio, tus objetivos y cualquier idea que tengas para tu landing page..." data-i18n-placeholder="contact.f.message_ph" required></textarea>
+                            <textarea rows="4" name="message" placeholder="Describe tu negocio, tus objetivos y cualquier idea que tengas para tu landing page..." data-i18n-placeholder="contact.f.message_ph" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary submit-btn">
                             <span data-i18n="contact.f.send">Enviar Mensaje</span>

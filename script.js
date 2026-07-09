@@ -445,8 +445,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* -------------------------------------------
-       CONTACT FORM — simple UX feedback
+       CONTACT FORM — EmailJS
+       ⚠️ Reemplaza los valores de:
+          SERVICE_ID   → tu Service ID de EmailJS
+          TEMPLATE_ID  → tu Template ID de EmailJS
     ------------------------------------------- */
+    const EMAILJS_SERVICE_ID  = 'TU_SERVICE_ID';
+    const EMAILJS_TEMPLATE_ID = 'TU_TEMPLATE_ID';
+
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
@@ -456,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const submitBtn = contactForm.querySelector('.submit-btn');
             const originalHTML = submitBtn.innerHTML;
 
-            // Loading state
+            // — Loading state —
             const sendingLabel = translations[currentLang]['contact.f.sending'] || 'Enviando...';
             submitBtn.innerHTML = `
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation: spin 0.9s linear infinite">
@@ -467,15 +473,37 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
             submitBtn.style.opacity = '0.8';
 
-            // Simulate send (replace with your backend / Formspree / EmailJS)
-            setTimeout(() => {
-                const successMsg = translations[currentLang]['contact.success'] || '🎉 ¡Mensaje enviado! Te respondo en menos de 24 horas.';
-                contactForm.innerHTML = `
-                    <div class="form-success" style="display:block">
-                        🎉 ${successMsg}
-                    </div>
-                `;
-            }, 1800);
+            // — Enviar con EmailJS —
+            emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm)
+                .then(() => {
+                    // Éxito
+                    const successMsg = translations[currentLang]['contact.success'] || 'Mensaje enviado. Te respondo en menos de 24 horas.';
+                    contactForm.innerHTML = `
+                        <div class="form-success" style="display:block">
+                            🎉 ${successMsg}
+                        </div>
+                    `;
+                })
+                .catch((error) => {
+                    // Error — restaurar botón y mostrar mensaje
+                    console.error('EmailJS error:', error);
+                    submitBtn.innerHTML = originalHTML;
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '';
+
+                    const errorMsg = currentLang === 'en'
+                        ? '⚠️ Something went wrong. Please try again or contact me directly.'
+                        : '⚠️ Algo salió mal. Por favor intenta de nuevo o contáctame directamente.';
+
+                    const errDiv = document.createElement('p');
+                    errDiv.style.cssText = 'color:#ff4d4d; font-size:0.85rem; margin-top:10px;';
+                    errDiv.textContent = errorMsg;
+                    // Remove previous error if any
+                    const prev = contactForm.querySelector('.form-error-msg');
+                    if (prev) prev.remove();
+                    errDiv.classList.add('form-error-msg');
+                    contactForm.appendChild(errDiv);
+                });
         });
     }
 
