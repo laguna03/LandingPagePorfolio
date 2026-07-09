@@ -1,0 +1,3 @@
+# Email templates (local reference only, not needed in production)
+email-template.html
+email-welcome.html
