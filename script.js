@@ -446,12 +446,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* -------------------------------------------
        CONTACT FORM — EmailJS
-       ⚠️ Reemplaza los valores de:
-          SERVICE_ID   → tu Service ID de EmailJS
-          TEMPLATE_ID  → tu Template ID de EmailJS
+       Dos templates:
+         EMAILJS_TEMPLATE_ID         → email que TÚ recibes (notificación)
+         EMAILJS_WELCOME_TEMPLATE_ID → email que recibe el CLIENTE (bienvenida)
     ------------------------------------------- */
-    const EMAILJS_SERVICE_ID  = 'TU_SERVICE_ID';
-    const EMAILJS_TEMPLATE_ID = 'TU_TEMPLATE_ID';
+    const EMAILJS_SERVICE_ID          = 'service_2fjziv9';
+    const EMAILJS_TEMPLATE_ID         = 'template_saxwave';
+    const EMAILJS_WELCOME_TEMPLATE_ID = 'template_jeihdy5';
 
     const contactForm = document.getElementById('contactForm');
 
@@ -473,37 +474,51 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
             submitBtn.style.opacity = '0.8';
 
-            // — Enviar con EmailJS —
-            emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm)
-                .then(() => {
-                    // Éxito
-                    const successMsg = translations[currentLang]['contact.success'] || 'Mensaje enviado. Te respondo en menos de 24 horas.';
-                    contactForm.innerHTML = `
-                        <div class="form-success" style="display:block">
-                            🎉 ${successMsg}
-                        </div>
-                    `;
-                })
-                .catch((error) => {
-                    // Error — restaurar botón y mostrar mensaje
-                    console.error('EmailJS error:', error);
-                    submitBtn.innerHTML = originalHTML;
-                    submitBtn.disabled = false;
-                    submitBtn.style.opacity = '';
+            // — Recoger los datos del formulario —
+            const formData = {
+                from_name : contactForm.querySelector('[name="from_name"]').value,
+                phone     : contactForm.querySelector('[name="phone"]').value,
+                business  : contactForm.querySelector('[name="business"]').value,
+                reply_to  : contactForm.querySelector('[name="reply_to"]').value,
+                message   : contactForm.querySelector('[name="message"]').value,
+            };
 
-                    const errorMsg = currentLang === 'en'
-                        ? '⚠️ Something went wrong. Please try again or contact me directly.'
-                        : '⚠️ Algo salió mal. Por favor intenta de nuevo o contáctame directamente.';
+            // — Enviar ambos emails en paralelo —
+            Promise.all([
+                // 1. Notificación a ti
+                emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm),
 
-                    const errDiv = document.createElement('p');
-                    errDiv.style.cssText = 'color:#ff4d4d; font-size:0.85rem; margin-top:10px;';
-                    errDiv.textContent = errorMsg;
-                    // Remove previous error if any
-                    const prev = contactForm.querySelector('.form-error-msg');
-                    if (prev) prev.remove();
-                    errDiv.classList.add('form-error-msg');
-                    contactForm.appendChild(errDiv);
-                });
+                // 2. Bienvenida al cliente (solo si dejó su email)
+                formData.reply_to
+                    ? emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_WELCOME_TEMPLATE_ID, formData)
+                    : Promise.resolve()
+            ])
+            .then(() => {
+                const successMsg = translations[currentLang]['contact.success'] || 'Mensaje enviado. Te respondo en menos de 24 horas.';
+                contactForm.innerHTML = `
+                    <div class="form-success" style="display:block">
+                        🎉 ${successMsg}
+                    </div>
+                `;
+            })
+            .catch((error) => {
+                console.error('EmailJS error:', error);
+                submitBtn.innerHTML = originalHTML;
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '';
+
+                const errorMsg = currentLang === 'en'
+                    ? '⚠️ Something went wrong. Please try again or contact me directly.'
+                    : '⚠️ Algo salió mal. Por favor intenta de nuevo o contáctame directamente.';
+
+                const errDiv = document.createElement('p');
+                errDiv.style.cssText = 'color:#ff4d4d; font-size:0.85rem; margin-top:10px;';
+                errDiv.textContent = errorMsg;
+                const prev = contactForm.querySelector('.form-error-msg');
+                if (prev) prev.remove();
+                errDiv.classList.add('form-error-msg');
+                contactForm.appendChild(errDiv);
+            });
         });
     }
 
