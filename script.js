@@ -489,12 +489,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 message   : contactForm.querySelector('[name="message"]').value.trim(),
             };
 
+            // Params para notificación a Pedro (to_email fijo)
+            const notifParams = {
+                ...formData,
+                to_email : 'lagunap321@outlook.com',
+                to_name  : 'Pedro',
+            };
+
+            // Params para bienvenida al cliente (to_email = email del cliente)
+            const welcomeParams = {
+                ...formData,
+                to_email : formData.reply_to,
+                to_name  : formData.from_name,
+            };
+
             // — 1. Enviar notificación a Pedro —
-            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData)
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, notifParams)
                 .then(() => {
                     // — 2. Enviar bienvenida al cliente (solo si dejó email) —
                     if (formData.reply_to) {
-                        return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_WELCOME_TEMPLATE_ID, formData);
+                        return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_WELCOME_TEMPLATE_ID, welcomeParams);
                     }
                     return Promise.resolve();
                 })
