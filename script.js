@@ -521,22 +521,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     `;
                 })
                 .catch((error) => {
-                    console.error('EmailJS error:', error);
+                    console.error('EmailJS full error:', JSON.stringify(error));
                     submitBtn.innerHTML = originalHTML;
                     submitBtn.disabled = false;
                     submitBtn.style.opacity = '';
 
-                    // Mostrar el error real para debugging
-                    const code   = error?.status || error?.text || JSON.stringify(error);
-                    const detail = currentLang === 'en'
-                        ? `Something went wrong (${code}). Try again or contact me directly.`
-                        : `Algo salió mal (${code}). Intenta de nuevo o contáctame directamente.`;
+                    const code   = error?.status ?? '';
+                    const text   = error?.text ?? JSON.stringify(error);
+                    const detail = `(${code}) ${text}`;
 
                     const prev = contactForm.querySelector('.form-error-msg');
                     if (prev) prev.remove();
                     const errDiv = document.createElement('p');
                     errDiv.className = 'form-error-msg';
-                    errDiv.style.cssText = 'color:#ff4d4d;font-size:0.85rem;margin-top:10px;';
+                    errDiv.style.cssText = 'color:#ff4d4d;font-size:0.82rem;margin-top:10px;word-break:break-all;';
                     errDiv.textContent = '⚠️ ' + detail;
                     contactForm.appendChild(errDiv);
                 });
