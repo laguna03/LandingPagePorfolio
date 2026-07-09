@@ -492,7 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Params para notificación a Pedro (to_email fijo)
             const notifParams = {
                 ...formData,
-                to_email : 'lagunap321@outlook.com',
+                to_email : 'lagvnsoftware@gmail.com',
                 to_name  : 'Pedro',
             };
 
