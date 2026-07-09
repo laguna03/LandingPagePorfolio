@@ -460,6 +460,12 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
+            // — Verificar que EmailJS esté cargado —
+            if (typeof emailjs === 'undefined') {
+                alert('Error: EmailJS no se cargó. Verifica tu conexión a internet.');
+                return;
+            }
+
             const submitBtn = contactForm.querySelector('.submit-btn');
             const originalHTML = submitBtn.innerHTML;
 
@@ -474,51 +480,52 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
             submitBtn.style.opacity = '0.8';
 
-            // — Recoger los datos del formulario —
+            // — Recoger datos del formulario —
             const formData = {
-                from_name : contactForm.querySelector('[name="from_name"]').value,
-                phone     : contactForm.querySelector('[name="phone"]').value,
-                business  : contactForm.querySelector('[name="business"]').value,
-                reply_to  : contactForm.querySelector('[name="reply_to"]').value,
-                message   : contactForm.querySelector('[name="message"]').value,
+                from_name : contactForm.querySelector('[name="from_name"]').value.trim(),
+                phone     : contactForm.querySelector('[name="phone"]').value.trim(),
+                business  : contactForm.querySelector('[name="business"]').value.trim(),
+                reply_to  : contactForm.querySelector('[name="reply_to"]').value.trim(),
+                message   : contactForm.querySelector('[name="message"]').value.trim(),
             };
 
-            // — Enviar ambos emails en paralelo —
-            Promise.all([
-                // 1. Notificación a ti
-                emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm),
+            // — 1. Enviar notificación a Pedro —
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData)
+                .then(() => {
+                    // — 2. Enviar bienvenida al cliente (solo si dejó email) —
+                    if (formData.reply_to) {
+                        return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_WELCOME_TEMPLATE_ID, formData);
+                    }
+                    return Promise.resolve();
+                })
+                .then(() => {
+                    const successMsg = translations[currentLang]['contact.success'] || 'Mensaje enviado. Te respondo en menos de 24 horas.';
+                    contactForm.innerHTML = `
+                        <div class="form-success" style="display:block">
+                            🎉 ${successMsg}
+                        </div>
+                    `;
+                })
+                .catch((error) => {
+                    console.error('EmailJS error:', error);
+                    submitBtn.innerHTML = originalHTML;
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '';
 
-                // 2. Bienvenida al cliente (solo si dejó su email)
-                formData.reply_to
-                    ? emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_WELCOME_TEMPLATE_ID, formData)
-                    : Promise.resolve()
-            ])
-            .then(() => {
-                const successMsg = translations[currentLang]['contact.success'] || 'Mensaje enviado. Te respondo en menos de 24 horas.';
-                contactForm.innerHTML = `
-                    <div class="form-success" style="display:block">
-                        🎉 ${successMsg}
-                    </div>
-                `;
-            })
-            .catch((error) => {
-                console.error('EmailJS error:', error);
-                submitBtn.innerHTML = originalHTML;
-                submitBtn.disabled = false;
-                submitBtn.style.opacity = '';
+                    // Mostrar el error real para debugging
+                    const code   = error?.status || error?.text || JSON.stringify(error);
+                    const detail = currentLang === 'en'
+                        ? `Something went wrong (${code}). Try again or contact me directly.`
+                        : `Algo salió mal (${code}). Intenta de nuevo o contáctame directamente.`;
 
-                const errorMsg = currentLang === 'en'
-                    ? '⚠️ Something went wrong. Please try again or contact me directly.'
-                    : '⚠️ Algo salió mal. Por favor intenta de nuevo o contáctame directamente.';
-
-                const errDiv = document.createElement('p');
-                errDiv.style.cssText = 'color:#ff4d4d; font-size:0.85rem; margin-top:10px;';
-                errDiv.textContent = errorMsg;
-                const prev = contactForm.querySelector('.form-error-msg');
-                if (prev) prev.remove();
-                errDiv.classList.add('form-error-msg');
-                contactForm.appendChild(errDiv);
-            });
+                    const prev = contactForm.querySelector('.form-error-msg');
+                    if (prev) prev.remove();
+                    const errDiv = document.createElement('p');
+                    errDiv.className = 'form-error-msg';
+                    errDiv.style.cssText = 'color:#ff4d4d;font-size:0.85rem;margin-top:10px;';
+                    errDiv.textContent = '⚠️ ' + detail;
+                    contactForm.appendChild(errDiv);
+                });
         });
     }
 
