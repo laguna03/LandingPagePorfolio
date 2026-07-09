@@ -516,7 +516,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const successMsg = translations[currentLang]['contact.success'] || 'Mensaje enviado. Te respondo en menos de 24 horas.';
                     contactForm.innerHTML = `
                         <div class="form-success" style="display:block">
-                            🎉 ${successMsg}
+                        ${successMsg}
                         </div>
                     `;
                 })
