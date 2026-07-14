@@ -676,7 +676,6 @@ ul { list-style: none; }
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s, background 0.3s;
-    /* NO backdrop-filter here — it blurs even at opacity 0 */
 }
 .card-preview:hover .card-overlay {
     opacity: 1;
@@ -1090,7 +1089,28 @@ ul { list-style: none; }
     .stats-grid { flex-direction: column; gap: 32px; }
     .stat-divider { display: none; }
     .services-grid { grid-template-columns: 1fr; }
-    .portfolio-grid { grid-template-columns: 1fr; }
+
+    /* === CAMBIO PARA SIDE-SCROLL EN MÓVIL === */
+    .portfolio-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 16px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0 16px 20px 16px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        grid-template-columns: none !important;
+    }
+    .portfolio-grid::-webkit-scrollbar { display: none; }
+    .portfolio-card {
+        flex: 0 0 85%;
+        min-width: 280px;
+        scroll-snap-align: start;
+    }
+    /* ======================================== */
+
     .process-steps { grid-template-columns: 1fr; gap: 40px; }
     .step-connector-line { display: none; }
     .testimonials-grid { grid-template-columns: 1fr; }
@@ -1229,7 +1249,6 @@ ul { list-style: none; }
     padding: 0;
     overflow: hidden;
     position: relative;
-    /* aspect-ratio drives the height — 4:3 looks best */
     aspect-ratio: 4 / 3;
 }
 
@@ -1256,7 +1275,6 @@ ul { list-style: none; }
     top: 0;
     left: 0;
     border: none;
-    /* Rendered at full 1280px desktop width, then scaled down */
     width: 1280px;
     height: 960px;
     transform-origin: top left;
