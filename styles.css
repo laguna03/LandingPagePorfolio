@@ -1134,14 +1134,14 @@ ul { list-style: none; }
     .stat-divider { display: none; }
     .services-grid { grid-template-columns: 1fr; }
 
-    /* Side-scroll en móvil */
+    /* Side-scroll en móvil (MEJORADO: TAMAÑO MÁS GRANDE) */
     .portfolio-grid {
         display: flex;
         flex-wrap: nowrap;
-        gap: 16px;
+        gap: 12px;
         overflow-x: auto;
         overflow-y: hidden;
-        padding: 0 16px 20px 16px;
+        padding: 0 8px 20px 8px; /* Menos padding lateral para que entre más contenido */
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
@@ -1149,8 +1149,8 @@ ul { list-style: none; }
     }
     .portfolio-grid::-webkit-scrollbar { display: none; }
     .portfolio-card {
-        flex: 0 0 85%;
-        min-width: 280px;
+        flex: 0 0 95%; /* Ahora ocupa el 95% de la pantalla en lugar del 85% */
+        min-width: 320px;
         scroll-snap-align: start;
     }
 
@@ -1226,7 +1226,7 @@ ul { list-style: none; }
     box-shadow: 0 0 40px rgba(26,107,255,0.08);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
-    overflow: visible; /* <--- CAMBIO APLICADO AQUÍ: De 'hidden' a 'visible' */
+    overflow: visible; /* Para que la burbuja animada no se corte */
 }
 .pricing-single:hover {
     transform: translateY(-8px) scale(1.01);
@@ -1554,7 +1554,7 @@ ul { list-style: none; }
 .lang-sep { color: var(--text-subtle); }
 
 /* =============================================
-   CONDITIONS GRID (Extracted for pricing)
+   CONDITIONS GRID
    ============================================= */
 .pricing-conditions {
     display: grid;
