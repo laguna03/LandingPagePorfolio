@@ -114,12 +114,13 @@ const translations = {
         'portfolio.c4.desc': 'Concepto de página SaaS enfocado en la claridad de funciones y una conversión sin fricción.',
         'portfolio.c5.desc': 'Concepto de marca de moda premium con visuales audaces y una experiencia de compra fluida.',
         'portfolio.c6.desc': 'Página de agencia creativa diseñada para captar atención y convertir visitantes en leads al instante.',
+        'portfolio.c7.desc': 'Landing page para una plataforma de reseñas y recomendaciones de películas.',
         'testimonials.q1': '"LAGVNSoftware entregó una landing page increíble en solo 4 días. Nuestras reservas en línea aumentaron significativamente en la primera semana. ¡Valió cada centavo!"',
         'testimonials.q2': '"El diseño nos dejó sin palabras. Se ve exactamente como las grandes cadenas de gimnasios pero es 100% nuestro. Los registros han estado por las nubes desde que lanzamos."',
-        'testimonials.q3': '"Profesional, rápido e increíblemente creativo. Entendieron exactamente lo que nuestra marca necesitaba sin que tuviéramos que explicarlo dos veces. ¡Totalmente recomendados!"',
+        'testimonials.q3': '"La página que LAGVNSoftware creó para MovieSquad es espectacular. El diseño es moderno, atractivo y ha recibido muchísimas visitas y comentarios positivos. ¡Totalmente recomendados!"',
         'testimonials.a1.role': 'Dueño, Caribe Industries Supply Corp.',
         'testimonials.a2.role': 'Entrenador, Vyron Training',
-        'testimonials.a3.role': 'Agente, Sunset Realty Group',
+        'testimonials.a3.role': 'Creador, MovieSquad',
         'pricing.f1': 'Landing page de una sola sección',
         'pricing.f2': 'Diseño 100% personalizado',
         'pricing.f3': '100% responsive (móvil)',
@@ -247,12 +248,13 @@ const translations = {
         'portfolio.c4.desc': 'SaaS landing page concept focused on feature clarity and frictionless conversion.',
         'portfolio.c5.desc': 'Premium fashion brand concept with bold visuals and a smooth shopping experience.',
         'portfolio.c6.desc': 'Creative agency page designed to capture attention and convert visitors into leads instantly.',
+        'portfolio.c7.desc': 'Landing page for a movie review and recommendation platform.',
         'testimonials.q1': '"LAGVNSoftware delivered an incredible landing page in just 4 days. Our online bookings increased significantly in the first week. Worth every penny!"',
         'testimonials.q2': '"The design blew us away. It looks just like a major gym chain but it\'s 100% ours. Sign-ups have been through the roof since we launched."',
-        'testimonials.q3': '"Professional, fast, and incredibly creative. They understood exactly what our brand needed without us having to explain it twice. Highly recommended!"',
+        'testimonials.q3': '"The page LAGVNSoftware created for MovieSquad is spectacular. The design is modern, attractive, and has received a huge amount of visits and positive feedback. Highly recommended!"',
         'testimonials.a1.role': 'Owner, Caribe Industries Supply Corp.',
         'testimonials.a2.role': 'Trainer, Vyron Training',
-        'testimonials.a3.role': 'Agent, Sunset Realty Group',
+        'testimonials.a3.role': 'Creator, MovieSquad',
         'pricing.f1': 'Single-section landing page',
         'pricing.f2': '100% custom design',
         'pricing.f3': '100% mobile responsive',
@@ -278,21 +280,16 @@ let currentLang = localStorage.getItem('lang') || 'es';
 
 function applyTranslations(lang) {
     const t = translations[lang];
-    // Text nodes
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
         if (t[key] !== undefined) el.textContent = t[key];
     });
-    // Placeholders
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.dataset.i18nPlaceholder;
         if (t[key] !== undefined) el.placeholder = t[key];
     });
-    // html lang attribute
     document.documentElement.lang = lang;
-    // Page title
     if (t['site.title']) document.title = t['site.title'];
-    // Toggle button state
     document.querySelectorAll('.lang-option').forEach(opt => {
         opt.classList.toggle('active', opt.dataset.lang === lang);
     });
@@ -300,9 +297,6 @@ function applyTranslations(lang) {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* -------------------------------------------
-       LANGUAGE TOGGLE
-    ------------------------------------------- */
     applyTranslations(currentLang);
 
     document.getElementById('langToggle').addEventListener('click', () => {
@@ -311,17 +305,12 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTranslations(currentLang);
     });
 
-    /* -------------------------------------------
-       IFRAME PREVIEWS — scale to fit card
-    ------------------------------------------- */
     function scaleIframes() {
         document.querySelectorAll('.iframe-card').forEach(card => {
             const iframe = card.querySelector('.site-iframe');
             if (!iframe) return;
-            // Scale based on card width vs iframe rendered width (1280px)
             const scale = card.offsetWidth / 1280;
             iframe.style.transform = `scale(${scale})`;
-            // Set iframe height so scaled content fills the card height
             iframe.style.height = (card.offsetHeight / scale) + 'px';
         });
     }
@@ -329,7 +318,6 @@ document.addEventListener('DOMContentLoaded', () => {
     scaleIframes();
     window.addEventListener('resize', scaleIframes);
 
-    // Hide skeleton and show iframe once loaded
     document.querySelectorAll('.site-iframe').forEach(iframe => {
         const skeleton = iframe.previousElementSibling;
         iframe.addEventListener('load', () => {
@@ -340,9 +328,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* -------------------------------------------
-       NAVBAR — scroll effect + mobile menu
-    ------------------------------------------- */
     const navbar  = document.getElementById('navbar');
     const hamburger = document.getElementById('hamburger');
     const navLinks  = document.getElementById('navLinks');
@@ -356,7 +341,6 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.toggle('open');
     });
 
-    // Close mobile menu when a link is clicked
     navLinks.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('open');
@@ -364,14 +348,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* -------------------------------------------
-       SCROLL REVEAL
-    ------------------------------------------- */
     const revealEls = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, i) => {
             if (entry.isIntersecting) {
-                // Stagger cards inside a grid
                 const siblings = [...entry.target.parentElement.querySelectorAll('.reveal')];
                 const index = siblings.indexOf(entry.target);
                 const delay = index * 80;
@@ -385,9 +365,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealEls.forEach(el => revealObserver.observe(el));
 
-    /* -------------------------------------------
-       ANIMATED STAT COUNTERS
-    ------------------------------------------- */
     const statNums = document.querySelectorAll('.stat-num');
 
     const countObserver = new IntersectionObserver((entries) => {
@@ -409,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function update(now) {
             const elapsed = now - start;
             const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
             el.textContent = Math.round(eased * target);
             if (progress < 1) requestAnimationFrame(update);
             else el.textContent = target;
@@ -417,15 +394,11 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(update);
     }
 
-    /* -------------------------------------------
-       PORTFOLIO FILTER TABS
-    ------------------------------------------- */
     const tabBtns = document.querySelectorAll('.tab-btn');
     const cards   = document.querySelectorAll('.portfolio-card');
 
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Update active tab
             tabBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
@@ -434,7 +407,6 @@ document.addEventListener('DOMContentLoaded', () => {
             cards.forEach(card => {
                 if (filter === 'all' || card.dataset.filter === filter) {
                     card.classList.remove('hidden');
-                    // Re-trigger reveal animation
                     card.classList.remove('visible');
                     setTimeout(() => card.classList.add('visible'), 30);
                 } else {
@@ -444,12 +416,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* -------------------------------------------
-       CONTACT FORM — EmailJS
-       Dos templates:
-         EMAILJS_TEMPLATE_ID         → email que TÚ recibes (notificación)
-         EMAILJS_WELCOME_TEMPLATE_ID → email que recibe el CLIENTE (bienvenida)
-    ------------------------------------------- */
     const EMAILJS_SERVICE_ID          = 'service_2fjziv9';
     const EMAILJS_TEMPLATE_ID         = 'template_saxwave';
     const EMAILJS_WELCOME_TEMPLATE_ID = 'template_jeihdy5';
@@ -460,7 +426,6 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // — Verificar que EmailJS esté cargado —
             if (typeof emailjs === 'undefined') {
                 alert('Error: EmailJS no se cargó. Verifica tu conexión a internet.');
                 return;
@@ -469,7 +434,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const submitBtn = contactForm.querySelector('.submit-btn');
             const originalHTML = submitBtn.innerHTML;
 
-            // — Loading state —
             const sendingLabel = translations[currentLang]['contact.f.sending'] || 'Enviando...';
             submitBtn.innerHTML = `
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation: spin 0.9s linear infinite">
@@ -480,7 +444,6 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
             submitBtn.style.opacity = '0.8';
 
-            // — Recoger datos del formulario —
             const formData = {
                 from_name : contactForm.querySelector('[name="from_name"]').value.trim(),
                 phone     : contactForm.querySelector('[name="phone"]').value.trim(),
@@ -489,24 +452,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 message   : contactForm.querySelector('[name="message"]').value.trim(),
             };
 
-            // Params para notificación a la empresa
             const notifParams = {
                 ...formData,
                 to_email : 'lagvnsoftware@gmail.com',
                 to_name  : 'LAGVNSoftware Team',
             };
 
-            // Params para bienvenida al cliente (to_email = email del cliente)
             const welcomeParams = {
                 ...formData,
                 to_email : formData.reply_to,
                 to_name  : formData.from_name,
             };
 
-            // — 1. Enviar notificación a la empresa —
             emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, notifParams)
                 .then(() => {
-                    // — 2. Enviar bienvenida al cliente (solo si dejó email) —
                     if (formData.reply_to) {
                         return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_WELCOME_TEMPLATE_ID, welcomeParams);
                     }
@@ -541,9 +500,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* -------------------------------------------
-       SMOOTH ANCHOR LINKS (offset for fixed nav)
-    ------------------------------------------- */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const target = document.querySelector(this.getAttribute('href'));
@@ -555,9 +511,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* -------------------------------------------
-       ACTIVE NAV LINK HIGHLIGHTING on scroll
-    ------------------------------------------- */
     const sections = document.querySelectorAll('section[id]');
     const navAnchors = document.querySelectorAll('.nav-links .nav-link:not(.nav-cta)');
 
@@ -576,9 +529,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(s => sectionObserver.observe(s));
 
-    /* -------------------------------------------
-       CURSOR GLOW (subtle, on desktop only)
-    ------------------------------------------- */
     if (window.innerWidth > 768) {
         const glow = document.createElement('div');
         glow.style.cssText = `
@@ -601,9 +551,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* -------------------------------------------
-       SPIN KEYFRAME (for loader icon)
-    ------------------------------------------- */
     const style = document.createElement('style');
     style.textContent = `@keyframes spin { to { transform: rotate(360deg); } }`;
     document.head.appendChild(style);
