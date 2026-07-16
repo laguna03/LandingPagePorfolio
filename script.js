@@ -51,6 +51,7 @@ const translations = {
         'portfolio.viewdesign': 'Ver Diseño',
         'portfolio.realbadge': 'Negocio Real',
         'portfolio.examplebadge': 'Diseño de Ejemplo',
+        'portfolio.swipe': 'Desliza para ver más', /* <--- NUEVO */
         'process.tag': 'Cómo Funciona',
         'process.title': 'Proceso Simple,',
         'process.title2': 'Resultados Extraordinarios',
@@ -185,6 +186,7 @@ const translations = {
         'portfolio.viewdesign': 'View Design',
         'portfolio.realbadge': 'Real Business',
         'portfolio.examplebadge': 'Example Design',
+        'portfolio.swipe': 'Slide to see more', /* <--- NUEVO */
         'process.tag': 'How It Works',
         'process.title': 'Simple Process,',
         'process.title2': 'Extraordinary Results',
