@@ -51,7 +51,7 @@ const translations = {
         'portfolio.viewdesign': 'Ver Diseño',
         'portfolio.realbadge': 'Negocio Real',
         'portfolio.examplebadge': 'Diseño de Ejemplo',
-        'portfolio.swipe': 'Desliza para ver más', /* <--- NUEVO */
+        'portfolio.swipe': 'Desliza para ver más',
         'process.tag': 'Cómo Funciona',
         'process.title': 'Proceso Simple,',
         'process.title2': 'Resultados Extraordinarios',
@@ -186,7 +186,7 @@ const translations = {
         'portfolio.viewdesign': 'View Design',
         'portfolio.realbadge': 'Real Business',
         'portfolio.examplebadge': 'Example Design',
-        'portfolio.swipe': 'Slide to see more', /* <--- NUEVO */
+        'portfolio.swipe': 'Slide to see more',
         'process.tag': 'How It Works',
         'process.title': 'Simple Process,',
         'process.title2': 'Extraordinary Results',
@@ -396,27 +396,9 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(update);
     }
 
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const cards   = document.querySelectorAll('.portfolio-card');
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            tabBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.dataset.filter;
-
-            cards.forEach(card => {
-                if (filter === 'all' || card.dataset.filter === filter) {
-                    card.classList.remove('hidden');
-                    card.classList.remove('visible');
-                    setTimeout(() => card.classList.add('visible'), 30);
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        });
-    });
+    // -------------------------------------------
+    // PORTFOLIO FILTER TABS (ELIMINADO)
+    // -------------------------------------------
 
     const EMAILJS_SERVICE_ID          = 'service_2fjziv9';
     const EMAILJS_TEMPLATE_ID         = 'template_saxwave';
