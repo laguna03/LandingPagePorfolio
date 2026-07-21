@@ -18,7 +18,6 @@ const translations = {
         'hero.subtitle': 'Diseñamos y construimos landing pages de alta conversión para negocios que quieren crecer. Entrega rápida. Resultados reales. Diseño 100% personalizado.',
         'hero.btn1': 'Ver Nuestro Trabajo',
         'hero.btn2': 'Cotización Gratis',
-        'hero.proof': 'clientes satisfechos',
         'stats.projects': 'Proyectos Entregados',
         'stats.satisfaction': 'Clientes Satisfechos',
         'stats.days_sym': 'días',
@@ -52,6 +51,22 @@ const translations = {
         'portfolio.realbadge': 'Negocio Real',
         'portfolio.examplebadge': 'Diseño de Ejemplo',
         'portfolio.swipe': 'Desliza para ver más',
+        /* PROYECTOS REALES */
+        'portfolio.c1.title': 'Caribe Industries Supply Corp.',
+        'portfolio.c1.desc': 'Distribuidora industrial en Puerto Rico especializada en materiales eléctricos, plomería, iluminación y ferretería de alto rendimiento.',
+        'portfolio.c2.title': 'Vyron Training',
+        'portfolio.c2.desc': 'Página web personal para Luis, entrenador fitness, diseñada para atraer nuevos clientes y mostrar sus servicios de entrenamiento profesional.',
+        'portfolio.c7.title': 'MovieSquad',
+        'portfolio.c7.desc': 'Landing page para una plataforma de reseñas y recomendaciones de películas.',
+        /* PROYECTOS OCULTOS */
+        'portfolio.c3.title': 'Sunset Realty Group',
+        'portfolio.c3.desc': 'Página de agencia inmobiliaria que triplicó las consultas de clientes calificados por semana.',
+        'portfolio.c4.title': 'Flowbase SaaS',
+        'portfolio.c4.desc': 'Concepto de página SaaS enfocado en la claridad de funciones y una conversión sin fricción.',
+        'portfolio.c5.title': 'Luxe Boutique',
+        'portfolio.c5.desc': 'Concepto de marca de moda premium con visuales audaces y una experiencia de compra fluida.',
+        'portfolio.c6.title': 'Spark Creative Agency',
+        'portfolio.c6.desc': 'Página de agencia creativa diseñada para captar atención y convertir visitantes en leads al instante.',
         'process.tag': 'Cómo Funciona',
         'process.title': 'Proceso Simple,',
         'process.title2': 'Resultados Extraordinarios',
@@ -110,12 +125,6 @@ const translations = {
         'hero.badge1': 'Tasa de conversión',
         'hero.badge2_num': '3-5 días',
         'hero.badge2': 'Tiempo de entrega',
-        'portfolio.c2.desc': 'Página web personal para Luis, entrenador fitness, diseñada para atraer nuevos clientes y mostrar sus servicios de entrenamiento profesional.',
-        'portfolio.c3.desc': 'Página de agencia inmobiliaria que triplicó las consultas de clientes calificados por semana.',
-        'portfolio.c4.desc': 'Concepto de página SaaS enfocado en la claridad de funciones y una conversión sin fricción.',
-        'portfolio.c5.desc': 'Concepto de marca de moda premium con visuales audaces y una experiencia de compra fluida.',
-        'portfolio.c6.desc': 'Página de agencia creativa diseñada para captar atención y convertir visitantes en leads al instante.',
-        'portfolio.c7.desc': 'Landing page para una plataforma de reseñas y recomendaciones de películas.',
         'testimonials.q1': '"LAGVNSoftware entregó una landing page increíble en solo 4 días. Nuestras reservas en línea aumentaron significativamente en la primera semana. ¡Valió cada centavo!"',
         'testimonials.q2': '"El diseño nos dejó sin palabras. Se ve exactamente como las grandes cadenas de gimnasios pero es 100% nuestro. Los registros han estado por las nubes desde que lanzamos."',
         'testimonials.q3': '"La página que LAGVNSoftware creó para MovieSquad es espectacular. El diseño es moderno, atractivo y ha recibido muchísimas visitas y comentarios positivos. ¡Totalmente recomendados!"',
@@ -153,7 +162,6 @@ const translations = {
         'hero.subtitle': 'We design and build high-converting landing pages for ambitious businesses. Fast delivery. Real results. 100% custom design.',
         'hero.btn1': 'See Our Work',
         'hero.btn2': 'Get a Free Quote',
-        'hero.proof': 'happy clients',
         'stats.projects': 'Projects Delivered',
         'stats.satisfaction': 'Client Satisfaction',
         'stats.days_sym': 'days',
@@ -187,6 +195,22 @@ const translations = {
         'portfolio.realbadge': 'Real Business',
         'portfolio.examplebadge': 'Example Design',
         'portfolio.swipe': 'Slide to see more',
+        /* PROYECTOS REALES */
+        'portfolio.c1.title': 'Caribe Industries Supply Corp.',
+        'portfolio.c1.desc': 'Industrial distributor in Puerto Rico specializing in electrical materials, plumbing, lighting, and high-performance hardware.',
+        'portfolio.c2.title': 'Vyron Training',
+        'portfolio.c2.desc': 'Personal website for Luis, fitness trainer, designed to attract new clients and showcase his professional training services.',
+        'portfolio.c7.title': 'MovieSquad',
+        'portfolio.c7.desc': 'Landing page for a movie review and recommendation platform.',
+        /* PROYECTOS OCULTOS */
+        'portfolio.c3.title': 'Sunset Realty Group',
+        'portfolio.c3.desc': 'Real estate agency page that tripled qualified client inquiries per week.',
+        'portfolio.c4.title': 'Flowbase SaaS',
+        'portfolio.c4.desc': 'SaaS landing page concept focused on feature clarity and frictionless conversion.',
+        'portfolio.c5.title': 'Luxe Boutique',
+        'portfolio.c5.desc': 'Premium fashion brand concept with bold visuals and a smooth shopping experience.',
+        'portfolio.c6.title': 'Spark Creative Agency',
+        'portfolio.c6.desc': 'Creative agency page designed to capture attention and convert visitors into leads instantly.',
         'process.tag': 'How It Works',
         'process.title': 'Simple Process,',
         'process.title2': 'Extraordinary Results',
@@ -245,12 +269,6 @@ const translations = {
         'hero.badge1': 'Conversion rate',
         'hero.badge2_num': '3-5 days',
         'hero.badge2': 'Delivery time',
-        'portfolio.c2.desc': 'Personal website for Luis, fitness trainer, designed to attract new clients and showcase his professional training services.',
-        'portfolio.c3.desc': 'Real estate agency page that tripled qualified client inquiries per week.',
-        'portfolio.c4.desc': 'SaaS landing page concept focused on feature clarity and frictionless conversion.',
-        'portfolio.c5.desc': 'Premium fashion brand concept with bold visuals and a smooth shopping experience.',
-        'portfolio.c6.desc': 'Creative agency page designed to capture attention and convert visitors into leads instantly.',
-        'portfolio.c7.desc': 'Landing page for a movie review and recommendation platform.',
         'testimonials.q1': '"LAGVNSoftware delivered an incredible landing page in just 4 days. Our online bookings increased significantly in the first week. Worth every penny!"',
         'testimonials.q2': '"The design blew us away. It looks just like a major gym chain but it\'s 100% ours. Sign-ups have been through the roof since we launched."',
         'testimonials.q3': '"The page LAGVNSoftware created for MovieSquad is spectacular. The design is modern, attractive, and has received a huge amount of visits and positive feedback. Highly recommended!"',
@@ -395,10 +413,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         requestAnimationFrame(update);
     }
-
-    // -------------------------------------------
-    // PORTFOLIO FILTER TABS (ELIMINADO)
-    // -------------------------------------------
 
     const EMAILJS_SERVICE_ID          = 'service_2fjziv9';
     const EMAILJS_TEMPLATE_ID         = 'template_saxwave';
