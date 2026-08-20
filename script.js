@@ -361,7 +361,7 @@ function applyTranslations(lang) {
 ------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
 
-    const scrollHintTargets = ['.testimonials-grid'];
+    const scrollHintTargets = [];
     scrollHintTargets.forEach(selector => {
         const target = document.querySelector(selector);
         if (!target) return;
@@ -371,10 +371,8 @@ document.addEventListener('DOMContentLoaded', () => {
         target.before(hint);
     });
 
-    const mobileCarousels = [
-        '.testimonials-grid',
-        '.portfolio-category-wrapper'
-    ].map(selector => document.querySelector(selector)).filter(Boolean);
+    const mobileCarousels = [...document.querySelectorAll('.portfolio-category-items')]
+        .filter(carousel => carousel.offsetParent !== null);
 
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const carouselStates = new Map();

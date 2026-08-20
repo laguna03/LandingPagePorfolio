@@ -541,6 +541,9 @@ ul { list-style: none; }
     height: 100%;
     border: 1px solid rgba(255,255,255,0.06);
 }
+.portfolio-category-wrapper:first-child .portfolio-card:nth-child(1) { order: 3; }
+.portfolio-category-wrapper:first-child .portfolio-card:nth-child(2) { order: 1; }
+.portfolio-category-wrapper:first-child .portfolio-card:nth-child(3) { order: 2; }
 .portfolio-card:hover { transform: translateY(-6px); }
 .card-preview {
     position: relative;
@@ -1036,6 +1039,7 @@ ul { list-style: none; }
     padding: 120px 0;
     background: transparent;
 }
+.testimonials { display: none; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .testimonial-card.glass {
     padding: 32px 28px;
@@ -1282,13 +1286,13 @@ ul { list-style: none; }
     .mobile-scroll-hint::after { content: '→'; }
     .swipe-arrow { display: inline-block; animation: swipeBounce 1.5s infinite ease-in-out; }
     @keyframes swipeBounce { 0%,100% { transform: translateX(0); opacity:0.7; } 50% { transform: translateX(6px); opacity:1; } }
-    .portfolio-category-wrapper { display: flex; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; padding: 0 8px 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; touch-action: pan-x pan-y; gap: 12px; }
-    .portfolio-category-wrapper::-webkit-scrollbar { display: none; }
-    .portfolio-category-title { flex: 0 0 auto; margin: 0 12px 0 0; display: flex; align-items: center; }
+    .portfolio-category-wrapper { display: flex; flex-direction: column; padding: 0; gap: 0; }
+    .portfolio-category-title { margin: 0 0 16px; display: flex; align-items: center; }
     .portfolio-category-title span { font-size: 0.75rem; padding: 6px 16px; white-space: nowrap; }
-    .portfolio-category-title::after { display: none; }
-    .portfolio-category-items { display: flex; flex-wrap: nowrap; gap: 12px; flex: 1; }
-    .portfolio-card { flex: 0 0 85%; min-width: 280px; scroll-snap-align: start; }
+    .portfolio-category-title::after { display: block; }
+    .portfolio-category-items { display: flex; flex-wrap: nowrap; gap: 12px; width: 100%; overflow-x: auto; overflow-y: hidden; padding: 0 0 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; touch-action: pan-x pan-y; }
+    .portfolio-category-items::-webkit-scrollbar { display: none; }
+    .portfolio-card { flex: 0 0 78%; min-width: 0; scroll-snap-align: start; }
 }
 @media (max-width: 480px) {
     .section-title { font-size: 1.8rem; }
