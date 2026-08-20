@@ -1258,6 +1258,18 @@ ul { list-style: none; }
     .step-body h3 { font-size: 0.8rem; margin-bottom: 6px; }
     .step-body p { font-size: 0.68rem; line-height: 1.45; }
     .contact-wrapper { grid-template-columns: 1fr; gap: 48px; }
+    .contact-section { padding: 64px 0; }
+    .contact-wrapper { gap: 20px; }
+    .contact-left.glass, .contact-right.glass { padding: 20px 18px; border-radius: 14px; }
+    .contact-left h2 { font-size: 1.6rem; }
+    .contact-left p { font-size: 0.88rem; line-height: 1.55; }
+    .contact-perks { gap: 6px; }
+    .perk { font-size: 0.8rem; }
+    .contact-form { gap: 14px; }
+    .form-group { gap: 6px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 11px 12px; font-size: 0.88rem; }
+    .form-group textarea { min-height: 112px; }
+    .submit-btn { align-self: stretch; width: 100%; }
     .footer-grid { grid-template-columns: 1fr; gap: 36px; }
     .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
     .form-row { grid-template-columns: 1fr; }
