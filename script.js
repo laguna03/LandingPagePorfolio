@@ -1,5 +1,6 @@
 /* =============================================
    LANDING PAGE PORTFOLIO — script.js
+   (con Liquid Glass 3D + lazy loading)
    ============================================= */
 
 /* -------------------------------------------
@@ -23,7 +24,7 @@ const translations = {
         'stats.days_sym': 'días',
         'stats.delivery': 'Entrega Promedio',
         'stats.conversions': 'Más Conversiones',
-
+        'mobile.swipe': 'Desliza para ver más',
         'web.tag': 'Más Allá de las Landing Pages',
         'web.title': 'Soluciones Web ',
         'web.title2': 'Completas',
@@ -36,7 +37,6 @@ const translations = {
         'web.card3.desc': 'Sistemas web personalizados, paneles de administración, áreas de miembros y portales internos para gestionar tu negocio.',
         'web.card4.title': 'Mantenimiento y Soporte',
         'web.card4.desc': 'El lanzamiento es solo el comienzo. Ofrecemos soporte continuo, actualizaciones de seguridad y mejoras para tu sitio web.',
-
         'services.tag': 'Lo Que Ofrecemos',
         'services.title': 'Todo Lo Que Necesitas Para',
         'services.title2': 'Convertir y Crecer',
@@ -53,7 +53,6 @@ const translations = {
         'services.s5.desc': 'Cero plantillas. Cada página es diseñada desde cero, adaptada a tu marca, tu audiencia y tus objetivos de negocio.',
         'services.s6.title': 'Soporte Post-Lanzamiento',
         'services.s6.desc': 'El lanzamiento es solo el comienzo. Ofrecemos soporte continuo para que tu página siga funcionando al máximo nivel.',
-
         'portfolio.tag': 'Mi Trabajo',
         'portfolio.title': 'Diseños Que ',
         'portfolio.title2': 'Hablan Por Sí Solos',
@@ -89,7 +88,6 @@ const translations = {
         'portfolio.c5.desc': 'Concepto de marca de moda premium con visuales audaces y una experiencia de compra fluida.',
         'portfolio.c6.title': 'Spark Creative Agency',
         'portfolio.c6.desc': 'Página de agencia creativa diseñada para captar atención y convertir visitantes en leads al instante.',
-
         'process.tag': 'Cómo Funciona',
         'process.title': 'Proceso Simple,',
         'process.title2': 'Resultados Extraordinarios',
@@ -104,7 +102,6 @@ const translations = {
         'process.s4.desc': 'Revisamos juntos, aplicamos los ajustes finales según la política de revisiones. Tu opinión es parte del proceso.',
         'process.s5.title': 'Pago Final y Lanzamiento',
         'process.s5.desc': 'Realizas el pago del segundo 50% ($90) y tu página sale en vivo. Listo para recibir clientes.',
-
         'testimonials.tag': 'Opiniones',
         'testimonials.title': 'Lo Que Dicen ',
         'testimonials.title2': 'Nuestros Clientes',
@@ -134,7 +131,6 @@ const translations = {
         'pricing.c3.desc': 'Se aplica la política de revisiones acordada. Cambios mayores fuera del alcance pueden tener costo adicional.',
         'pricing.c4.title': 'Estructura de pago',
         'pricing.c4.desc': '50% al iniciar ($90) + 50% al entregar ($90). Sin costos ocultos.',
-
         'contact.tag': 'Trabajemos Juntos',
         'contact.title': '¿Listo para tu',
         'contact.title2': 'próximo proyecto web?',
@@ -192,7 +188,7 @@ const translations = {
         'stats.days_sym': 'days',
         'stats.delivery': 'Avg. Delivery Time',
         'stats.conversions': 'More Conversions',
-
+        'mobile.swipe': 'Swipe to see more',
         'web.tag': 'Beyond Landing Pages',
         'web.title': 'Complete Web ',
         'web.title2': 'Solutions',
@@ -205,7 +201,6 @@ const translations = {
         'web.card3.desc': 'Custom web systems, admin panels, member areas, and internal portals to manage your business.',
         'web.card4.title': 'Maintenance & Support',
         'web.card4.desc': 'Launch is just the beginning. We offer ongoing support, security updates, and improvements for your website.',
-
         'services.tag': 'What We Offer',
         'services.title': 'Everything You Need To',
         'services.title2': 'Convert & Grow',
@@ -222,7 +217,6 @@ const translations = {
         'services.s5.desc': 'Zero templates. Every page is designed from scratch, tailored to your brand, audience, and business goals.',
         'services.s6.title': 'Post-Launch Support',
         'services.s6.desc': 'Launch is just the beginning. We offer ongoing support to keep your page performing at its absolute best.',
-
         'portfolio.tag': 'My Work',
         'portfolio.title': 'Designs That ',
         'portfolio.title2': 'Speak for Themselves',
@@ -258,7 +252,6 @@ const translations = {
         'portfolio.c5.desc': 'Premium fashion brand concept with bold visuals and a smooth shopping experience.',
         'portfolio.c6.title': 'Spark Creative Agency',
         'portfolio.c6.desc': 'Creative agency page designed to capture attention and convert visitors into leads instantly.',
-
         'process.tag': 'How It Works',
         'process.title': 'Simple Process,',
         'process.title2': 'Extraordinary Results',
@@ -273,7 +266,6 @@ const translations = {
         'process.s4.desc': 'We review together, apply final adjustments per the revision policy. Your feedback is part of the process.',
         'process.s5.title': 'Final Payment & Launch',
         'process.s5.desc': 'You make the second 50% payment ($90) and your page goes live. Ready to receive clients.',
-
         'testimonials.tag': 'Testimonials',
         'testimonials.title': 'What Our ',
         'testimonials.title2': 'Clients Say',
@@ -303,7 +295,6 @@ const translations = {
         'pricing.c3.desc': 'The agreed revision policy applies. Major changes outside scope may have an additional cost.',
         'pricing.c4.title': 'Payment structure',
         'pricing.c4.desc': '50% to start ($90) + 50% on delivery ($90). No hidden fees.',
-
         'contact.tag': "Let's Work Together",
         'contact.title': 'Ready for your',
         'contact.title2': 'next web project?',
@@ -365,42 +356,98 @@ function applyTranslations(lang) {
     });
 }
 
+/* -------------------------------------------
+   TODA LA LÓGICA SE EJECUTA CUANDO EL DOM ESTÁ LISTO
+------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
 
-    applyTranslations(currentLang);
-
-    document.getElementById('langToggle').addEventListener('click', () => {
-        currentLang = currentLang === 'es' ? 'en' : 'es';
-        localStorage.setItem('lang', currentLang);
-        applyTranslations(currentLang);
+    const scrollHintTargets = ['.testimonials-grid'];
+    scrollHintTargets.forEach(selector => {
+        const target = document.querySelector(selector);
+        if (!target) return;
+        const hint = document.createElement('div');
+        hint.className = 'mobile-scroll-hint';
+        hint.dataset.i18n = 'mobile.swipe';
+        target.before(hint);
     });
 
-    function scaleIframes() {
-        document.querySelectorAll('.iframe-card').forEach(card => {
-            const iframe = card.querySelector('.site-iframe');
-            if (!iframe) return;
-            const scale = card.offsetWidth / 1280;
-            iframe.style.transform = `scale(${scale})`;
-            iframe.style.height = (card.offsetHeight / scale) + 'px';
+    const mobileCarousels = [
+        '.testimonials-grid',
+        '.portfolio-category-wrapper'
+    ].map(selector => document.querySelector(selector)).filter(Boolean);
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const carouselStates = new Map();
+        const carouselObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                carouselStates.get(entry.target).visible = entry.isIntersecting;
+            });
+        }, { threshold: 0.35 });
+
+        mobileCarousels.forEach(carousel => {
+            carouselStates.set(carousel, { direction: 1, pauseUntil: 0, autoScrollingUntil: 0, visible: false });
+            carouselObserver.observe(carousel);
+            carousel.addEventListener('pointerdown', () => {
+                const state = carouselStates.get(carousel);
+                state.pauseUntil = Infinity;
+                carousel.classList.remove('auto-scrolling');
+            });
+            ['pointerup', 'pointercancel', 'pointerleave'].forEach(eventName => {
+                carousel.addEventListener(eventName, () => {
+                    carouselStates.get(carousel).pauseUntil = performance.now() + 1200;
+                });
+            });
+            carousel.addEventListener('scroll', () => {
+                const state = carouselStates.get(carousel);
+                if (performance.now() > state.autoScrollingUntil) state.pauseUntil = performance.now() + 1200;
+            }, { passive: true });
+        });
+
+        let previousFrame = performance.now();
+        function autoScrollCarousels(now) {
+            const elapsed = Math.min(now - previousFrame, 50);
+            previousFrame = now;
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+            if (isMobile && !document.hidden) {
+                carouselStates.forEach((state, carousel) => {
+                    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+                    if (!state.visible || now < state.pauseUntil || maxScroll <= 0) {
+                        carousel.classList.remove('auto-scrolling');
+                        return;
+                    }
+
+                    const next = carousel.scrollLeft + state.direction * elapsed * 0.012;
+                    carousel.classList.add('auto-scrolling');
+                    state.autoScrollingUntil = now + 100;
+                    carousel.scrollLeft = Math.max(0, Math.min(maxScroll, next));
+
+                    if (carousel.scrollLeft >= maxScroll - 1) state.direction = -1;
+                    if (carousel.scrollLeft <= 1) state.direction = 1;
+                });
+            }
+            requestAnimationFrame(autoScrollCarousels);
+        }
+        requestAnimationFrame(autoScrollCarousels);
+    }
+
+    // ---- Aplicar traducciones ----
+    applyTranslations(currentLang);
+
+    // ---- Language toggle ----
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('lang', currentLang);
+            applyTranslations(currentLang);
         });
     }
 
-    scaleIframes();
-    window.addEventListener('resize', scaleIframes);
-
-    document.querySelectorAll('.site-iframe').forEach(iframe => {
-        const skeleton = iframe.previousElementSibling;
-        iframe.addEventListener('load', () => {
-            iframe.classList.add('loaded');
-            if (skeleton && skeleton.classList.contains('iframe-skeleton')) {
-                skeleton.classList.add('hidden');
-            }
-        });
-    });
-
-    const navbar  = document.getElementById('navbar');
+    // ---- Navbar ----
+    const navbar = document.getElementById('navbar');
     const hamburger = document.getElementById('hamburger');
-    const navLinks  = document.getElementById('navLinks');
+    const navLinks = document.getElementById('navLinks');
 
     window.addEventListener('scroll', () => {
         navbar.classList.toggle('scrolled', window.scrollY > 40);
@@ -418,6 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ---- Scroll reveal ----
     const revealEls = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, i) => {
@@ -432,11 +480,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
     revealEls.forEach(el => revealObserver.observe(el));
 
+    // ---- Stats counter ----
     const statNums = document.querySelectorAll('.stat-num');
-
     const countObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -445,14 +492,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { threshold: 0.5 });
-
     statNums.forEach(el => countObserver.observe(el));
 
     function animateCounter(el) {
         const target = parseInt(el.dataset.target, 10);
         const duration = 1800;
         const start = performance.now();
-
         function update(now) {
             const elapsed = now - start;
             const progress = Math.min(elapsed / duration, 1);
@@ -464,24 +509,62 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(update);
     }
 
-    const EMAILJS_SERVICE_ID          = 'service_2fjziv9';
-    const EMAILJS_TEMPLATE_ID         = 'template_saxwave';
-    const EMAILJS_WELCOME_TEMPLATE_ID = 'template_jeihdy5';
+    // ---- Lazy loading for iframes ----
+    const lazyIframes = document.querySelectorAll('.lazy-iframe');
+    const iframeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const iframe = entry.target;
+                const card = iframe.closest('.card-preview');
+                const src = card?.dataset.iframeSrc;
+                if (src) {
+                    iframe.src = src;
+                    const skeleton = card.querySelector('.iframe-skeleton');
+                    if (skeleton) {
+                        iframe.addEventListener('load', () => {
+                            skeleton.classList.add('hidden');
+                            iframe.classList.add('loaded');
+                            // Escalar después de cargar
+                            const scale = card.offsetWidth / 1280;
+                            iframe.style.transform = `scale(${scale})`;
+                            iframe.style.height = (card.offsetHeight / scale) + 'px';
+                        });
+                    }
+                }
+                iframeObserver.unobserve(iframe);
+            }
+        });
+    }, { rootMargin: '200px' });
+    lazyIframes.forEach(iframe => iframeObserver.observe(iframe));
 
+    // ---- Iframe scaling (para los ya cargados) ----
+    function scaleIframes() {
+        document.querySelectorAll('.iframe-card .site-iframe.loaded').forEach(iframe => {
+            const card = iframe.closest('.iframe-card');
+            if (!card) return;
+            const scale = card.offsetWidth / 1280;
+            iframe.style.transform = `scale(${scale})`;
+            iframe.style.height = (card.offsetHeight / scale) + 'px';
+        });
+    }
+    scaleIframes();
+    window.addEventListener('resize', scaleIframes);
+
+    // ---- EmailJS ----
+    const EMAILJS_SERVICE_ID = 'service_2fjziv9';
+    const EMAILJS_TEMPLATE_ID = 'template_saxwave';
+    const EMAILJS_WELCOME_TEMPLATE_ID = 'template_jeihdy5';
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-
             if (typeof emailjs === 'undefined') {
                 alert('Error: EmailJS no se cargó. Verifica tu conexión a internet.');
                 return;
             }
-
             const submitBtn = contactForm.querySelector('.submit-btn');
             const originalHTML = submitBtn.innerHTML;
-
             const sendingLabel = translations[currentLang]['contact.f.sending'] || 'Enviando...';
             submitBtn.innerHTML = `
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation: spin 0.9s linear infinite">
@@ -493,23 +576,22 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.style.opacity = '0.8';
 
             const formData = {
-                from_name : contactForm.querySelector('[name="from_name"]').value.trim(),
-                phone     : contactForm.querySelector('[name="phone"]').value.trim(),
-                business  : contactForm.querySelector('[name="business"]').value.trim(),
-                reply_to  : contactForm.querySelector('[name="reply_to"]').value.trim(),
-                message   : contactForm.querySelector('[name="message"]').value.trim(),
+                from_name: contactForm.querySelector('[name="from_name"]').value.trim(),
+                phone: contactForm.querySelector('[name="phone"]').value.trim(),
+                business: contactForm.querySelector('[name="business"]').value.trim(),
+                reply_to: contactForm.querySelector('[name="reply_to"]').value.trim(),
+                message: contactForm.querySelector('[name="message"]').value.trim(),
             };
 
             const notifParams = {
                 ...formData,
-                to_email : 'lagvnsoftware@gmail.com',
-                to_name  : 'LAGVNSoftware Team',
+                to_email: 'lagvnsoftware@gmail.com',
+                to_name: 'LAGVNSoftware Team',
             };
-
             const welcomeParams = {
                 ...formData,
-                to_email : formData.reply_to,
-                to_name  : formData.from_name,
+                to_email: formData.reply_to,
+                to_name: formData.from_name,
             };
 
             emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, notifParams)
@@ -532,11 +614,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitBtn.innerHTML = originalHTML;
                     submitBtn.disabled = false;
                     submitBtn.style.opacity = '';
-
-                    const code   = error?.status ?? '';
-                    const text   = error?.text ?? JSON.stringify(error);
+                    const code = error?.status ?? '';
+                    const text = error?.text ?? JSON.stringify(error);
                     const detail = `(${code}) ${text}`;
-
                     const prev = contactForm.querySelector('.form-error-msg');
                     if (prev) prev.remove();
                     const errDiv = document.createElement('p');
@@ -548,6 +628,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ---- Smooth scroll ----
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const target = document.querySelector(this.getAttribute('href'));
@@ -559,10 +640,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ---- Active nav link highlight ----
     const sections = document.querySelectorAll('section[id]');
     const navAnchors = document.querySelectorAll('.nav-links .nav-link:not(.nav-cta)');
-
-    const sectionObserver = new IntersectionObserver((entries) => {
+    const sectionObserver2 = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 navAnchors.forEach(a => {
@@ -574,9 +655,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { threshold: 0.4 });
+    sections.forEach(s => sectionObserver2.observe(s));
 
-    sections.forEach(s => sectionObserver.observe(s));
-
+    // ---- Mouse glow (desktop only) ----
     if (window.innerWidth > 768) {
         const glow = document.createElement('div');
         glow.style.cssText = `
@@ -585,22 +666,331 @@ document.addEventListener('DOMContentLoaded', () => {
             height: 280px;
             border-radius: 50%;
             pointer-events: none;
-            background: radial-gradient(circle, rgba(124,77,255,0.07) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(26,107,255,0.07) 0%, transparent 70%);
             transform: translate(-50%, -50%);
             transition: left 0.12s ease, top 0.12s ease;
             z-index: 0;
             will-change: left, top;
         `;
         document.body.appendChild(glow);
-
         document.addEventListener('mousemove', e => {
             glow.style.left = e.clientX + 'px';
-            glow.style.top  = e.clientY + 'px';
+            glow.style.top = e.clientY + 'px';
         });
     }
 
+    // ---- CSS animation for spinner ----
     const style = document.createElement('style');
     style.textContent = `@keyframes spin { to { transform: rotate(360deg); } }`;
     document.head.appendChild(style);
+
+    // ============================================================
+    //  THREE.JS 3D BACKGROUND (solo si THREE está definido)
+    // ============================================================
+    if (typeof THREE !== 'undefined') {
+        (function() {
+            'use strict';
+
+            const container = document.getElementById('bg-container');
+            if (!container) return;
+            const canvas = document.createElement('canvas');
+            container.prepend(canvas);
+
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x0b0b1a);
+            scene.fog = new THREE.Fog(0x0b0b1a, 8, 20);
+
+            const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+            camera.position.set(0, 2, 8);
+            camera.lookAt(0, 0, 0);
+
+            const renderer = new THREE.WebGLRenderer({
+                canvas: canvas,
+                antialias: true,
+                alpha: false
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.2;
+
+            // ---- Lights ----
+            const ambient = new THREE.AmbientLight(0x1a2a4a, 0.5);
+            scene.add(ambient);
+
+            const keyLight = new THREE.DirectionalLight(0x8ab4ff, 1.0);
+            keyLight.position.set(4, 6, 4);
+            keyLight.castShadow = true;
+            keyLight.shadow.mapSize.width = 1024;
+            keyLight.shadow.mapSize.height = 1024;
+            scene.add(keyLight);
+
+            const fillLight = new THREE.DirectionalLight(0x1A6BFF, 0.6);
+            fillLight.position.set(-4, 2, -3);
+            scene.add(fillLight);
+
+            const rimLight = new THREE.DirectionalLight(0xfe3280, 0.3);
+            rimLight.position.set(-2, -3, 5);
+            scene.add(rimLight);
+
+            const pointLight = new THREE.PointLight(0x1A6BFF, 0.8, 12);
+            pointLight.position.set(0, 0, 4);
+            scene.add(pointLight);
+
+            // ---- Main Objects ----
+            const knotGeo = new THREE.TorusKnotGeometry(1.2, 0.4, 180, 24);
+            const knotMat = new THREE.MeshPhysicalMaterial({
+                color: 0x1A6BFF,
+                metalness: 0.3,
+                roughness: 0.2,
+                clearcoat: 0.8,
+                clearcoatRoughness: 0.3,
+                emissive: 0x0a2a5a,
+                emissiveIntensity: 0.3,
+                envMapIntensity: 1.2,
+                wireframe: false,
+            });
+            const knot = new THREE.Mesh(knotGeo, knotMat);
+            knot.castShadow = true;
+            knot.receiveShadow = true;
+            knot.position.y = 0.4;
+            scene.add(knot);
+
+            const coreGeo = new THREE.SphereGeometry(0.45, 32, 32);
+            const coreMat = new THREE.MeshPhysicalMaterial({
+                color: 0xfe3280,
+                emissive: 0xfe3280,
+                emissiveIntensity: 0.4,
+                transparent: true,
+                opacity: 0.25,
+                roughness: 0.1,
+                metalness: 0.0,
+            });
+            const core = new THREE.Mesh(coreGeo, coreMat);
+            core.position.y = 0.4;
+            scene.add(core);
+
+            const wireGeo = new THREE.TorusKnotGeometry(1.25, 0.45, 120, 16);
+            const wireMat = new THREE.MeshBasicMaterial({
+                color: 0x80AFFF,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.12,
+            });
+            const wire = new THREE.Mesh(wireGeo, wireMat);
+            wire.position.y = 0.4;
+            scene.add(wire);
+
+            // ---- Particles ----
+            const particleCount = 1800;
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+            const sizes = new Float32Array(particleCount);
+
+            for (let i = 0; i < particleCount; i++) {
+                const radius = 2.5 + Math.random() * 4.5;
+                const theta = Math.random() * Math.PI * 2;
+                const phi = Math.acos(2 * Math.random() - 1);
+
+                positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+                positions[i * 3 + 1] = radius * Math.cos(phi) * 0.6 + 0.4;
+                positions[i * 3 + 2] = radius * Math.sin(phi) * Math.sin(theta);
+
+                const c = new THREE.Color().setHSL(0.6 + Math.random() * 0.2, 0.8, 0.5 + Math.random() * 0.3);
+                colors[i * 3] = c.r;
+                colors[i * 3 + 1] = c.g;
+                colors[i * 3 + 2] = c.b;
+
+                sizes[i] = 0.02 + Math.random() * 0.06;
+            }
+
+            const particleGeo = new THREE.BufferGeometry();
+            particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            particleGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            particleGeo.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+            const particleMat = new THREE.PointsMaterial({
+                size: 0.06,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.7,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false,
+                sizeAttenuation: true,
+            });
+            const particles = new THREE.Points(particleGeo, particleMat);
+            scene.add(particles);
+
+            // ---- Floating rings ----
+            const rings = [];
+            for (let i = 0; i < 5; i++) {
+                const rGeo = new THREE.TorusGeometry(1.8 + i * 0.6, 0.015, 16, 80);
+                const rMat = new THREE.MeshPhysicalMaterial({
+                    color: new THREE.Color().setHSL(0.6 + i * 0.03, 0.8, 0.5),
+                    transparent: true,
+                    opacity: 0.15 - i * 0.02,
+                    emissive: new THREE.Color().setHSL(0.6 + i * 0.03, 0.8, 0.3),
+                    emissiveIntensity: 0.2,
+                    roughness: 0.3,
+                    metalness: 0.7,
+                });
+                const ring = new THREE.Mesh(rGeo, rMat);
+                ring.position.y = 0.4 + Math.sin(i * 1.2) * 0.6;
+                ring.rotation.x = Math.PI * 0.3 + i * 0.2;
+                ring.rotation.z = i * 0.4;
+                scene.add(ring);
+                rings.push(ring);
+            }
+
+            // ---- Orbiting dots ----
+            const dotGroup = new THREE.Group();
+            const dotCount = 50;
+            for (let i = 0; i < dotCount; i++) {
+                const dGeo = new THREE.SphereGeometry(0.035, 6, 6);
+                const dMat = new THREE.MeshPhysicalMaterial({
+                    color: new THREE.Color().setHSL(0.6 + Math.random() * 0.15, 0.9, 0.6),
+                    emissive: new THREE.Color().setHSL(0.6 + Math.random() * 0.15, 0.9, 0.3),
+                    emissiveIntensity: 0.5,
+                });
+                const dot = new THREE.Mesh(dGeo, dMat);
+                const angle = (i / dotCount) * Math.PI * 2;
+                const rad = 2.0 + Math.random() * 0.8;
+                dot.position.set(Math.cos(angle) * rad, 0.4 + Math.sin(angle * 2) * 0.5, Math.sin(angle) * rad);
+                dot.userData = { angle, rad, speed: 0.6 + Math.random() * 0.4 };
+                dotGroup.add(dot);
+            }
+            scene.add(dotGroup);
+
+            // ---- Scroll → Time ----
+            const TOTAL_DURATION = 16;
+            let currentTime = 0;
+            let targetTime = 0;
+
+            function updateTimeFromScroll() {
+                const scrollY = window.scrollY;
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = maxScroll > 0 ? Math.min(scrollY / maxScroll, 1) : 0;
+                targetTime = progress * TOTAL_DURATION;
+            }
+
+            // ---- Animation loop ----
+            const clock = new THREE.Clock();
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                const delta = clock.getDelta();
+                currentTime += (targetTime - currentTime) * Math.min(1, delta * 4);
+                currentTime = Math.max(0, Math.min(TOTAL_DURATION, currentTime));
+
+                const t = currentTime / TOTAL_DURATION;
+
+                knot.rotation.x = t * Math.PI * 4;
+                knot.rotation.y = t * Math.PI * 6;
+                knot.rotation.z = t * Math.PI * 2;
+                const pulse = 1 + 0.08 * Math.sin(t * Math.PI * 6);
+                knot.scale.set(pulse, pulse, pulse);
+                const hue1 = 0.58 + t * 0.15;
+                const hue2 = 0.62 + t * 0.1;
+                knotMat.color.setHSL(hue1 % 1, 0.7, 0.5);
+                knotMat.emissive.setHSL(hue2 % 1, 0.8, 0.2);
+                knotMat.emissiveIntensity = 0.2 + 0.4 * Math.sin(t * Math.PI * 3);
+
+                core.scale.setScalar(1 + 0.15 * Math.sin(t * Math.PI * 5));
+                coreMat.emissiveIntensity = 0.3 + 0.4 * Math.sin(t * Math.PI * 4 + 1);
+
+                wire.rotation.x = t * Math.PI * 5 + 0.5;
+                wire.rotation.y = t * Math.PI * 7 + 1.2;
+
+                particles.rotation.y = t * 0.8;
+                particles.rotation.x = 0.1 * Math.sin(t * 0.6);
+                const particlePos = particles.geometry.attributes.position;
+                const array = particlePos.array;
+                for (let i = 0; i < particleCount; i++) {
+                    const i3 = i * 3;
+                    const baseX = array[i3];
+                    const baseZ = array[i3 + 2];
+                    const angleOffset = t * 0.15;
+                    const rad = Math.sqrt(baseX * baseX + baseZ * baseZ);
+                    const ang = Math.atan2(baseZ, baseX) + angleOffset * 0.1;
+                    array[i3] = rad * Math.cos(ang);
+                    array[i3 + 2] = rad * Math.sin(ang);
+                    array[i3 + 1] += 0.001 * Math.sin(t * 2 + i * 0.01);
+                }
+                particlePos.needsUpdate = true;
+
+                rings.forEach((ring, idx) => {
+                    ring.rotation.y += delta * (0.2 + idx * 0.05);
+                    ring.rotation.x = Math.PI * 0.3 + idx * 0.2 + 0.15 * Math.sin(t * 0.8 + idx);
+                    const op = 0.08 + 0.1 * (0.5 + 0.5 * Math.sin(t * 1.2 + idx * 0.7));
+                    ring.material.opacity = Math.min(op, 0.2);
+                });
+
+                dotGroup.children.forEach((dot, i) => {
+                    const data = dot.userData;
+                    const newAngle = data.angle + delta * data.speed * 0.4 + t * 0.05;
+                    const rad = data.rad + 0.15 * Math.sin(t * 1.5 + i * 0.3);
+                    dot.position.x = Math.cos(newAngle) * rad;
+                    dot.position.z = Math.sin(newAngle) * rad;
+                    dot.position.y = 0.4 + Math.sin(newAngle * 2 + t * 0.8) * 0.5;
+                    const s = 0.8 + 0.4 * (0.5 + 0.5 * Math.sin(t * 2 + i * 0.5));
+                    dot.scale.setScalar(s);
+                });
+
+                const camRadius = 8;
+                const camAngle = t * 0.15;
+                const camY = 2 + 0.5 * Math.sin(t * 0.4);
+                camera.position.x = camRadius * Math.sin(camAngle) * 0.6;
+                camera.position.z = camRadius * Math.cos(camAngle) * 0.6 + 2;
+                camera.position.y = camY;
+                camera.lookAt(0, 0.4 + 0.2 * Math.sin(t * 0.3), 0);
+
+                const lHue = 0.58 + t * 0.15;
+                pointLight.color.setHSL(lHue % 1, 0.8, 0.5);
+                pointLight.intensity = 0.6 + 0.5 * (0.5 + 0.5 * Math.sin(t * 2.5));
+
+                renderer.render(scene, camera);
+            }
+
+            // ---- Resize & Scroll ----
+            function onResize() {
+                const w = window.innerWidth;
+                const h = window.innerHeight;
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+                renderer.setSize(w, h);
+            }
+            window.addEventListener('resize', onResize);
+
+            const progressBar = document.getElementById('scroll-progress');
+
+            function onScroll() {
+                updateTimeFromScroll();
+                const scrollY = window.scrollY;
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                const pct = maxScroll > 0 ? (scrollY / maxScroll) * 100 : 0;
+                if (progressBar) progressBar.style.width = Math.min(pct, 100) + '%';
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll, { passive: true });
+
+            // ---- Init ----
+            updateTimeFromScroll();
+            currentTime = targetTime;
+            onScroll();
+            animate();
+
+            console.log('🚀 Liquid Glass 3D · Scroll to play 16s');
+        })();
+    } else {
+        console.warn('⚠️ Three.js no está disponible. El fondo 3D no se mostrará.');
+        // Mostrar un fallback visual (opcional)
+        const container = document.getElementById('bg-container');
+        if (container) {
+            container.style.background = 'radial-gradient(ellipse at center, #0a1a3a, #060A14)';
+        }
+    }
 
 });

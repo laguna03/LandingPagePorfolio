@@ -12,14 +12,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <!-- Three.js (carga síncrona para que esté disponible inmediatamente) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
         (function(){ emailjs.init({ publicKey: "ZhDGl6Q3Qe0uGvtDM" }); })();
     </script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!-- ===== BARRA DE PROGRESO ===== -->
+    <div id="scroll-progress"></div>
+
+    <!-- ===== FONDO 3D ===== -->
+    <div id="bg-container"></div>
 
     <!-- ===== NAVIGATION ===== -->
     <nav class="navbar" id="navbar">
@@ -29,7 +37,7 @@
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#portfolio" class="nav-link" data-i18n="nav.work">Trabajos</a></li>
-                <li><a href="#services" class="nav-link" data-i18n="nav.services">Servicios</a></li>
+                <li><a href="#web-solutions" class="nav-link" data-i18n="nav.services">Servicios</a></li>
                 <li><a href="#process" class="nav-link" data-i18n="nav.process">Proceso</a></li>
                 <li><a href="#pricing" class="nav-link" data-i18n="nav.pricing">Precios</a></li>
                 <li><a href="#contact" class="nav-link nav-cta" data-i18n="nav.cta">Iniciar Proyecto</a></li>
@@ -48,14 +56,9 @@
     </nav>
 
     <!-- ===== HERO ===== -->
-    <section class="hero" id="home">
-        <div class="hero-blobs">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
-            <div class="blob blob-3"></div>
-        </div>
+    <section class="section hero" id="home" data-section="0">
         <div class="container hero-inner">
-            <div class="hero-text">
+            <div class="hero-text glass">
                 <h1 class="hero-title">
                     <span data-i18n="hero.title1">Soluciones Digitales Que</span><br>
                     <span class="gradient-text" data-i18n="hero.title2">Convierten Visitas</span><br>
@@ -73,125 +76,13 @@
                     <a href="#contact" class="btn btn-secondary" data-i18n="hero.btn2">Cotización Gratis</a>
                 </div>
             </div>
-
-            <!-- ===== MOCKUP DEL NAVEGADOR ===== -->
-            <div class="hero-visual">
-                <div class="browser-glow"></div>
-                <div class="browser-mockup">
-                    <div class="browser-chrome">
-                        <div class="browser-dots">
-                            <span class="dot dot-red"></span>
-                            <span class="dot dot-yellow"></span>
-                            <span class="dot dot-green"></span>
-                        </div>
-                        <div class="browser-addressbar">
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                            app.pixelpro.com
-                        </div>
-                        <div class="browser-actions">
-                            <span></span><span></span>
-                        </div>
-                    </div>
-                    <div class="browser-screen">
-                        <div class="mock-site premium-mock">
-
-                            <!-- 1. Mock Navbar -->
-                            <div class="mock-navbar">
-                                <div class="mock-logo">
-                                    <div class="mock-logo-square"></div>
-                                    <div class="mock-logo-circle"></div>
-                                </div>
-                                <div class="mock-links">
-                                    <span></span><span></span><span></span>
-                                </div>
-                                <div class="mock-cta">Prueba Gratis</div>
-                            </div>
-
-                            <!-- 2. Mock Hero Section -->
-                            <div class="mock-hero">
-                                <div class="mock-hero-text">
-                                    <div class="mock-badge">Nueva Plataforma</div>
-
-                                    <!-- Fila de Íconos -->
-                                    <div class="mock-icon-grid">
-                                        <div class="mock-icon-box">
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                                        </div>
-                                        <div class="mock-icon-box">
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                                        </div>
-                                        <div class="mock-icon-box">
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-                                        </div>
-                                    </div>
-
-                                    <!-- Barras vacías (sin texto) -->
-                                    <div class="mock-h1 w100"></div>
-                                    <div class="mock-h1 w85 gradient-mock"></div>
-                                    <div class="mock-p w90"></div>
-                                    <div class="mock-p w70"></div>
-
-                                    <div class="mock-btn-row">
-                                        <div class="mock-btn-filled"></div>
-                                        <div class="mock-btn-ghost"></div>
-                                    </div>
-                                </div>
-
-                                <!-- 3. Mock Dashboard / Analytics Card -->
-                                <div class="mock-hero-image">
-                                    <div class="mock-dashboard">
-                                        <div class="dash-header">
-                                            <div class="dash-line w60"></div>
-                                            <div class="dash-line w40"></div>
-                                        </div>
-                                        <div class="dash-body">
-                                            <div class="dash-line w100 accent"></div>
-                                            <div class="dash-line w90"></div>
-                                            <div class="dash-line w80"></div>
-                                            <div class="dash-line w95"></div>
-                                            <div class="dash-chart">
-                                                <div class="bar" style="height: 16px; opacity: 0.6;"></div>
-                                                <div class="bar" style="height: 32px; opacity: 0.8;"></div>
-                                                <div class="bar" style="height: 24px;"></div>
-                                                <div class="bar" style="height: 40px;"></div>
-                                            </div>
-                                            <div class="dash-line w70" style="margin-top: 6px;"></div>
-                                            <div class="dash-line w50"></div>
-                                        </div>
-                                        <div class="dash-footer">
-                                            <div class="dash-avatar"></div>
-                                            <div class="dash-text-col">
-                                                <div class="dash-line w80"></div>
-                                                <div class="dash-line w40"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="floating-badge fb-1">
-                    <div>
-                        <strong>+142%</strong>
-                        <span data-i18n="hero.badge1">Tasa de conversión</span>
-                    </div>
-                </div>
-                <div class="floating-badge fb-2">
-                    <div>
-                        <strong data-i18n="hero.badge2_num">3-5 días</strong>
-                        <span data-i18n="hero.badge2">Tiempo de entrega</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- ===== STATS BAR ===== -->
-    <section class="stats-bar">
+    <section class="section stats-bar" id="stats" data-section="0.1">
         <div class="container">
-            <div class="stats-grid">
+            <div class="stats-grid glass">
                 <div class="stat-item">
                     <span class="stat-num" data-target="6">0</span><span class="stat-sym">+</span>
                     <span class="stat-label" data-i18n="stats.projects">Proyectos Entregados</span>
@@ -215,8 +106,8 @@
         </div>
     </section>
 
-    <!-- ===== PRICING (tercera sección) ===== -->
-    <section class="pricing" id="pricing">
+    <!-- ===== PRICING ===== -->
+    <section class="section pricing" id="pricing" data-section="0.25">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag" data-i18n="pricing.tag">Inversión</span>
@@ -225,18 +116,15 @@
             </div>
 
             <div class="pricing-single-wrap">
-                <div class="pricing-card featured-card pricing-single reveal">
+                <div class="pricing-card featured-card pricing-single glass reveal">
                     <div class="popular-tag" data-i18n="pricing.badge">Oferta Landing Page</div>
-
                     <div class="pricing-single-inner">
-                        <!-- COLUMNA IZQUIERDA: Precio y Botón -->
                         <div class="pricing-left-col">
                             <div class="pricing-name" data-i18n="pricing.name">Tu Landing Page Profesional</div>
                             <div class="pricing-price-block">
                                 <div class="pricing-price"><span class="currency">$</span>180</div>
                                 <div class="pricing-period" data-i18n="pricing.period">pago total (en 2 partes)</div>
                             </div>
-
                             <div class="pricing-split-badge">
                                 <div class="split-item">
                                     <span class="split-num">$90</span>
@@ -248,11 +136,8 @@
                                     <span class="split-label" data-i18n="pricing.split2">Al entregar</span>
                                 </div>
                             </div>
-
                             <a href="#contact" class="btn-price primary-price" data-i18n="pricing.cta">Iniciar Proyecto</a>
                         </div>
-
-                        <!-- COLUMNA DERECHA: Características -->
                         <div class="pricing-right-col">
                             <ul class="pricing-features">
                                 <li class="has" data-i18n="pricing.f1">Landing page de una sola sección</li>
@@ -269,25 +154,25 @@
                 </div>
 
                 <div class="pricing-conditions reveal">
-                    <div class="condition-item">
+                    <div class="condition-item glass">
                         <div>
                             <strong data-i18n="pricing.c1.title">Formulario obligatorio</strong>
                             <p data-i18n="pricing.c1.desc">El proyecto inicia una vez recibido el formulario de información completo y el depósito del 50%.</p>
                         </div>
                     </div>
-                    <div class="condition-item">
+                    <div class="condition-item glass">
                         <div>
                             <strong data-i18n="pricing.c2.title">Tiempo de entrega</strong>
                             <p data-i18n="pricing.c2.desc">3 a 5 días hábiles contados desde la recepción del depósito y la información completa del cliente.</p>
                         </div>
                     </div>
-                    <div class="condition-item">
+                    <div class="condition-item glass">
                         <div>
                             <strong data-i18n="pricing.c3.title">Revisiones y cambios</strong>
                             <p data-i18n="pricing.c3.desc">Se aplica la política de revisiones acordada. Cambios mayores fuera del alcance pueden tener costo adicional.</p>
                         </div>
                     </div>
-                    <div class="condition-item">
+                    <div class="condition-item glass">
                         <div>
                             <strong data-i18n="pricing.c4.title">Estructura de pago</strong>
                             <p data-i18n="pricing.c4.desc">50% al iniciar ($90) + 50% al entregar ($90). Sin costos ocultos.</p>
@@ -298,8 +183,8 @@
         </div>
     </section>
 
-    <!-- ===== PROCESS (cuarta sección) ===== -->
-    <section class="process" id="process">
+    <!-- ===== PROCESS ===== -->
+    <section class="section process" id="process" data-section="0.4">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag" data-i18n="process.tag">Cómo Funciona</span>
@@ -307,7 +192,7 @@
                 <p class="section-subtitle" data-i18n="process.subtitle">Cinco pasos claros desde cero hasta tu landing page en vivo que convierte.</p>
             </div>
             <div class="process-steps process-steps-5">
-                <div class="process-step reveal">
+                <div class="process-step reveal glass">
                     <div class="step-num-wrap"><span class="step-num">01</span></div>
                     <div class="step-connector-line"></div>
                     <div class="step-body">
@@ -318,7 +203,7 @@
                         <p data-i18n="process.s1.desc">Llenas el formulario de información del negocio. Es obligatorio para iniciar — define todo: objetivos, servicios, estilo visual y más.</p>
                     </div>
                 </div>
-                <div class="process-step reveal">
+                <div class="process-step reveal glass">
                     <div class="step-num-wrap"><span class="step-num">02</span></div>
                     <div class="step-connector-line"></div>
                     <div class="step-body">
@@ -329,7 +214,7 @@
                         <p data-i18n="process.s2.desc">Una vez recibido el formulario completo, realizas el pago del 50% ($90). El tiempo de entrega comienza en ese momento.</p>
                     </div>
                 </div>
-                <div class="process-step reveal">
+                <div class="process-step reveal glass">
                     <div class="step-num-wrap"><span class="step-num">03</span></div>
                     <div class="step-connector-line"></div>
                     <div class="step-body">
@@ -340,7 +225,7 @@
                         <p data-i18n="process.s3.desc">Diseñamos y programamos tu landing page desde cero en 3 a 5 días hábiles. Recibirás un preview para revisión antes del lanzamiento.</p>
                     </div>
                 </div>
-                <div class="process-step reveal">
+                <div class="process-step reveal glass">
                     <div class="step-num-wrap"><span class="step-num">04</span></div>
                     <div class="step-connector-line"></div>
                     <div class="step-body">
@@ -351,7 +236,7 @@
                         <p data-i18n="process.s4.desc">Revisamos juntos, aplicamos los ajustes finales según la política de revisiones. Tu opinión es parte del proceso.</p>
                     </div>
                 </div>
-                <div class="process-step reveal">
+                <div class="process-step reveal glass">
                     <div class="step-num-wrap"><span class="step-num">05</span></div>
                     <div class="step-connector-line last"></div>
                     <div class="step-body">
@@ -366,8 +251,8 @@
         </div>
     </section>
 
-    <!-- ===== PORTFOLIO (quinta sección) ===== -->
-    <section class="portfolio" id="portfolio">
+    <!-- ===== PORTFOLIO ===== -->
+    <section class="section portfolio" id="portfolio" data-section="0.6">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag" data-i18n="portfolio.tag">Mi Trabajo</span>
@@ -375,33 +260,24 @@
                 <p class="section-subtitle" data-i18n="portfolio.subtitle">Landing pages, tiendas online, catálogos y sistemas web — cada uno construido para impresionar y convertir.</p>
             </div>
 
-            <!-- ===== INDICADOR DE DESLIZAMIENTO (SOLO MÓVIL) ===== -->
+            <!-- INDICADOR DE DESLIZAMIENTO (solo móvil) -->
             <div class="mobile-swipe-indicator" data-i18n="portfolio.swipe">
                 Desliza para ver más <span class="swipe-arrow">→</span>
             </div>
 
             <div class="portfolio-grid" id="portfolioGrid">
 
-                <!-- ============================================ -->
-                <!-- CATEGORÍA 1: LANDING PAGES (Proyectos Reales) -->
-                <!-- ============================================ -->
+                <!-- CATEGORÍA 1: LANDING PAGES -->
                 <div class="portfolio-category-wrapper">
                     <div class="portfolio-category-title">
                         <span data-i18n="portfolio.category.landing">Landing Pages</span>
                     </div>
                     <div class="portfolio-category-items">
-
-                        <!-- Real Business Project 1 (Caribe Industries) -->
+                        <!-- Caribe Industries -->
                         <div class="portfolio-card reveal" data-filter="real">
-                            <div class="card-preview iframe-card">
+                            <div class="card-preview iframe-card glass" data-iframe-src="https://www.caribeindustriessupply.com/">
                                 <div class="iframe-skeleton"></div>
-                                <iframe
-                                    src="https://www.caribeindustriessupply.com/"
-                                    class="site-iframe"
-                                    scrolling="no"
-                                    title="Caribe Industries Supply Corp."
-                                    loading="lazy"
-                                ></iframe>
+                                <iframe class="site-iframe lazy-iframe" scrolling="no" title="Caribe Industries Supply Corp." loading="lazy"></iframe>
                                 <div class="card-overlay">
                                     <a href="https://www.caribeindustriessupply.com/" target="_blank" class="overlay-cta"><span data-i18n="portfolio.viewproject">Ver Proyecto</span> <span>→</span></a>
                                 </div>
@@ -414,21 +290,13 @@
                             <p class="card-desc" data-i18n="portfolio.c1.desc">Distribuidora industrial en Puerto Rico especializada en materiales eléctricos, plomería, iluminación y ferretería de alto rendimiento.</p>
                         </div>
 
-                        <!-- Real Business Project 2 (Vyron Training) -->
+                        <!-- Vyron Training -->
                         <div class="portfolio-card reveal" data-filter="real">
-                            <div class="card-preview iframe-card">
+                            <div class="card-preview iframe-card glass" data-iframe-src="https://vyrontraining.com">
                                 <div class="iframe-skeleton"></div>
-                                <iframe
-                                    src="https://vyrontraining.com"
-                                    class="site-iframe"
-                                    scrolling="no"
-                                    title="Vyron Training"
-                                    loading="lazy"
-                                ></iframe>
+                                <iframe class="site-iframe lazy-iframe" scrolling="no" title="Vyron Training" loading="lazy"></iframe>
                                 <div class="card-overlay">
-                                    <a href="https://vyrontraining.com" target="_blank" class="overlay-cta">
-                                        <span data-i18n="portfolio.viewproject">Ver Proyecto</span> <span>→</span>
-                                    </a>
+                                    <a href="https://vyrontraining.com" target="_blank" class="overlay-cta"><span data-i18n="portfolio.viewproject">Ver Proyecto</span> <span>→</span></a>
                                 </div>
                             </div>
                             <div class="card-meta">
@@ -439,21 +307,13 @@
                             <p class="card-desc" data-i18n="portfolio.c2.desc">Página web personal para Luis, entrenador fitness, diseñada para atraer nuevos clientes y mostrar sus servicios de entrenamiento profesional.</p>
                         </div>
 
-                        <!-- Real Business Project 3 (MovieSquad) -->
+                        <!-- MovieSquad -->
                         <div class="portfolio-card reveal" data-filter="real">
-                            <div class="card-preview iframe-card">
+                            <div class="card-preview iframe-card glass" data-iframe-src="https://laguna03.github.io/moviesquadLP/">
                                 <div class="iframe-skeleton"></div>
-                                <iframe
-                                    src="https://laguna03.github.io/moviesquadLP/"
-                                    class="site-iframe"
-                                    scrolling="no"
-                                    title="MovieSquad"
-                                    loading="lazy"
-                                ></iframe>
+                                <iframe class="site-iframe lazy-iframe" scrolling="no" title="MovieSquad" loading="lazy"></iframe>
                                 <div class="card-overlay">
-                                    <a href="https://laguna03.github.io/moviesquadLP/" target="_blank" class="overlay-cta">
-                                        <span data-i18n="portfolio.viewproject">Ver Proyecto</span> <span>→</span>
-                                    </a>
+                                    <a href="https://laguna03.github.io/moviesquadLP/" target="_blank" class="overlay-cta"><span data-i18n="portfolio.viewproject">Ver Proyecto</span> <span>→</span></a>
                                 </div>
                             </div>
                             <div class="card-meta">
@@ -463,29 +323,23 @@
                             <h3 class="card-title" data-i18n="portfolio.c7.title">MovieSquad</h3>
                             <p class="card-desc" data-i18n="portfolio.c7.desc">Landing page para una plataforma de reseñas y recomendaciones de películas.</p>
                         </div>
-
                     </div>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- CATEGORÍA 2: TIENDAS ONLINE & CATÁLOGOS      -->
-                <!-- ============================================ -->
+                <!-- CATEGORÍA 2: TIENDAS ONLINE & CATÁLOGOS -->
                 <div class="portfolio-category-wrapper">
                     <div class="portfolio-category-title">
                         <span data-i18n="portfolio.category.ecommerce">Tiendas Online & Catálogos</span>
                     </div>
                     <div class="portfolio-category-items">
-
-                        <!-- MOCKUP MEJORADO: Tienda Online -->
+                        <!-- Mockup Tienda Online -->
                         <div class="portfolio-card reveal" data-filter="example">
-                            <div class="card-preview" style="--cg: #f4f6f9;">
+                            <div class="card-preview glass" style="--cg: #f4f6f9;">
                                 <div class="preview-mockup ecom-mock">
-                                    <!-- Barra superior -->
                                     <div class="e-nav">
                                         <span class="e-logo">🛒 Tienda</span>
                                         <div class="e-cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> <span class="cart-badge">3</span></div>
                                     </div>
-                                    <!-- Banner promocional -->
                                     <div class="e-hero">
                                         <div class="e-info">
                                             <span class="e-tag">🔥 Oferta del día</span>
@@ -496,32 +350,10 @@
                                         </div>
                                         <div class="e-img"></div>
                                     </div>
-                                    <!-- Productos en grilla -->
                                     <div class="e-grid">
-                                        <div class="e-item">
-                                            <div class="e-item-img"></div>
-                                            <div class="e-item-info">
-                                                <span class="e-item-name">Producto A</span>
-                                                <span class="e-item-price">$49.99</span>
-                                                <span class="e-item-rating">★★★★☆</span>
-                                            </div>
-                                        </div>
-                                        <div class="e-item">
-                                            <div class="e-item-img"></div>
-                                            <div class="e-item-info">
-                                                <span class="e-item-name">Producto B</span>
-                                                <span class="e-item-price">$29.99</span>
-                                                <span class="e-item-rating">★★★☆☆</span>
-                                            </div>
-                                        </div>
-                                        <div class="e-item">
-                                            <div class="e-item-img"></div>
-                                            <div class="e-item-info">
-                                                <span class="e-item-name">Producto C</span>
-                                                <span class="e-item-price">$99.99</span>
-                                                <span class="e-item-rating">★★★★★</span>
-                                            </div>
-                                        </div>
+                                        <div class="e-item"><div class="e-item-img"></div><div class="e-item-info"><span class="e-item-name">Producto A</span><span class="e-item-price">$49.99</span><span class="e-item-rating">★★★★☆</span></div></div>
+                                        <div class="e-item"><div class="e-item-img"></div><div class="e-item-info"><span class="e-item-name">Producto B</span><span class="e-item-price">$29.99</span><span class="e-item-rating">★★★☆☆</span></div></div>
+                                        <div class="e-item"><div class="e-item-img"></div><div class="e-item-info"><span class="e-item-name">Producto C</span><span class="e-item-price">$99.99</span><span class="e-item-rating">★★★★★</span></div></div>
                                     </div>
                                 </div>
                                 <div class="card-overlay">
@@ -536,9 +368,9 @@
                             <p class="card-desc" data-i18n="portfolio.c8.desc">Solución completa de e-commerce con pasarela de pago y carrito de compras.</p>
                         </div>
 
-                        <!-- MOCKUP MEJORADO: Catálogo Digital -->
+                        <!-- Mockup Catálogo Digital -->
                         <div class="portfolio-card reveal" data-filter="example">
-                            <div class="card-preview" style="--cg: #ffffff;">
+                            <div class="card-preview glass" style="--cg: #ffffff;">
                                 <div class="preview-mockup catalog-mock">
                                     <div class="c-nav">
                                         <span class="c-logo">📋 Catálogo</span>
@@ -553,34 +385,10 @@
                                             <div class="c-filter">Deportes</div>
                                         </div>
                                         <div class="c-grid">
-                                            <div class="c-card">
-                                                <div class="c-card-img"></div>
-                                                <div class="c-card-info">
-                                                    <span class="c-card-title">Smartphone X</span>
-                                                    <span class="c-card-price">$599</span>
-                                                </div>
-                                            </div>
-                                            <div class="c-card">
-                                                <div class="c-card-img"></div>
-                                                <div class="c-card-info">
-                                                    <span class="c-card-title">Tablet Pro</span>
-                                                    <span class="c-card-price">$399</span>
-                                                </div>
-                                            </div>
-                                            <div class="c-card">
-                                                <div class="c-card-img"></div>
-                                                <div class="c-card-info">
-                                                    <span class="c-card-title">Auriculares</span>
-                                                    <span class="c-card-price">$89</span>
-                                                </div>
-                                            </div>
-                                            <div class="c-card">
-                                                <div class="c-card-img"></div>
-                                                <div class="c-card-info">
-                                                    <span class="c-card-title">Reloj Inteligente</span>
-                                                    <span class="c-card-price">$249</span>
-                                                </div>
-                                            </div>
+                                            <div class="c-card"><div class="c-card-img"></div><div class="c-card-info"><span class="c-card-title">Smartphone X</span><span class="c-card-price">$599</span></div></div>
+                                            <div class="c-card"><div class="c-card-img"></div><div class="c-card-info"><span class="c-card-title">Tablet Pro</span><span class="c-card-price">$399</span></div></div>
+                                            <div class="c-card"><div class="c-card-img"></div><div class="c-card-info"><span class="c-card-title">Auriculares</span><span class="c-card-price">$89</span></div></div>
+                                            <div class="c-card"><div class="c-card-img"></div><div class="c-card-info"><span class="c-card-title">Reloj Inteligente</span><span class="c-card-price">$249</span></div></div>
                                         </div>
                                     </div>
                                 </div>
@@ -595,22 +403,17 @@
                             <h3 class="card-title" data-i18n="portfolio.c9.title">Catálogo Digital</h3>
                             <p class="card-desc" data-i18n="portfolio.c9.desc">Sistema de catálogo con filtros inteligentes y gestión de productos optimizada.</p>
                         </div>
-
                     </div>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- CATEGORÍA 3: SISTEMAS WEB & POS               -->
-                <!-- ============================================ -->
+                <!-- CATEGORÍA 3: SISTEMAS WEB & POS -->
                 <div class="portfolio-category-wrapper">
                     <div class="portfolio-category-title">
                         <span data-i18n="portfolio.category.systems">Sistemas Web & POS</span>
                     </div>
                     <div class="portfolio-category-items">
-
-                        <!-- MOCKUP MEJORADO: Sistema POS / Dashboard -->
                         <div class="portfolio-card reveal" data-filter="example">
-                            <div class="card-preview" style="--cg: #0b0e17;">
+                            <div class="card-preview glass" style="--cg: #0b0e17;">
                                 <div class="preview-mockup pos-mock">
                                     <div class="p-nav">
                                         <span class="p-logo">📊 POS</span>
@@ -619,21 +422,9 @@
                                     </div>
                                     <div class="p-dash">
                                         <div class="p-stats">
-                                            <div class="p-box">
-                                                <span class="p-box-label">Ventas hoy</span>
-                                                <span class="p-box-value">$1,240</span>
-                                                <span class="p-box-change">+12%</span>
-                                            </div>
-                                            <div class="p-box">
-                                                <span class="p-box-label">Pedidos</span>
-                                                <span class="p-box-value">18</span>
-                                                <span class="p-box-change">+5%</span>
-                                            </div>
-                                            <div class="p-box">
-                                                <span class="p-box-label">Clientes</span>
-                                                <span class="p-box-value">42</span>
-                                                <span class="p-box-change">+8%</span>
-                                            </div>
+                                            <div class="p-box"><span class="p-box-label">Ventas hoy</span><span class="p-box-value">$1,240</span><span class="p-box-change">+12%</span></div>
+                                            <div class="p-box"><span class="p-box-label">Pedidos</span><span class="p-box-value">18</span><span class="p-box-change">+5%</span></div>
+                                            <div class="p-box"><span class="p-box-label">Clientes</span><span class="p-box-value">42</span><span class="p-box-change">+8%</span></div>
                                         </div>
                                         <div class="p-chart">
                                             <div class="p-chart-bar" style="height:30%"></div>
@@ -662,134 +453,45 @@
                             <h3 class="card-title" data-i18n="portfolio.c10.title">Sistema Web POS</h3>
                             <p class="card-desc" data-i18n="portfolio.c10.desc">Panel de administración, control de inventario y gestión de ventas en tiempo real.</p>
                         </div>
-
                     </div>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- EMPTY / HIDDEN OLD PROJECTS (en espera)       -->
-                <!-- ============================================ -->
+                <!-- OCULTOS (proyectos antiguos) -->
                 <div class="portfolio-category-wrapper hidden">
                     <div class="portfolio-category-items">
                         <div class="portfolio-card reveal hidden" data-filter="real">
-                            <div class="card-preview" style="--cg: linear-gradient(135deg, #134E5E 0%, #009688 60%, #64FFDA 100%)">
-                                <div class="preview-mockup">
-                                    <div class="pm-nav">
-                                        <div class="pm-logo"></div>
-                                        <div class="pm-links"><span></span><span></span><span></span></div>
-                                        <div class="pm-btn"></div>
-                                    </div>
-                                    <div class="pm-body">
-                                        <div class="pm-text-col">
-                                            <div class="pm-h1"></div>
-                                            <div class="pm-h1 w75"></div>
-                                            <div class="pm-p"></div>
-                                            <div class="pm-cta"></div>
-                                        </div>
-                                        <div class="pm-img-col teal"></div>
-                                    </div>
-                                </div>
-                                <div class="card-overlay">
-                                    <a href="#" class="overlay-cta">Ver Proyecto <span>→</span></a>
-                                </div>
+                            <div class="card-preview glass" style="--cg: linear-gradient(135deg, #134E5E 0%, #009688 60%, #64FFDA 100%)">
+                                <div class="preview-mockup"><div class="pm-nav"><div class="pm-logo"></div><div class="pm-links"><span></span><span></span><span></span></div><div class="pm-btn"></div></div><div class="pm-body"><div class="pm-text-col"><div class="pm-h1"></div><div class="pm-h1 w75"></div><div class="pm-p"></div><div class="pm-cta"></div></div><div class="pm-img-col teal"></div></div></div>
+                                <div class="card-overlay"><a href="#" class="overlay-cta">Ver Proyecto <span>→</span></a></div>
                             </div>
-                            <div class="card-meta">
-                                <span class="card-badge real-badge" data-i18n="portfolio.realbadge">Negocio Real</span>
-                                <span class="card-year">2025</span>
-                            </div>
+                            <div class="card-meta"><span class="card-badge real-badge" data-i18n="portfolio.realbadge">Negocio Real</span><span class="card-year">2025</span></div>
                             <h3 class="card-title" data-i18n="portfolio.c3.title">Sunset Realty Group</h3>
                             <p class="card-desc" data-i18n="portfolio.c3.desc">Página de agencia inmobiliaria que triplicó las consultas de clientes calificados por semana.</p>
                         </div>
-
                         <div class="portfolio-card reveal hidden" data-filter="example">
-                            <div class="card-preview" style="--cg: linear-gradient(135deg, #5B2EBF 0%, #7C4DFF 50%, #40C4FF 100%)">
-                                <div class="preview-mockup">
-                                    <div class="pm-nav">
-                                        <div class="pm-logo"></div>
-                                        <div class="pm-links"><span></span><span></span><span></span></div>
-                                        <div class="pm-btn"></div>
-                                    </div>
-                                    <div class="pm-body centered-body">
-                                        <div class="pm-text-col wide-col">
-                                            <div class="pm-badge-pill"></div>
-                                            <div class="pm-h1 full"></div>
-                                            <div class="pm-h1 w85 centered"></div>
-                                            <div class="pm-p centered"></div>
-                                            <div class="pm-btn-row">
-                                                <div class="pm-cta"></div>
-                                                <div class="pm-cta ghost"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-overlay">
-                                    <a href="#" class="overlay-cta">Ver Diseño <span>→</span></a>
-                                </div>
+                            <div class="card-preview glass" style="--cg: linear-gradient(135deg, #5B2EBF 0%, #7C4DFF 50%, #40C4FF 100%)">
+                                <div class="preview-mockup"><div class="pm-nav"><div class="pm-logo"></div><div class="pm-links"><span></span><span></span><span></span></div><div class="pm-btn"></div></div><div class="pm-body centered-body"><div class="pm-text-col wide-col"><div class="pm-badge-pill"></div><div class="pm-h1 full"></div><div class="pm-h1 w85 centered"></div><div class="pm-p centered"></div><div class="pm-btn-row"><div class="pm-cta"></div><div class="pm-cta ghost"></div></div></div></div></div>
+                                <div class="card-overlay"><a href="#" class="overlay-cta">Ver Diseño <span>→</span></a></div>
                             </div>
-                            <div class="card-meta">
-                                <span class="card-badge example-badge" data-i18n="portfolio.examplebadge">Diseño de Ejemplo</span>
-                                <span class="card-year">2025</span>
-                            </div>
+                            <div class="card-meta"><span class="card-badge example-badge" data-i18n="portfolio.examplebadge">Diseño de Ejemplo</span><span class="card-year">2025</span></div>
                             <h3 class="card-title" data-i18n="portfolio.c4.title">Flowbase SaaS</h3>
                             <p class="card-desc" data-i18n="portfolio.c4.desc">Concepto de página SaaS enfocado en la claridad de funciones y una conversión sin fricción.</p>
                         </div>
-
                         <div class="portfolio-card reveal hidden" data-filter="example">
-                            <div class="card-preview" style="--cg: linear-gradient(135deg, #880E4F 0%, #E91E8C 50%, #FF6EC7 100%)">
-                                <div class="preview-mockup">
-                                    <div class="pm-nav">
-                                        <div class="pm-logo"></div>
-                                        <div class="pm-links"><span></span><span></span><span></span></div>
-                                        <div class="pm-btn"></div>
-                                    </div>
-                                    <div class="pm-body">
-                                        <div class="pm-text-col">
-                                            <div class="pm-h1"></div>
-                                            <div class="pm-h1 w75"></div>
-                                            <div class="pm-p"></div>
-                                            <div class="pm-cta"></div>
-                                        </div>
-                                        <div class="pm-img-col pink"></div>
-                                    </div>
-                                </div>
-                                <div class="card-overlay">
-                                    <a href="#" class="overlay-cta">Ver Diseño <span>→</span></a>
-                                </div>
+                            <div class="card-preview glass" style="--cg: linear-gradient(135deg, #880E4F 0%, #E91E8C 50%, #FF6EC7 100%)">
+                                <div class="preview-mockup"><div class="pm-nav"><div class="pm-logo"></div><div class="pm-links"><span></span><span></span><span></span></div><div class="pm-btn"></div></div><div class="pm-body"><div class="pm-text-col"><div class="pm-h1"></div><div class="pm-h1 w75"></div><div class="pm-p"></div><div class="pm-cta"></div></div><div class="pm-img-col pink"></div></div></div>
+                                <div class="card-overlay"><a href="#" class="overlay-cta">Ver Diseño <span>→</span></a></div>
                             </div>
-                            <div class="card-meta">
-                                <span class="card-badge example-badge" data-i18n="portfolio.examplebadge">Diseño de Ejemplo</span>
-                                <span class="card-year">2025</span>
-                            </div>
+                            <div class="card-meta"><span class="card-badge example-badge" data-i18n="portfolio.examplebadge">Diseño de Ejemplo</span><span class="card-year">2025</span></div>
                             <h3 class="card-title" data-i18n="portfolio.c5.title">Luxe Boutique</h3>
                             <p class="card-desc" data-i18n="portfolio.c5.desc">Concepto de marca de moda premium con visuales audaces y una experiencia de compra fluida.</p>
                         </div>
-
                         <div class="portfolio-card reveal hidden" data-filter="example">
-                            <div class="card-preview" style="--cg: linear-gradient(135deg, #7B3F00 0%, #E65100 40%, #FFD200 100%)">
-                                <div class="preview-mockup dark-pm">
-                                    <div class="pm-nav">
-                                        <div class="pm-logo dark-el"></div>
-                                        <div class="pm-links dark-el"><span></span><span></span><span></span></div>
-                                        <div class="pm-btn dark-el"></div>
-                                    </div>
-                                    <div class="pm-body">
-                                        <div class="pm-text-col">
-                                            <div class="pm-h1 dark-el"></div>
-                                            <div class="pm-h1 w75 dark-el"></div>
-                                            <div class="pm-p dark-el"></div>
-                                            <div class="pm-cta dark-el"></div>
-                                        </div>
-                                        <div class="pm-img-col yellow"></div>
-                                    </div>
-                                </div>
-                                <div class="card-overlay">
-                                    <a href="#" class="overlay-cta">Ver Diseño <span>→</span></a>
-                                </div>
+                            <div class="card-preview glass" style="--cg: linear-gradient(135deg, #7B3F00 0%, #E65100 40%, #FFD200 100%)">
+                                <div class="preview-mockup dark-pm"><div class="pm-nav"><div class="pm-logo dark-el"></div><div class="pm-links dark-el"><span></span><span></span><span></span></div><div class="pm-btn dark-el"></div></div><div class="pm-body"><div class="pm-text-col"><div class="pm-h1 dark-el"></div><div class="pm-h1 w75 dark-el"></div><div class="pm-p dark-el"></div><div class="pm-cta dark-el"></div></div><div class="pm-img-col yellow"></div></div></div>
+                                <div class="card-overlay"><a href="#" class="overlay-cta">Ver Diseño <span>→</span></a></div>
                             </div>
-                            <div class="card-meta">
-                                <span class="card-badge example-badge" data-i18n="portfolio.examplebadge">Diseño de Ejemplo</span>
-                                <span class="card-year">2026</span>
-                            </div>
+                            <div class="card-meta"><span class="card-badge example-badge" data-i18n="portfolio.examplebadge">Diseño de Ejemplo</span><span class="card-year">2026</span></div>
                             <h3 class="card-title" data-i18n="portfolio.c6.title">Spark Creative Agency</h3>
                             <p class="card-desc" data-i18n="portfolio.c6.desc">Página de agencia creativa diseñada para captar atención y convertir visitantes en leads al instante.</p>
                         </div>
@@ -800,8 +502,8 @@
         </div>
     </section>
 
-    <!-- ===== NUEVA SECCIÓN: SOLUCIONES WEB A MEDIDA ===== -->
-    <section class="web-solutions" id="web-solutions">
+    <!-- ===== WEB SOLUTIONS ===== -->
+    <section class="section web-solutions" id="web-solutions" data-section="0.75">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag" data-i18n="web.tag">Más Allá de las Landing Pages</span>
@@ -809,28 +511,28 @@
                 <p class="section-subtitle" data-i18n="web.subtitle">Desde un catálogo digital hasta una tienda online profesional. Creamos la plataforma digital que tu negocio necesita.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card reveal">
+                <div class="service-card reveal glass">
                     <div class="service-icon-wrap">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
                     </div>
                     <h3 data-i18n="web.card1.title">Tiendas Online (E-commerce)</h3>
                     <p data-i18n="web.card1.desc">Creamos tiendas virtuales completas. Carrito de compras, pasarelas de pago y gestión de inventario para que vendas 24/7.</p>
                 </div>
-                <div class="service-card reveal">
+                <div class="service-card reveal glass">
                     <div class="service-icon-wrap">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
                     </div>
                     <h3 data-i18n="web.card2.title">Catálogos Digitales</h3>
                     <p data-i18n="web.card2.desc">Muestra tus productos de forma elegante y organizada. Perfecto para negocios B2B o marcas que quieren exhibir su portafolio.</p>
                 </div>
-                <div class="service-card reveal">
+                <div class="service-card reveal glass">
                     <div class="service-icon-wrap">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <h3 data-i18n="web.card3.title">Portales y Plataformas Web</h3>
                     <p data-i18n="web.card3.desc">Sistemas web personalizados, paneles de administración, áreas de miembros y portales internos para gestionar tu negocio.</p>
                 </div>
-                <div class="service-card reveal">
+                <div class="service-card reveal glass">
                     <div class="service-icon-wrap">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
                     </div>
@@ -842,47 +544,35 @@
     </section>
 
     <!-- ===== TESTIMONIALS ===== -->
-    <section class="testimonials" id="testimonials">
+    <section class="section testimonials" id="testimonials" data-section="0.85">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag" data-i18n="testimonials.tag">Opiniones</span>
                 <h2 class="section-title"><span data-i18n="testimonials.title">Lo Que Dicen </span><span class="gradient-text" data-i18n="testimonials.title2">Nuestros Clientes</span></h2>
             </div>
             <div class="testimonials-grid">
-                <div class="testimonial-card reveal">
+                <div class="testimonial-card reveal glass">
                     <div class="stars">★★★★★</div>
                     <p class="testimonial-quote" data-i18n="testimonials.q1">"LAGVNSoftware entregó una landing page increíble en solo 4 días. Nuestras reservas en línea aumentaron significativamente en la primera semana. ¡Valió cada centavo!"</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                        </div>
-                        <div class="author-info">
-                            <span data-i18n="testimonials.a1.role">Dueño, Caribe Industries Supply Corp.</span>
-                        </div>
+                        <div class="author-avatar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                        <div class="author-info"><span data-i18n="testimonials.a1.role">Dueño, Caribe Industries Supply Corp.</span></div>
                     </div>
                 </div>
-                <div class="testimonial-card reveal">
+                <div class="testimonial-card reveal glass">
                     <div class="stars">★★★★★</div>
                     <p class="testimonial-quote" data-i18n="testimonials.q2">"El diseño nos dejó sin palabras. Se ve exactamente como las grandes cadenas de gimnasios pero es 100% nuestro. Los registros han estado por las nubes desde que lanzamos."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                        </div>
-                        <div class="author-info">
-                            <span data-i18n="testimonials.a2.role">Entrenador, Vyron Training</span>
-                        </div>
+                        <div class="author-avatar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                        <div class="author-info"><span data-i18n="testimonials.a2.role">Entrenador, Vyron Training</span></div>
                     </div>
                 </div>
-                <div class="testimonial-card reveal">
+                <div class="testimonial-card reveal glass">
                     <div class="stars">★★★★★</div>
                     <p class="testimonial-quote" data-i18n="testimonials.q3">"La página que LAGVNSoftware creó para MovieSquad es espectacular. El diseño es moderno, atractivo y ha recibido muchísimas visitas y comentarios positivos. ¡Totalmente recomendados!"</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                        </div>
-                        <div class="author-info">
-                            <span data-i18n="testimonials.a3.role">Creador, MovieSquad</span>
-                        </div>
+                        <div class="author-avatar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                        <div class="author-info"><span data-i18n="testimonials.a3.role">Creador, MovieSquad</span></div>
                     </div>
                 </div>
             </div>
@@ -890,11 +580,10 @@
     </section>
 
     <!-- ===== CONTACT ===== -->
-    <section class="contact-section" id="contact">
-        <div class="contact-blob"></div>
+    <section class="section contact-section" id="contact" data-section="0.95">
         <div class="container">
             <div class="contact-wrapper">
-                <div class="contact-left reveal">
+                <div class="contact-left reveal glass">
                     <span class="section-tag" data-i18n="contact.tag">Trabajemos Juntos</span>
                     <h2><span data-i18n="contact.title">¿Listo para tu</span><br><span class="gradient-text" data-i18n="contact.title2">próximo proyecto web?</span></h2>
                     <p data-i18n="contact.subtitle">Cuéntanos sobre tu proyecto y te respondemos en menos de 24 horas con un plan personalizado.</p>
@@ -904,7 +593,7 @@
                         <div class="perk"><span>✓</span> <span data-i18n="contact.perk3">Sin compromiso</span></div>
                     </div>
                 </div>
-                <div class="contact-right reveal">
+                <div class="contact-right reveal glass">
                     <form class="contact-form" id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
@@ -939,8 +628,8 @@
     </section>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="container">
+    <footer class="section footer" data-section="1">
+        <div class="container glass">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#home" class="nav-logo footer-logo">
@@ -952,7 +641,7 @@
                     <h4 data-i18n="footer.nav">Navegación</h4>
                     <ul>
                         <li><a href="#portfolio" data-i18n="footer.nav.work">Trabajos</a></li>
-                        <li><a href="#services" data-i18n="footer.nav.services">Servicios</a></li>
+                        <li><a href="#web-solutions" data-i18n="footer.nav.services">Servicios</a></li>
                         <li><a href="#process" data-i18n="footer.nav.process">Proceso</a></li>
                         <li><a href="#pricing" data-i18n="footer.nav.pricing">Precios</a></li>
                         <li><a href="#contact" data-i18n="footer.nav.contact">Contacto</a></li>
