@@ -216,12 +216,10 @@ ul { list-style: none; }
     overflow: hidden;
 }
 
-/* Keep the glass edge neutral so it does not create a distracting blue line. */
 .glass::before {
     display: none;
 }
 
-/* Burbuja líquida de fondo */
 .glass::after {
     content: '';
     position: absolute;
@@ -260,7 +258,6 @@ ul { list-style: none; }
         0 0 0 1px rgba(255,255,255,0.05);
 }
 
-/* Ajustes para tarjetas específicas que usan glass sin padding extra */
 .card-preview.glass {
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     padding: 0;
@@ -269,7 +266,6 @@ ul { list-style: none; }
     border-bottom: none;
 }
 
-/* Para los iframes, el borde se maneja con el card-preview */
 .iframe-card {
     background: #1a1a2e;
     padding: 0;
@@ -541,7 +537,6 @@ ul { list-style: none; }
     height: 100%;
     border: 1px solid rgba(255,255,255,0.06);
 }
-/* Se eliminaron las reglas de reordenamiento (order) para que el orden siga el HTML */
 .portfolio-card:hover { transform: translateY(-6px); }
 .card-preview {
     position: relative;
@@ -1167,6 +1162,34 @@ ul { list-style: none; }
 .iframe-card .card-overlay { z-index: 3; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
 
 /* =============================================
+   NUEVAS REGLAS PARA AUTO-SCROLL (hover)
+   ============================================= */
+.auto-scroll-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    cursor: pointer;
+}
+
+.auto-scroll-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2500px; /* debe coincidir con el HTML */
+    border: none;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.auto-scroll-iframe.loaded {
+    opacity: 1;
+}
+
+/* =============================================
    RESPONSIVE
    ============================================= */
 @media (max-width: 1024px) {
@@ -1319,3 +1342,29 @@ ul { list-style: none; }
     .pricing-single-inner { padding: 20px; }
 }
 .mobile-swipe-indicator { display: none; }
+
+/* AUTO-SCROLL CONTAINER */
+.auto-scroll-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    cursor: pointer;
+}
+
+.auto-scroll-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2500px; /* debe coincidir con el HTML */
+    border: none;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.auto-scroll-iframe.loaded {
+    opacity: 1;
+}

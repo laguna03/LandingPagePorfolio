@@ -63,6 +63,7 @@ const translations = {
         'portfolio.category.landing': 'Landing Pages',
         'portfolio.category.ecommerce': 'Tiendas Online & Catálogos',
         'portfolio.category.systems': 'Sistemas Web & POS',
+        'portfolio.category.animated3d': '3D Animated Landing Pages',
         'portfolio.viewproject': 'Ver Proyecto',
         'portfolio.viewdesign': 'Ver Diseño',
         'portfolio.realbadge': 'Negocio Real',
@@ -82,6 +83,10 @@ const translations = {
         'portfolio.c10.desc': 'Panel de administración, control de inventario y gestión de ventas en tiempo real.',
         'portfolio.c11.title': 'Ground Projects',
         'portfolio.c11.desc': 'Sitio web para una empresa de servicios de construcción y proyectos de infraestructura.',
+        'portfolio.c12.title': 'Evolution Muse',
+        'portfolio.c12.desc': 'Landing page con animaciones 3D inmersivas y efectos visuales de alta calidad.',
+        'portfolio.c13.title': 'Rest Mockup LP',
+        'portfolio.c13.desc': 'Landing page de demostración con animaciones 3D y experiencia interactiva.',
         'portfolio.c3.title': 'Sunset Realty Group',
         'portfolio.c3.desc': 'Página de agencia inmobiliaria que triplicó las consultas de clientes calificados por semana.',
         'portfolio.c4.title': 'Flowbase SaaS',
@@ -229,6 +234,7 @@ const translations = {
         'portfolio.category.landing': 'Landing Pages',
         'portfolio.category.ecommerce': 'Online Stores & Catalogs',
         'portfolio.category.systems': 'Web Systems & POS',
+        'portfolio.category.animated3d': '3D Animated Landing Pages',
         'portfolio.viewproject': 'View Project',
         'portfolio.viewdesign': 'View Design',
         'portfolio.realbadge': 'Real Business',
@@ -248,6 +254,10 @@ const translations = {
         'portfolio.c10.desc': 'Admin panel, inventory control, and real-time sales management.',
         'portfolio.c11.title': 'Ground Projects',
         'portfolio.c11.desc': 'Website for a construction services and infrastructure projects company.',
+        'portfolio.c12.title': 'Evolution Muse',
+        'portfolio.c12.desc': 'Landing page with immersive 3D animations and high-quality visual effects.',
+        'portfolio.c13.title': 'Rest Mockup LP',
+        'portfolio.c13.desc': 'Demo landing page with 3D animations and interactive experience.',
         'portfolio.c3.title': 'Sunset Realty Group',
         'portfolio.c3.desc': 'Real estate agency page that tripled qualified client inquiries per week.',
         'portfolio.c4.title': 'Flowbase SaaS',
@@ -511,25 +521,30 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(update);
     }
 
-    // ---- Lazy loading for iframes ----
+    // ---- Lazy loading for iframes (CORREGIDO) ----
     const lazyIframes = document.querySelectorAll('.lazy-iframe');
     const iframeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const iframe = entry.target;
                 const card = iframe.closest('.card-preview');
-                const src = card?.dataset.iframeSrc;
+                // Buscar src primero en el iframe, luego en el card
+                const src = iframe.dataset.iframeSrc || card?.dataset.iframeSrc;
                 if (src) {
                     iframe.src = src;
-                    const skeleton = card.querySelector('.iframe-skeleton');
+                    const skeleton = card?.querySelector('.iframe-skeleton');
                     if (skeleton) {
                         iframe.addEventListener('load', () => {
                             skeleton.classList.add('hidden');
                             iframe.classList.add('loaded');
-                            // Escalar después de cargar
                             const scale = card.offsetWidth / 1280;
                             iframe.style.transform = `scale(${scale})`;
                             iframe.style.height = (card.offsetHeight / scale) + 'px';
+                        });
+                    } else {
+                        // Si no hay skeleton (caso Evolution Muse), solo añadir clase loaded
+                        iframe.addEventListener('load', () => {
+                            iframe.classList.add('loaded');
                         });
                     }
                 }
@@ -539,9 +554,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { rootMargin: '200px' });
     lazyIframes.forEach(iframe => iframeObserver.observe(iframe));
 
-    // ---- Iframe scaling (para los ya cargados) ----
+    // ---- Iframe scaling (solo para los que no son auto-scroll) ----
     function scaleIframes() {
-        document.querySelectorAll('.iframe-card .site-iframe.loaded').forEach(iframe => {
+        document.querySelectorAll('.iframe-card .site-iframe.loaded:not(.auto-scroll-iframe)').forEach(iframe => {
             const card = iframe.closest('.iframe-card');
             if (!card) return;
             const scale = card.offsetWidth / 1280;
@@ -551,6 +566,67 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     scaleIframes();
     window.addEventListener('resize', scaleIframes);
+
+    // ---- AUTO-SCROLL AL HACER HOVER (para Evolution Muse) ----
+    function startHoverAutoScroll() {
+        const container = document.getElementById('evolutionMuseContainer');
+        if (!container) return;
+
+        const iframe = container.querySelector('.auto-scroll-iframe');
+        if (!iframe) return;
+
+        let isHovering = false;
+        let animationId = null;
+        let currentScroll = 0;
+        let direction = 1;
+        const speed = 1.5;
+        const maxScroll = iframe.offsetHeight - container.clientHeight;
+
+        if (maxScroll <= 0) return;
+
+        function animate() {
+            if (!isHovering) return;
+            currentScroll += direction * speed;
+            if (currentScroll >= maxScroll) {
+                currentScroll = maxScroll;
+                direction = -1;
+            } else if (currentScroll <= 0) {
+                currentScroll = 0;
+                direction = 1;
+            }
+            container.scrollTop = currentScroll;
+            animationId = requestAnimationFrame(animate);
+        }
+
+        container.addEventListener('mouseenter', () => {
+            isHovering = true;
+            if (!animationId) animate();
+        });
+
+        container.addEventListener('mouseleave', () => {
+            isHovering = false;
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+            container.scrollTop = 0;
+            currentScroll = 0;
+            direction = 1;
+        });
+
+        // Esperar a que el iframe cargue
+        const observer = new MutationObserver(() => {
+            if (iframe.classList.contains('loaded') && !container.dataset.hoverInit) {
+                container.dataset.hoverInit = 'true';
+                startHoverAutoScroll();
+                observer.disconnect();
+            }
+        });
+        observer.observe(iframe, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    window.addEventListener('load', startHoverAutoScroll);
+    window.addEventListener('resize', startHoverAutoScroll);
 
     // ---- EmailJS ----
     const EMAILJS_SERVICE_ID = 'service_2fjziv9';
@@ -988,7 +1064,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })();
     } else {
         console.warn('⚠️ Three.js no está disponible. El fondo 3D no se mostrará.');
-        // Mostrar un fallback visual (opcional)
         const container = document.getElementById('bg-container');
         if (container) {
             container.style.background = 'radial-gradient(ellipse at center, #0a1a3a, #060A14)';
