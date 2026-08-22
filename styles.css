@@ -541,9 +541,7 @@ ul { list-style: none; }
     height: 100%;
     border: 1px solid rgba(255,255,255,0.06);
 }
-.portfolio-category-wrapper:first-child .portfolio-card:nth-child(1) { order: 3; }
-.portfolio-category-wrapper:first-child .portfolio-card:nth-child(2) { order: 1; }
-.portfolio-category-wrapper:first-child .portfolio-card:nth-child(3) { order: 2; }
+/* Se eliminaron las reglas de reordenamiento (order) para que el orden siga el HTML */
 .portfolio-card:hover { transform: translateY(-6px); }
 .card-preview {
     position: relative;
