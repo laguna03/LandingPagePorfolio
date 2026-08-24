@@ -887,9 +887,6 @@ ul { list-style: none; }
     border-left: 1px solid var(--border);
     border-right: 1px solid var(--border);
 }
-.card-badge { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; padding: 4px 10px; border-radius: 50px; text-transform: uppercase; }
-.real-badge { background: rgba(0,201,150,0.12); color: #00C996; border: 1px solid rgba(0,201,150,0.2); }
-.example-badge { background: rgba(26,107,255,0.12); color: var(--primary-light); border: 1px solid rgba(26,107,255,0.2); }
 .card-year { font-size: 0.75rem; color: var(--text-subtle); }
 .card-title {
     font-size: 1.05rem;
@@ -1057,7 +1054,7 @@ ul { list-style: none; }
 .author-info span { font-size: 0.78rem; color: var(--text-muted); }
 
 /* =============================================
-   CONTACT
+   CONTACT (con corrección de inputs)
    ============================================= */
 .contact-section {
     padding: 120px 0;
@@ -1081,7 +1078,8 @@ ul { list-style: none; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form-group { display: flex; flex-direction: column; gap: 8px; }
 .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--text-muted); }
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
     background: rgba(255,255,255,0.04);
     border: 1.5px solid rgba(255,255,255,0.08);
     border-radius: 12px;
@@ -1091,13 +1089,18 @@ ul { list-style: none; }
     color: var(--text-main);
     transition: border-color 0.25s, box-shadow 0.25s;
     resize: vertical;
+    /* AQUÍ LA CORRECCIÓN */
+    width: 100%;
+    min-width: 0;
 }
-.form-group input:focus, .form-group textarea:focus {
+.form-group input:focus,
+.form-group textarea:focus {
     outline: none;
     border-color: rgba(26,107,255,0.5);
     box-shadow: 0 0 0 3px rgba(26,107,255,0.08);
 }
-.form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-subtle); }
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--text-subtle); }
 .submit-btn { align-self: flex-start; }
 .form-success { display: none; background: rgba(0,201,150,0.08); border: 1px solid rgba(0,201,150,0.25); border-radius: 12px; padding: 16px 20px; color: #00C996; font-size: 0.9rem; font-weight: 600; text-align: center; margin-top: 8px; }
 
@@ -1160,34 +1163,6 @@ ul { list-style: none; }
 }
 .site-iframe.loaded { opacity: 1; }
 .iframe-card .card-overlay { z-index: 3; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
-
-/* =============================================
-   NUEVAS REGLAS PARA AUTO-SCROLL (hover)
-   ============================================= */
-.auto-scroll-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    cursor: pointer;
-}
-
-.auto-scroll-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2500px; /* debe coincidir con el HTML */
-    border: none;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.auto-scroll-iframe.loaded {
-    opacity: 1;
-}
 
 /* =============================================
    RESPONSIVE
@@ -1278,22 +1253,23 @@ ul { list-style: none; }
     .step-icon-circle svg { width: 19px; height: 19px; }
     .step-body h3 { font-size: 0.8rem; margin-bottom: 6px; }
     .step-body p { font-size: 0.68rem; line-height: 1.45; }
-    .contact-wrapper { grid-template-columns: 1fr; gap: 48px; }
+    .contact-wrapper { grid-template-columns: 1fr; gap: 20px; }
     .contact-section { padding: 64px 0; }
-    .contact-wrapper { gap: 20px; }
-    .contact-left.glass, .contact-right.glass { padding: 20px 18px; border-radius: 14px; }
+    .contact-left.glass,
+    .contact-right.glass { padding: 20px 18px; border-radius: 14px; }
     .contact-left h2 { font-size: 1.6rem; }
     .contact-left p { font-size: 0.88rem; line-height: 1.55; }
     .contact-perks { gap: 6px; }
     .perk { font-size: 0.8rem; }
     .contact-form { gap: 14px; }
     .form-group { gap: 6px; }
-    .form-group input, .form-group textarea { width: 100%; padding: 11px 12px; font-size: 0.88rem; }
+    .form-group input,
+    .form-group textarea { width: 100%; padding: 11px 12px; font-size: 0.88rem; }
     .form-group textarea { min-height: 112px; }
     .submit-btn { align-self: stretch; width: 100%; }
+    .form-row { grid-template-columns: 1fr; } /* una columna en móvil */
     .footer-grid { grid-template-columns: 1fr; gap: 36px; }
     .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-    .form-row { grid-template-columns: 1fr; }
     .glass { padding: 2rem 1.5rem; border-radius: 1.8rem; }
     .section { padding: 2rem 1rem; min-height: 80vh; }
     .mobile-swipe-indicator,
@@ -1327,6 +1303,7 @@ ul { list-style: none; }
     .portfolio-category-items::-webkit-scrollbar { display: none; }
     .portfolio-card { flex: 0 0 78%; min-width: 0; scroll-snap-align: start; }
 }
+
 @media (max-width: 480px) {
     .section-title { font-size: 1.8rem; }
     .hero-title { font-size: 1.95rem; }
@@ -1341,30 +1318,27 @@ ul { list-style: none; }
     .hero-text { padding: 1.5rem 1rem; border-radius: 12px; }
     .pricing-single-inner { padding: 20px; }
 }
-.mobile-swipe-indicator { display: none; }
 
-/* AUTO-SCROLL CONTAINER */
-.auto-scroll-container {
-    position: relative;
+/* Nota mensual en pricing */
+.pricing-monthly-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(26,107,255,0.08);
+    border: 1px dashed rgba(26,107,255,0.4);
+    border-radius: var(--radius);
+    padding: 12px 20px;
+    margin: 16px 0 24px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-light);
+    text-align: center;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    cursor: pointer;
 }
 
-.auto-scroll-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2500px; /* debe coincidir con el HTML */
-    border: none;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.auto-scroll-iframe.loaded {
-    opacity: 1;
+@media (max-width: 768px) {
+    .pricing-monthly-note {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+    }
 }
