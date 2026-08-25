@@ -27,14 +27,23 @@
     --ff: 'Poppins', sans-serif;
 }
 
-html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    overflow-x: hidden;
+    /* Fondo base sólido para evitar blanco */
+    background: #0b0b1a;
+}
+
 body {
     font-family: var(--ff);
-    background: #0b0b1a;
+    background: #0b0b1a; /* Asegura fondo oscuro en todo el cuerpo */
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
+    min-height: 100vh;
 }
+
 img { max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
@@ -49,6 +58,7 @@ ul { list-style: none; }
     z-index: 0;
     overflow: hidden;
     background: #0b0b1a;
+    pointer-events: none; /* Evita que capture eventos táctiles */
 }
 #bg-container canvas {
     display: block;
@@ -1054,7 +1064,7 @@ ul { list-style: none; }
 .author-info span { font-size: 0.78rem; color: var(--text-muted); }
 
 /* =============================================
-   CONTACT (con corrección de inputs)
+   CONTACT
    ============================================= */
 .contact-section {
     padding: 120px 0;
@@ -1089,7 +1099,6 @@ ul { list-style: none; }
     color: var(--text-main);
     transition: border-color 0.25s, box-shadow 0.25s;
     resize: vertical;
-    /* AQUÍ LA CORRECCIÓN */
     width: 100%;
     min-width: 0;
 }
@@ -1177,6 +1186,18 @@ ul { list-style: none; }
     .testimonials-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
+    /* --- CORRECCIÓN PARA MÓVIL: reducir backdrop-filter para evitar pantalla en blanco --- */
+    .glass,
+    .section-header,
+    .navbar.scrolled,
+    .card-preview.glass,
+    .portfolio-category-title span,
+    .pricing-single.glass {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(9, 17, 31, 0.92) !important;
+    }
+
     .nav-links {
         display: flex;
         position: fixed;
