@@ -719,6 +719,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const container = document.getElementById('bg-container');
             if (!container) return;
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
             const canvas = document.createElement('canvas');
             container.prepend(canvas);
 
@@ -736,9 +737,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 alpha: false
             });
             renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            renderer.shadowMap.enabled = true;
-            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
+            renderer.shadowMap.enabled = !isMobile;
+            if (!isMobile) renderer.shadowMap.type = THREE.PCFSoftShadowMap;
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
             renderer.toneMappingExposure = 1.2;
 
@@ -748,9 +749,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const keyLight = new THREE.DirectionalLight(0x8ab4ff, 1.0);
             keyLight.position.set(4, 6, 4);
-            keyLight.castShadow = true;
-            keyLight.shadow.mapSize.width = 1024;
-            keyLight.shadow.mapSize.height = 1024;
+            keyLight.castShadow = !isMobile;
+            if (!isMobile) {
+                keyLight.shadow.mapSize.width = 1024;
+                keyLight.shadow.mapSize.height = 1024;
+            }
             scene.add(keyLight);
 
             const fillLight = new THREE.DirectionalLight(0x1A6BFF, 0.6);
@@ -810,7 +813,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scene.add(wire);
 
             // ---- Particles ----
-            const particleCount = 1800;
+            const particleCount = isMobile ? 600 : 1800;
             const positions = new Float32Array(particleCount * 3);
             const colors = new Float32Array(particleCount * 3);
             const sizes = new Float32Array(particleCount);
@@ -851,7 +854,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // ---- Floating rings ----
             const rings = [];
-            for (let i = 0; i < 5; i++) {
+            const ringCount = isMobile ? 3 : 5;
+            for (let i = 0; i < ringCount; i++) {
                 const rGeo = new THREE.TorusGeometry(1.8 + i * 0.6, 0.015, 16, 80);
                 const rMat = new THREE.MeshPhysicalMaterial({
                     color: new THREE.Color().setHSL(0.6 + i * 0.03, 0.8, 0.5),
@@ -872,7 +876,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // ---- Orbiting dots ----
             const dotGroup = new THREE.Group();
-            const dotCount = 50;
+            const dotCount = isMobile ? 24 : 50;
             for (let i = 0; i < dotCount; i++) {
                 const dGeo = new THREE.SphereGeometry(0.035, 6, 6);
                 const dMat = new THREE.MeshPhysicalMaterial({
