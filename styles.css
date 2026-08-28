@@ -1329,7 +1329,6 @@ ul { list-style: none; }
     .portfolio-category-items { display: flex; flex-wrap: nowrap; gap: 12px; width: 100%; overflow-x: auto; overflow-y: hidden; padding: 0 0 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; touch-action: pan-x pan-y; }
     .portfolio-category-items::-webkit-scrollbar { display: none; }
     .portfolio-card { flex: 0 0 78%; min-width: 0; scroll-snap-align: start; }
-    .card-preview.mobile-preview .card-overlay { opacity: 1; background: rgba(0, 0, 0, 0.45); }
 }
 
 @media (max-width: 480px) {

@@ -514,10 +514,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ---- Lazy loading for iframes ----
     const lazyIframes = document.querySelectorAll('.lazy-iframe');
-    if (window.innerWidth <= 768) {
-        lazyIframes.forEach(iframe => iframe.closest('.card-preview')?.classList.add('mobile-preview'));
-    } else {
-        const iframeObserver = new IntersectionObserver((entries) => {
+    const iframeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const iframe = entry.target;
@@ -540,9 +537,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 iframeObserver.unobserve(iframe);
             }
         });
-        }, { rootMargin: '200px' });
-        lazyIframes.forEach(iframe => iframeObserver.observe(iframe));
-    }
+    }, { rootMargin: window.innerWidth <= 768 ? '250px' : '200px' });
+    lazyIframes.forEach(iframe => iframeObserver.observe(iframe));
 
     // ---- Iframe scaling (para los ya cargados) ----
     function scaleIframes() {
