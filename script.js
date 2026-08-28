@@ -13,9 +13,9 @@ const translations = {
         'nav.process': 'Proceso',
         'nav.pricing': 'Precios',
         'nav.cta': 'Iniciar Proyecto',
-        'hero.title1': 'Soluciones Digitales Que',
-        'hero.title2': 'Convierten Visitas',
-        'hero.title3': 'en Clientes',
+        'hero.title1': 'Tu Negocio Merece',
+        'hero.title2': 'Una Web Que Convierte',
+        'hero.title3': 'Más Clientes',
         'hero.subtitle': 'Diseñamos y construimos soluciones web de alta conversión para negocios que quieren crecer. Landing pages, catálogos, tiendas online y más. Diseño 100% personalizado.',
         'hero.btn1': 'Ver Nuestro Trabajo',
         'hero.btn2': 'Cotización Gratis',
@@ -26,8 +26,8 @@ const translations = {
         'stats.conversions': 'Más Conversiones',
         'mobile.swipe': 'Desliza para ver más',
         'web.tag': 'Más Allá de las Landing Pages',
-        'web.title': 'Soluciones Web ',
-        'web.title2': 'Completas',
+        'web.title': 'Servicios Web ',
+        'web.title2': 'Para Hacer Crecer Tu Negocio',
         'web.subtitle': 'Desde un catálogo digital hasta una tienda online profesional. Creamos la plataforma digital que tu negocio necesita.',
         'web.card1.title': 'Tiendas Online (E-commerce)',
         'web.card1.desc': 'Creamos tiendas virtuales completas. Carrito de compras, pasarelas de pago y gestión de inventario para que vendas 24/7.',
@@ -54,8 +54,8 @@ const translations = {
         'services.s6.title': 'Soporte Post-Lanzamiento',
         'services.s6.desc': 'El lanzamiento es solo el comienzo. Ofrecemos soporte continuo para que tu página siga funcionando al máximo nivel.',
         'portfolio.tag': 'Mi Trabajo',
-        'portfolio.title': 'Diseños Que ',
-        'portfolio.title2': 'Hablan Por Sí Solos',
+        'portfolio.title': 'Proyectos Web ',
+        'portfolio.title2': 'Diseñados Para Convertir',
         'portfolio.subtitle': 'Landing pages, tiendas online, catálogos y sistemas web — cada uno construido para impresionar y convertir.',
         'portfolio.tab.all': 'Todo',
         'portfolio.tab.real': 'Proyectos Reales',
@@ -104,8 +104,8 @@ const translations = {
         'portfolio.c6.title': 'Spark Creative Agency',
         'portfolio.c6.desc': 'Página de agencia creativa diseñada para captar atención y convertir visitantes en leads al instante.',
         'process.tag': 'Cómo Funciona',
-        'process.title': 'Proceso Simple,',
-        'process.title2': 'Resultados Extraordinarios',
+        'process.title': 'Del Concepto',
+        'process.title2': 'A Tu Sitio Web En Vivo',
         'process.subtitle': 'Cinco pasos claros desde cero hasta tu landing page en vivo que convierte.',
         'process.s1.title': 'Formulario del Cliente',
         'process.s1.desc': 'Llenas el formulario de información del negocio. Es obligatorio para iniciar — define todo: objetivos, servicios, estilo visual y más.',
@@ -121,8 +121,8 @@ const translations = {
         'testimonials.title': 'Lo Que Dicen ',
         'testimonials.title2': 'Nuestros Clientes',
         'pricing.tag': 'Inversión',
-        'pricing.title': 'Oferta 3D Landing Page ',
-        'pricing.title2': 'Profesional',
+        'pricing.title': 'Una Landing Page 3D ',
+        'pricing.title2': 'Profesional Para Tu Negocio',
         'pricing.subtitle': 'Una experiencia 3D inmersiva que convierte visitantes en clientes.',
         'pricing.badge': 'Oferta 3D Landing Page',
         'pricing.name': 'Landing Page 3D Profesional',
@@ -148,8 +148,8 @@ const translations = {
         'pricing.c4.title': 'Estructura de pago',
         'pricing.c4.desc': '$250 al iniciar + $250 al entregar = $500 inicial. + $50/mes por mantenimiento (mín. 12 meses).',
         'contact.tag': 'Trabajemos Juntos',
-        'contact.title': '¿Listo para tu',
-        'contact.title2': 'próximo proyecto web?',
+        'contact.title': '¿Tienes Un Proyecto?',
+        'contact.title2': 'Hablemos De Tu Negocio',
         'contact.subtitle': 'Cuéntanos sobre tu proyecto y te respondemos en menos de 24 horas con un plan personalizado.',
         'contact.perk1': 'Consulta gratuita',
         'contact.perk2': 'Cotización personalizada en 24h',
@@ -193,9 +193,9 @@ const translations = {
         'nav.process': 'Process',
         'nav.pricing': 'Pricing',
         'nav.cta': 'Start a Project',
-        'hero.title1': 'Digital Solutions That',
-        'hero.title2': 'Turn Visitors Into',
-        'hero.title3': 'Customers',
+        'hero.title1': 'Your Business Deserves',
+        'hero.title2': 'A Website That Converts',
+        'hero.title3': 'More Customers',
         'hero.subtitle': 'We design and build high-converting web solutions for ambitious businesses. Landing pages, catalogs, online stores, and more. 100% custom design.',
         'hero.btn1': 'See Our Work',
         'hero.btn2': 'Get a Free Quote',
@@ -206,8 +206,8 @@ const translations = {
         'stats.conversions': 'More Conversions',
         'mobile.swipe': 'Swipe to see more',
         'web.tag': 'Beyond Landing Pages',
-        'web.title': 'Complete Web ',
-        'web.title2': 'Solutions',
+        'web.title': 'Web Services ',
+        'web.title2': 'Built To Grow Your Business',
         'web.subtitle': 'From digital catalogs to professional online stores. We build the digital platform your business needs.',
         'web.card1.title': 'Online Stores (E-commerce)',
         'web.card1.desc': 'We create complete virtual stores. Shopping carts, payment gateways, and inventory management for 24/7 sales.',
@@ -234,8 +234,8 @@ const translations = {
         'services.s6.title': 'Post-Launch Support',
         'services.s6.desc': 'Launch is just the beginning. We offer ongoing support to keep your page performing at its absolute best.',
         'portfolio.tag': 'My Work',
-        'portfolio.title': 'Designs That ',
-        'portfolio.title2': 'Speak for Themselves',
+        'portfolio.title': 'Web Projects ',
+        'portfolio.title2': 'Designed To Convert',
         'portfolio.subtitle': 'Landing pages, online stores, catalogs, and web systems — each built to impress and convert.',
         'portfolio.tab.all': 'All Work',
         'portfolio.tab.real': 'Real Projects',
@@ -284,8 +284,8 @@ const translations = {
         'portfolio.c6.title': 'Spark Creative Agency',
         'portfolio.c6.desc': 'Creative agency page designed to capture attention and convert visitors into leads instantly.',
         'process.tag': 'How It Works',
-        'process.title': 'Simple Process,',
-        'process.title2': 'Extraordinary Results',
+        'process.title': 'From Concept',
+        'process.title2': 'To Your Live Website',
         'process.subtitle': 'Five clear steps from zero to a live landing page that converts.',
         'process.s1.title': 'Client Form',
         'process.s1.desc': 'You fill out the business info form. It is required to start — it defines everything: goals, services, visual style and more.',
@@ -301,8 +301,8 @@ const translations = {
         'testimonials.title': 'What Our ',
         'testimonials.title2': 'Clients Say',
         'pricing.tag': 'Investment',
-        'pricing.title': '3D Landing Page ',
-        'pricing.title2': 'Professional Offer',
+        'pricing.title': 'A Professional 3D ',
+        'pricing.title2': 'Landing Page For Your Business',
         'pricing.subtitle': 'An immersive 3D experience that turns visitors into clients.',
         'pricing.badge': '3D Landing Page Offer',
         'pricing.name': 'Professional 3D Landing Page',
@@ -328,8 +328,8 @@ const translations = {
         'pricing.c4.title': 'Payment structure',
         'pricing.c4.desc': '$250 to start + $250 on delivery = $500 initial. + $50/month for maintenance (min. 12 months).',
         'contact.tag': "Let's Work Together",
-        'contact.title': 'Ready for your',
-        'contact.title2': 'next web project?',
+        'contact.title': 'Have A Project?',
+        'contact.title2': 'Let’s Talk About Your Business',
         'contact.subtitle': 'Tell us about your project and we will respond within 24 hours with a custom plan.',
         'contact.perk1': 'Free consultation',
         'contact.perk2': 'Custom quote in 24h',
@@ -406,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileCarousels = [...document.querySelectorAll('.portfolio-category-items')]
         .filter(carousel => carousel.offsetParent !== null);
 
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.innerWidth > 768) {
         const carouselStates = new Map();
         const carouselObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -514,7 +514,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ---- Lazy loading for iframes ----
     const lazyIframes = document.querySelectorAll('.lazy-iframe');
-    const iframeObserver = new IntersectionObserver((entries) => {
+    if (window.innerWidth <= 768) {
+        lazyIframes.forEach(iframe => iframe.closest('.card-preview')?.classList.add('mobile-preview'));
+    } else {
+        const iframeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const iframe = entry.target;
@@ -537,8 +540,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 iframeObserver.unobserve(iframe);
             }
         });
-    }, { rootMargin: '200px' });
-    lazyIframes.forEach(iframe => iframeObserver.observe(iframe));
+        }, { rootMargin: '200px' });
+        lazyIframes.forEach(iframe => iframeObserver.observe(iframe));
+    }
 
     // ---- Iframe scaling (para los ya cargados) ----
     function scaleIframes() {
