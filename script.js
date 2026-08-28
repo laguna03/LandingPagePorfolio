@@ -512,33 +512,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => revealObserver.observe(el));
 
-    // ---- Stats counter ----
-    const statNums = document.querySelectorAll('.stat-num');
-    const countObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                countObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    statNums.forEach(el => countObserver.observe(el));
-
-    function animateCounter(el) {
-        const target = parseInt(el.dataset.target, 10);
-        const duration = 1800;
-        const start = performance.now();
-        function update(now) {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            el.textContent = Math.round(eased * target);
-            if (progress < 1) requestAnimationFrame(update);
-            else el.textContent = target;
-        }
-        requestAnimationFrame(update);
-    }
-
     // ---- Lazy loading for iframes ----
     const lazyIframes = document.querySelectorAll('.lazy-iframe');
     const iframeObserver = new IntersectionObserver((entries) => {
@@ -817,7 +790,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scene.add(wire);
 
             // ---- Particles ----
-            const particleCount = isMobile ? 600 : 1800;
+            const particleCount = 0;
             const positions = new Float32Array(particleCount * 3);
             const colors = new Float32Array(particleCount * 3);
             const sizes = new Float32Array(particleCount);
@@ -880,7 +853,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // ---- Orbiting dots ----
             const dotGroup = new THREE.Group();
-            const dotCount = isMobile ? 24 : 50;
+            const dotCount = 0;
             for (let i = 0; i < dotCount; i++) {
                 const dGeo = new THREE.SphereGeometry(0.035, 6, 6);
                 const dMat = new THREE.MeshPhysicalMaterial({
@@ -921,6 +894,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const t = currentTime / TOTAL_DURATION;
 
+                // Move the complete background scene with the page scroll.
+                scene.rotation.y = t * Math.PI * 2;
+                scene.rotation.x = Math.sin(t * Math.PI * 2) * 0.12;
+                scene.position.y = Math.sin(t * Math.PI * 3) * 0.25;
+
                 knot.rotation.x = t * Math.PI * 4;
                 knot.rotation.y = t * Math.PI * 6;
                 knot.rotation.z = t * Math.PI * 2;
@@ -956,7 +934,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 particlePos.needsUpdate = true;
 
                 rings.forEach((ring, idx) => {
-                    ring.rotation.y += delta * (0.2 + idx * 0.05);
+                    ring.rotation.y = t * Math.PI * (1.2 + idx * 0.2);
                     ring.rotation.x = Math.PI * 0.3 + idx * 0.2 + 0.15 * Math.sin(t * 0.8 + idx);
                     const op = 0.08 + 0.1 * (0.5 + 0.5 * Math.sin(t * 1.2 + idx * 0.7));
                     ring.material.opacity = Math.min(op, 0.2);

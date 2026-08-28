@@ -478,6 +478,12 @@ ul { list-style: none; }
     line-height: 1.2;
     margin-bottom: 16px;
 }
+.section-title .gradient-text,
+.contact-left h2 .gradient-text {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: var(--text-main);
+}
 .section-subtitle { color: var(--text-muted); font-size: 1rem; line-height: 1.75; }
 
 /* =============================================
