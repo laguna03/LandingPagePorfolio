@@ -1,5 +1,5 @@
 /* =============================================
-   LANDING PAGE PORTFOLIO — script.js
+    WEB DESIGN PORTFOLIO — script.js
    (con Liquid Glass 3D + lazy loading)
    ============================================= */
 
@@ -16,7 +16,7 @@ const translations = {
         'hero.title1': 'Tu Negocio Merece',
         'hero.title2': 'Una Web Que Convierte',
         'hero.title3': 'Más Clientes',
-        'hero.subtitle': 'Diseñamos y construimos soluciones web de alta conversión para negocios que quieren crecer. Landing pages, catálogos, tiendas online y más. Diseño 100% personalizado.',
+        'hero.subtitle': 'Diseñamos y construimos soluciones web de alta conversión para negocios que quieren crecer. Diseños web, catálogos, tiendas online y más. Diseño 100% personalizado.',
         'hero.btn1': 'Cotización Gratis',
         'hero.btn2': 'Ver Nuestro Trabajo',
         'stats.projects': 'Proyectos Entregados',
@@ -25,7 +25,7 @@ const translations = {
         'stats.delivery': 'Entrega Promedio',
         'stats.conversions': 'Más Conversiones',
         'mobile.swipe': 'Desliza para ver más',
-        'web.tag': 'Más Allá de las Landing Pages',
+        'web.tag': 'Más Allá de los Diseños Web',
         'web.title': 'Servicios Web ',
         'web.title2': 'Para Hacer Crecer Tu Negocio',
         'web.subtitle': 'Desde un catálogo digital hasta una tienda online profesional. Creamos la plataforma digital que tu negocio necesita.',
@@ -40,13 +40,13 @@ const translations = {
         'services.tag': 'Lo Que Ofrecemos',
         'services.title': 'Todo Lo Que Necesitas Para',
         'services.title2': 'Convertir y Crecer',
-        'services.subtitle': 'Cada landing page se construye con un solo objetivo en mente: convertir tus visitas en clientes reales.',
+        'services.subtitle': 'Cada diseño web se construye con un solo objetivo en mente: convertir tus visitas en clientes reales.',
         'services.s1.title': 'Diseño de Alta Conversión',
         'services.s1.desc': 'Cada elemento está colocado estratégicamente para guiar al visitante a tomar acción. Sin relleno, solo resultados que mueven la aguja.',
         'services.s2.title': '100% Responsive (Móvil)',
         'services.s2.desc': 'Más del 70% del tráfico es móvil. Tu página se verá perfecta en cualquier dispositivo y tamaño de pantalla, garantizado.',
         'services.s3.title': 'Entrega en 5–7 Días Hábiles',
-        'services.s3.desc': 'Sin esperas interminables. Tu landing page profesional lista y en vivo en tan solo 5 a 7 días hábiles desde que recibimos el depósito.',
+        'services.s3.desc': 'Sin esperas interminables. Tu diseño web profesional listo y en vivo en tan solo 5 a 7 días hábiles desde que recibimos el depósito.',
         'services.s4.title': 'Optimizada para SEO',
         'services.s4.desc': 'Construida con código limpio y semántico bajo las mejores prácticas de SEO para que los motores de búsqueda puedan encontrarte fácilmente.',
         'services.s5.title': 'Diseño 100% Personalizado',
@@ -56,14 +56,14 @@ const translations = {
         'portfolio.tag': 'Mi Trabajo',
         'portfolio.title': 'Proyectos ',
         'portfolio.title2': 'Diseñados para convertir',
-        'portfolio.subtitle': 'Landing pages, tiendas en línea, catálogos y sistemas web: cada uno diseñado para impresionar y convertir.',
+        'portfolio.subtitle': 'Diseños web, tiendas en línea, catálogos y sistemas web: cada uno diseñado para impresionar y convertir.',
         'portfolio.tab.all': 'Todo',
         'portfolio.tab.real': 'Proyectos Reales',
         'portfolio.tab.example': 'Diseños de Ejemplo',
-        'portfolio.category.landing': 'Landing Pages',
+        'portfolio.category.landing': 'Diseños Web',
         'portfolio.category.ecommerce': 'Tiendas Online & Catálogos',
         'portfolio.category.systems': 'Sistemas Web & POS',
-        'portfolio.category.animated3d': '3D Animated Landing Pages',
+        'portfolio.category.animated3d': 'Diseños Web 3D Animados',
         'portfolio.viewproject': 'Ver Proyecto',
         'portfolio.viewdesign': 'Ver Diseño',
         'portfolio.realbadge': 'Negocio Real',
@@ -74,7 +74,7 @@ const translations = {
         'portfolio.c2.title': 'Vyron Training',
         'portfolio.c2.desc': 'Página web personal para Luis, entrenador fitness, diseñada para atraer nuevos clientes y mostrar sus servicios de entrenamiento profesional.',
         'portfolio.c7.title': 'MovieSquad',
-        'portfolio.c7.desc': 'Landing page para una plataforma de reseñas y recomendaciones de películas.',
+        'portfolio.c7.desc': 'Diseño web para una plataforma de reseñas y recomendaciones de películas.',
         'portfolio.c8.title': 'Tienda Online',
         'portfolio.c8.desc': 'Solución completa de e-commerce con pasarela de pago y carrito de compras.',
         'portfolio.c9.title': 'Catálogo Digital',
@@ -84,17 +84,17 @@ const translations = {
         'portfolio.c11.title': 'Ground Projects',
         'portfolio.c11.desc': 'Sitio web para una empresa de servicios de construcción y proyectos de infraestructura.',
         'portfolio.c12.title': 'Evolution Muse',
-        'portfolio.c12.desc': 'Landing page con animaciones 3D inmersivas y efectos visuales de alta calidad.',
+        'portfolio.c12.desc': 'Diseño web con animaciones 3D inmersivas y efectos visuales de alta calidad.',
         'portfolio.c13.title': 'Rest Mockup LP',
-        'portfolio.c13.desc': 'Landing page de demostración con animaciones 3D y experiencia interactiva.',
+        'portfolio.c13.desc': 'Diseño web de demostración con animaciones 3D y experiencia interactiva.',
         'portfolio.c14.title': 'Coffee Shop 3D',
-        'portfolio.c14.desc': 'Landing page de demostración para una cafetería con animaciones 3D envolventes.',
+        'portfolio.c14.desc': 'Diseño web de demostración para una cafetería con animaciones 3D envolventes.',
         'portfolio.c15.title': 'Barber Shop 3D',
-        'portfolio.c15.desc': 'Landing page de demostración para una barbería con animaciones 3D modernas.',
+        'portfolio.c15.desc': 'Diseño web de demostración para una barbería con animaciones 3D modernas.',
         'portfolio.c16.title': 'Real Estate Mockup',
-        'portfolio.c16.desc': 'Landing page de demostración para una inmobiliaria con animaciones 3D elegantes.',
+        'portfolio.c16.desc': 'Diseño web de demostración para una inmobiliaria con animaciones 3D elegantes.',
         'portfolio.c17.title': 'Estética Temp',
-        'portfolio.c17.desc': 'Landing page 3D para un espacio de estética y belleza con una experiencia visual elegante.',
+        'portfolio.c17.desc': 'Diseño web 3D para un espacio de estética y belleza con una experiencia visual elegante.',
         'portfolio.c3.title': 'Sunset Realty Group',
         'portfolio.c3.desc': 'Página de agencia inmobiliaria que triplicó las consultas de clientes calificados por semana.',
         'portfolio.c4.title': 'Flowbase SaaS',
@@ -121,17 +121,17 @@ const translations = {
         'testimonials.title': 'Lo Que Dicen ',
         'testimonials.title2': 'Nuestros Clientes',
         'pricing.tag': 'Inversión',
-        'pricing.title': 'Una Landing Page 3D ',
+        'pricing.title': 'Un Diseño Web 3D ',
         'pricing.title2': 'Profesional Para Tu Negocio',
         'pricing.subtitle': 'Una experiencia 3D inmersiva que convierte visitantes en clientes.',
-        'pricing.badge': 'Oferta 3D Landing Page',
-        'pricing.name': 'Landing Page 3D Profesional',
+        'pricing.badge': 'Oferta de Diseño Web 3D',
+        'pricing.name': 'Diseño Web 3D Profesional',
         'pricing.period': 'pago inicial (2 partes)',
         'pricing.split1': 'Al iniciar',
         'pricing.split2': 'Al entregar',
         'pricing.monthly': '+ $50/mes por mantenimiento (mín. 12 meses, comienza después del pago final)',
         'pricing.cta': 'Iniciar Proyecto',
-        'pricing.f1': 'Landing page 3D con animaciones inmersivas',
+        'pricing.f1': 'Diseño web 3D con animaciones inmersivas',
         'pricing.f2': 'Diseño 100% personalizado y exclusivo',
         'pricing.f3': 'Animaciones 3D de alta calidad y rendimiento',
         'pricing.f4': 'Optimización SEO y velocidad',
@@ -178,7 +178,7 @@ const translations = {
         'hero.badge1': 'Tasa de conversión',
         'hero.badge2_num': '3-5 días',
         'hero.badge2': 'Tiempo de entrega',
-        'testimonials.q1': '"LAGVNSoftware entregó una landing page increíble en solo 4 días. Nuestras reservas en línea aumentaron significativamente en la primera semana. ¡Valió cada centavo!"',
+        'testimonials.q1': '"LAGVNSoftware entregó un diseño web increíble en solo 4 días. Nuestras reservas en línea aumentaron significativamente en la primera semana. ¡Valió cada centavo!"',
         'testimonials.q2': '"El diseño nos dejó sin palabras. Se ve exactamente como las grandes cadenas de gimnasios pero es 100% nuestro. Los registros han estado por las nubes desde que lanzamos."',
         'testimonials.q3': '"La página que LAGVNSoftware creó para MovieSquad es espectacular. El diseño es moderno, atractivo y ha recibido muchísimas visitas y comentarios positivos. ¡Totalmente recomendados!"',
         'testimonials.a1.role': 'Dueño, Caribe Industries Supply Corp.',
@@ -196,7 +196,7 @@ const translations = {
         'hero.title1': 'Your Business Deserves',
         'hero.title2': 'A Website That Converts',
         'hero.title3': 'More Customers',
-        'hero.subtitle': 'We design and build high-converting web solutions for ambitious businesses. Landing pages, catalogs, online stores, and more. 100% custom design.',
+        'hero.subtitle': 'We design and build high-converting web solutions for ambitious businesses. Web designs, catalogs, online stores, and more. 100% custom design.',
         'hero.btn1': 'Get a Free Quote',
         'hero.btn2': 'See Our Work',
         'stats.projects': 'Projects Delivered',
@@ -205,7 +205,7 @@ const translations = {
         'stats.delivery': 'Avg. Delivery Time',
         'stats.conversions': 'More Conversions',
         'mobile.swipe': 'Swipe to see more',
-        'web.tag': 'Beyond Landing Pages',
+        'web.tag': 'Beyond Web Design',
         'web.title': 'Web Services ',
         'web.title2': 'Built To Grow Your Business',
         'web.subtitle': 'From digital catalogs to professional online stores. We build the digital platform your business needs.',
@@ -220,13 +220,13 @@ const translations = {
         'services.tag': 'What We Offer',
         'services.title': 'Everything You Need To',
         'services.title2': 'Convert & Grow',
-        'services.subtitle': 'Every landing page is built with one goal in mind: turning your visitors into real paying customers.',
+        'services.subtitle': 'Every web design is built with one goal in mind: turning your visitors into real paying customers.',
         'services.s1.title': 'High-Converting Design',
         'services.s1.desc': 'Every element is strategically placed to guide visitors toward action. No fluff, just results that move the needle.',
         'services.s2.title': '100% Mobile Responsive',
         'services.s2.desc': 'Over 70% of traffic is mobile. Your page will look flawless on every device and screen size, guaranteed.',
         'services.s3.title': '5–7 Business Day Delivery',
-        'services.s3.desc': 'No lengthy waiting periods. Your professional landing page live in as little as 5–7 business days from deposit.',
+        'services.s3.desc': 'No lengthy waiting periods. Your professional web design live in as little as 5–7 business days from deposit.',
         'services.s4.title': 'SEO Optimized',
         'services.s4.desc': 'Built with clean, semantic code and best SEO practices so search engines can find and rank you easily.',
         'services.s5.title': '100% Custom Design',
@@ -236,14 +236,14 @@ const translations = {
         'portfolio.tag': 'My Work',
         'portfolio.title': 'Projects ',
         'portfolio.title2': 'Designed to convert',
-        'portfolio.subtitle': 'Landing pages, online stores, catalogs, and web systems: each one designed to impress and convert.',
+        'portfolio.subtitle': 'Web designs, online stores, catalogs, and web systems: each one designed to impress and convert.',
         'portfolio.tab.all': 'All Work',
         'portfolio.tab.real': 'Real Projects',
         'portfolio.tab.example': 'Example Designs',
-        'portfolio.category.landing': 'Landing Pages',
+        'portfolio.category.landing': 'Web Designs',
         'portfolio.category.ecommerce': 'Online Stores & Catalogs',
         'portfolio.category.systems': 'Web Systems & POS',
-        'portfolio.category.animated3d': '3D Animated Landing Pages',
+        'portfolio.category.animated3d': '3D Animated Web Designs',
         'portfolio.viewproject': 'View Project',
         'portfolio.viewdesign': 'View Design',
         'portfolio.realbadge': 'Real Business',
@@ -254,7 +254,7 @@ const translations = {
         'portfolio.c2.title': 'Vyron Training',
         'portfolio.c2.desc': 'Personal website for Luis, fitness trainer, designed to attract new clients and showcase his professional training services.',
         'portfolio.c7.title': 'MovieSquad',
-        'portfolio.c7.desc': 'Landing page for a movie review and recommendation platform.',
+        'portfolio.c7.desc': 'Web design for a movie review and recommendation platform.',
         'portfolio.c8.title': 'Online Store',
         'portfolio.c8.desc': 'Complete e-commerce solution with payment gateway and shopping cart.',
         'portfolio.c9.title': 'Digital Catalog',
@@ -264,21 +264,21 @@ const translations = {
         'portfolio.c11.title': 'Ground Projects',
         'portfolio.c11.desc': 'Website for a construction services and infrastructure projects company.',
         'portfolio.c12.title': 'Evolution Muse',
-        'portfolio.c12.desc': 'Landing page with immersive 3D animations and high-quality visual effects.',
+        'portfolio.c12.desc': 'Web design with immersive 3D animations and high-quality visual effects.',
         'portfolio.c13.title': 'Rest Mockup LP',
-        'portfolio.c13.desc': 'Demo landing page with 3D animations and interactive experience.',
+        'portfolio.c13.desc': 'Demo web design with 3D animations and interactive experience.',
         'portfolio.c14.title': 'Coffee Shop 3D',
-        'portfolio.c14.desc': 'Demo landing page for a coffee shop with immersive 3D animations.',
+        'portfolio.c14.desc': 'Demo web design for a coffee shop with immersive 3D animations.',
         'portfolio.c15.title': 'Barber Shop 3D',
-        'portfolio.c15.desc': 'Demo landing page for a barbershop with modern 3D animations.',
+        'portfolio.c15.desc': 'Demo web design for a barbershop with modern 3D animations.',
         'portfolio.c16.title': 'Real Estate Mockup',
-        'portfolio.c16.desc': 'Demo landing page for a real estate agency with elegant 3D animations.',
+        'portfolio.c16.desc': 'Demo web design for a real estate agency with elegant 3D animations.',
         'portfolio.c17.title': 'Estética Temp',
-        'portfolio.c17.desc': '3D landing page for a beauty and aesthetics space with an elegant visual experience.',
+        'portfolio.c17.desc': '3D web design for a beauty and aesthetics space with an elegant visual experience.',
         'portfolio.c3.title': 'Sunset Realty Group',
         'portfolio.c3.desc': 'Real estate agency page that tripled qualified client inquiries per week.',
         'portfolio.c4.title': 'Flowbase SaaS',
-        'portfolio.c4.desc': 'SaaS landing page concept focused on feature clarity and frictionless conversion.',
+        'portfolio.c4.desc': 'SaaS web design concept focused on feature clarity and frictionless conversion.',
         'portfolio.c5.title': 'Luxe Boutique',
         'portfolio.c5.desc': 'Premium fashion brand concept with bold visuals and a smooth shopping experience.',
         'portfolio.c6.title': 'Spark Creative Agency',
@@ -302,16 +302,16 @@ const translations = {
         'testimonials.title2': 'Clients Say',
         'pricing.tag': 'Investment',
         'pricing.title': 'A Professional 3D ',
-        'pricing.title2': 'Landing Page For Your Business',
+        'pricing.title2': 'Web Design For Your Business',
         'pricing.subtitle': 'An immersive 3D experience that turns visitors into clients.',
-        'pricing.badge': '3D Landing Page Offer',
-        'pricing.name': 'Professional 3D Landing Page',
+        'pricing.badge': '3D Web Design Offer',
+        'pricing.name': 'Professional 3D Web Design',
         'pricing.period': 'initial payment (2 parts)',
         'pricing.split1': 'To start',
         'pricing.split2': 'On delivery',
         'pricing.monthly': '+ $50/month for maintenance (min. 12 months, starts after final payment)',
         'pricing.cta': 'Start Project',
-        'pricing.f1': '3D landing page with immersive animations',
+        'pricing.f1': '3D web design with immersive animations',
         'pricing.f2': '100% custom and exclusive design',
         'pricing.f3': 'High-quality 3D animations and performance',
         'pricing.f4': 'SEO and speed optimization',
@@ -358,7 +358,7 @@ const translations = {
         'hero.badge1': 'Conversion rate',
         'hero.badge2_num': '3-5 days',
         'hero.badge2': 'Delivery time',
-        'testimonials.q1': '"LAGVNSoftware delivered an incredible landing page in just 4 days. Our online bookings increased significantly in the first week. Worth every penny!"',
+        'testimonials.q1': '"LAGVNSoftware delivered an incredible web design in just 4 days. Our online bookings increased significantly in the first week. Worth every penny!"',
         'testimonials.q2': '"The design blew us away. It looks just like a major gym chain but it\'s 100% ours. Sign-ups have been through the roof since we launched."',
         'testimonials.q3': '"The page LAGVNSoftware created for MovieSquad is spectacular. The design is modern, attractive, and has received a huge amount of visits and positive feedback. Highly recommended!"',
         'testimonials.a1.role': 'Owner, Caribe Industries Supply Corp.',
@@ -512,46 +512,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => revealObserver.observe(el));
 
-    // ---- Lazy loading for iframes ----
-    const lazyIframes = document.querySelectorAll('.lazy-iframe');
-    const iframeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const iframe = entry.target;
-                const card = iframe.closest('.card-preview');
-                const src = card?.dataset.iframeSrc;
-                if (src) {
-                    iframe.src = src;
-                    const skeleton = card.querySelector('.iframe-skeleton');
-                    if (skeleton) {
-                        iframe.addEventListener('load', () => {
-                            skeleton.classList.add('hidden');
-                            iframe.classList.add('loaded');
-                            // Escalar después de cargar
-                            const scale = card.offsetWidth / 1280;
-                            iframe.style.transform = `scale(${scale})`;
-                            iframe.style.height = (card.offsetHeight / scale) + 'px';
-                        });
-                    }
-                }
-                iframeObserver.unobserve(iframe);
+    // ---- Project previews load only after direct interaction ----
+    const projectPreviews = [...document.querySelectorAll('.iframe-card[data-iframe-src]')];
+    let activePreview;
+
+    function unloadPreview(preview) {
+        const iframe = preview.querySelector('.site-iframe');
+        iframe.removeAttribute('src');
+        iframe.classList.remove('loaded');
+        preview.querySelector('.iframe-skeleton')?.classList.remove('hidden');
+        preview.querySelector('.site-preview')?.classList.remove('hidden');
+    }
+
+    function loadPreview(preview) {
+        if (activePreview && activePreview !== preview) unloadPreview(activePreview);
+        const iframe = preview.querySelector('.site-iframe');
+        const src = preview.dataset.iframeSrc;
+        if (!iframe || !src || iframe.getAttribute('src') === src) return;
+
+        activePreview = preview;
+        iframe.addEventListener('load', () => {
+            preview.querySelector('.iframe-skeleton')?.classList.add('hidden');
+            preview.querySelector('.site-preview')?.classList.add('hidden');
+            iframe.classList.add('loaded');
+            const scale = preview.offsetWidth / 1280;
+            iframe.style.transform = `scale(${scale})`;
+            iframe.style.height = `${preview.offsetHeight / scale}px`;
+        }, { once: true });
+        iframe.src = src;
+    }
+
+    projectPreviews.forEach(preview => {
+        preview.addEventListener('mouseenter', () => {
+            if (window.innerWidth > 768) loadPreview(preview);
+        });
+        preview.addEventListener('mouseleave', () => {
+            if (window.innerWidth > 768 && activePreview === preview) {
+                unloadPreview(preview);
+                activePreview = undefined;
             }
         });
-    }, { rootMargin: window.innerWidth <= 768 ? '250px' : '200px' });
-    lazyIframes.forEach(iframe => iframeObserver.observe(iframe));
-
-    // ---- Iframe scaling (para los ya cargados) ----
-    function scaleIframes() {
-        document.querySelectorAll('.iframe-card .site-iframe.loaded').forEach(iframe => {
-            const card = iframe.closest('.iframe-card');
-            if (!card) return;
-            const scale = card.offsetWidth / 1280;
-            iframe.style.transform = `scale(${scale})`;
-            iframe.style.height = (card.offsetHeight / scale) + 'px';
+        preview.addEventListener('click', () => {
+            if (window.innerWidth <= 768) loadPreview(preview);
         });
-    }
-    scaleIframes();
-    window.addEventListener('resize', scaleIframes);
+    });
+
+    window.addEventListener('resize', () => {
+        if (!activePreview) return;
+        const iframe = activePreview.querySelector('.site-iframe');
+        const scale = activePreview.offsetWidth / 1280;
+        iframe.style.transform = `scale(${scale})`;
+        iframe.style.height = `${activePreview.offsetHeight / scale}px`;
+    });
 
     // ---- EmailJS ----
     const EMAILJS_SERVICE_ID = 'service_2fjziv9';
@@ -670,7 +682,6 @@ document.addEventListener('DOMContentLoaded', () => {
             border-radius: 50%;
             pointer-events: none;
             background: radial-gradient(circle, rgba(26,107,255,0.07) 0%, transparent 70%);
-            transform: translate(-50%, -50%);
             transition: left 0.12s ease, top 0.12s ease;
             z-index: 0;
             will-change: left, top;
