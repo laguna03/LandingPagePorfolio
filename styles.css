@@ -1331,23 +1331,23 @@ ul { list-style: none; }
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 6px;
         width: fit-content;
-        margin: 0 auto 20px;
-        padding: 9px 18px;
+        margin: 0 auto 14px;
+        padding: 6px 12px;
         color: var(--text-main);
         background: rgba(9, 17, 31, 0.82);
         border: 1px solid rgba(128, 175, 255, 0.45);
         border-radius: 50px;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-        font-size: 0.8rem;
+        font-size: 0.68rem;
         font-weight: 700;
         letter-spacing: 0.2px;
     }
     .mobile-scroll-hint::after,
     .swipe-arrow { display: inline-block; color: var(--primary-light); font-size: 1.15rem; animation: swipeBounce 1.25s infinite ease-in-out; }
     .mobile-scroll-hint::after { content: '→'; }
-    .swipe-arrow { display: inline-block; animation: swipeBounce 1.5s infinite ease-in-out; }
+    .swipe-arrow { display: inline-block; font-size: 0.9rem; animation: swipeBounce 1.5s infinite ease-in-out; }
     @keyframes swipeBounce { 0%,100% { transform: translateX(0); opacity:0.7; } 50% { transform: translateX(6px); opacity:1; } }
     .portfolio-category-wrapper { display: flex; flex-direction: column; padding: 0; gap: 0; }
     .portfolio-category-title { margin: 0 0 16px; display: flex; align-items: center; }
