@@ -36,7 +36,7 @@ const translations = {
         'web.card3.title': 'Portales y Plataformas Web',
         'web.card3.desc': 'Sistemas web personalizados, paneles de administración, áreas de miembros y portales internos para gestionar tu negocio.',
         'web.card4.title': 'Mantenimiento y Soporte',
-        'web.card4.desc': 'El lanzamiento es solo el comienzo. Ofrecemos soporte continuo, actualizaciones de seguridad y mejoras para tu sitio web.',
+        'web.card4.desc': 'Ofrecemos soporte técnico para mantener tu sitio web actualizado y funcionando.',
         'services.tag': 'Lo Que Ofrecemos',
         'services.title': 'Todo Lo Que Necesitas Para',
         'services.title2': 'Convertir y Crecer',
@@ -110,13 +110,13 @@ const translations = {
         'process.s1.title': 'Formulario del Cliente',
         'process.s1.desc': 'Llenas el formulario de información del negocio. Es obligatorio para iniciar — define todo: objetivos, servicios, estilo visual y más.',
         'process.s2.title': 'Depósito Inicial',
-        'process.s2.desc': 'Una vez recibido el formulario completo, se realiza el primer pago para comenzar el proyecto.',
+        'process.s2.desc': 'Una vez recibido el formulario completo, realizas el pago del 50% ($250). El tiempo de entrega comienza en ese momento.',
         'process.s3.title': 'Diseño y Desarrollo',
         'process.s3.desc': 'Diseñamos y desarrollamos tu proyecto web desde cero. Recibirás un preview para revisión antes del lanzamiento.',
         'process.s4.title': 'Revisiones y Ajustes',
         'process.s4.desc': 'Revisamos juntos, aplicamos los ajustes finales según la política de revisiones. Tu opinión es parte del proceso.',
         'process.s5.title': 'Pago Final y Lanzamiento',
-        'process.s5.desc': 'Se realiza el pago final y tu proyecto queda en vivo. La mensualidad comienza después de este pago.',
+        'process.s5.desc': 'Realizas el pago del segundo 50% ($250) y tu proyecto queda en vivo. Soporte técnico incluido.',
         'testimonials.tag': 'Opiniones',
         'testimonials.title': 'Lo Que Dicen ',
         'testimonials.title2': 'Nuestros Clientes',
@@ -126,10 +126,9 @@ const translations = {
         'pricing.subtitle': 'Una experiencia 3D inmersiva que convierte visitantes en clientes.',
         'pricing.badge': 'Oferta de Landing Page 3D',
         'pricing.name': 'Landing Page 3D Profesional',
-        'pricing.period': 'pago inicial (2 partes)',
+        'pricing.period': 'pago total (en 2 partes)',
         'pricing.split1': 'Al iniciar',
         'pricing.split2': 'Al entregar',
-        'pricing.monthly': '+ $50/mes por mantenimiento (mín. 12 meses, comienza después del pago final)',
         'pricing.cta': 'Iniciar Proyecto',
         'pricing.f1': 'Landing Page 3D con animaciones inmersivas',
         'pricing.f2': 'Diseño 100% personalizado y exclusivo',
@@ -138,15 +137,15 @@ const translations = {
         'pricing.f5': 'Responsive perfecto en todos los dispositivos',
         'pricing.f6': 'Integración de WhatsApp y formularios',
         'pricing.f7': 'Entrega en 5-7 días hábiles',
-        'pricing.f8': 'Soporte y mantenimiento mensual incluido',
+        'pricing.f8': 'Soporte técnico incluido',
         'pricing.c1.title': 'Formulario obligatorio',
         'pricing.c1.desc': 'El proyecto inicia una vez recibido el formulario de información completo y el depósito de $250.',
         'pricing.c2.title': 'Tiempo de entrega',
         'pricing.c2.desc': '5 a 7 días hábiles contados desde la recepción del depósito y la información completa del cliente.',
-        'pricing.c3.title': 'Mantenimiento mensual (inicia tras entrega)',
-        'pricing.c3.desc': '$50/mes por 12 meses mínimos. Comienza después de recibido el pago final de $250 (entrega).',
+        'pricing.c3.title': 'Pago final',
+        'pricing.c3.desc': 'El pago final de $250 se realiza al entregar el proyecto. Sin mensualidades.',
         'pricing.c4.title': 'Estructura de pago',
-        'pricing.c4.desc': '$250 al iniciar + $250 al entregar = $500 inicial. + $50/mes por mantenimiento (mín. 12 meses).',
+        'pricing.c4.desc': '$250 al iniciar + $250 al entregar = $500 total. Sin costos ocultos.',
         'contact.tag': 'Trabajemos Juntos',
         'contact.title': '¿Tienes Un Proyecto?',
         'contact.title2': 'Hablemos De Tu Negocio',
@@ -216,7 +215,7 @@ const translations = {
         'web.card3.title': 'Portals & Web Platforms',
         'web.card3.desc': 'Custom web systems, admin panels, member areas, and internal portals to manage your business.',
         'web.card4.title': 'Maintenance & Support',
-        'web.card4.desc': 'Launch is just the beginning. We offer ongoing support, security updates, and improvements for your website.',
+        'web.card4.desc': 'We offer technical support to keep your website updated and running.',
         'services.tag': 'What We Offer',
         'services.title': 'Everything You Need To',
         'services.title2': 'Convert & Grow',
@@ -290,13 +289,13 @@ const translations = {
         'process.s1.title': 'Client Form',
         'process.s1.desc': 'You fill out the business info form. It is required to start — it defines everything: goals, services, visual style and more.',
         'process.s2.title': 'Initial Deposit',
-        'process.s2.desc': 'Once the completed form is received, the first payment is made to begin the project.',
+        'process.s2.desc': 'Once the completed form is received, you make the 50% payment ($250). Delivery time starts from that moment.',
         'process.s3.title': 'Design & Development',
         'process.s3.desc': 'We design and develop your web project from scratch. You will receive a preview to review before launch.',
         'process.s4.title': 'Revisions & Adjustments',
         'process.s4.desc': 'We review together, apply final adjustments per the revision policy. Your feedback is part of the process.',
         'process.s5.title': 'Final Payment & Launch',
-        'process.s5.desc': 'The final payment is made and your project goes live. Monthly maintenance starts after this payment.',
+        'process.s5.desc': 'You make the second 50% payment ($250) and your project goes live. Technical support included.',
         'testimonials.tag': 'Testimonials',
         'testimonials.title': 'What Our ',
         'testimonials.title2': 'Clients Say',
@@ -306,10 +305,9 @@ const translations = {
         'pricing.subtitle': 'An immersive 3D experience that turns visitors into clients.',
         'pricing.badge': '3D Landing Page Offer',
         'pricing.name': 'Professional 3D Landing Page',
-        'pricing.period': 'initial payment (2 parts)',
+        'pricing.period': 'total payment (2 parts)',
         'pricing.split1': 'To start',
         'pricing.split2': 'On delivery',
-        'pricing.monthly': '+ $50/month for maintenance (min. 12 months, starts after final payment)',
         'pricing.cta': 'Start Project',
         'pricing.f1': '3D landing page with immersive animations',
         'pricing.f2': '100% custom and exclusive design',
@@ -318,15 +316,15 @@ const translations = {
         'pricing.f5': 'Perfect responsive on all devices',
         'pricing.f6': 'WhatsApp integration and forms',
         'pricing.f7': 'Delivery in 5-7 business days',
-        'pricing.f8': 'Monthly support and maintenance included',
+        'pricing.f8': 'Technical support included',
         'pricing.c1.title': 'Required form',
         'pricing.c1.desc': 'The project starts once the complete business info form and the $250 deposit are received.',
         'pricing.c2.title': 'Delivery time',
         'pricing.c2.desc': '5 to 7 business days counted from receipt of deposit and complete client information.',
-        'pricing.c3.title': 'Monthly maintenance (starts after delivery)',
-        'pricing.c3.desc': '$50/month for a minimum of 12 months. Starts after the final $250 payment (delivery).',
+        'pricing.c3.title': 'Final payment',
+        'pricing.c3.desc': 'The final $250 payment is made upon delivery of the project. No monthly fees.',
         'pricing.c4.title': 'Payment structure',
-        'pricing.c4.desc': '$250 to start + $250 on delivery = $500 initial. + $50/month for maintenance (min. 12 months).',
+        'pricing.c4.desc': '$250 to start + $250 on delivery = $500 total. No hidden costs.',
         'contact.tag': "Let's Work Together",
         'contact.title': 'Have A Project?',
         'contact.title2': 'Let’s Talk About Your Business',
@@ -806,23 +804,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const colors = new Float32Array(particleCount * 3);
             const sizes = new Float32Array(particleCount);
 
-            for (let i = 0; i < particleCount; i++) {
-                const radius = 2.5 + Math.random() * 4.5;
-                const theta = Math.random() * Math.PI * 2;
-                const phi = Math.acos(2 * Math.random() - 1);
-
-                positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
-                positions[i * 3 + 1] = radius * Math.cos(phi) * 0.6 + 0.4;
-                positions[i * 3 + 2] = radius * Math.sin(phi) * Math.sin(theta);
-
-                const c = new THREE.Color().setHSL(0.6 + Math.random() * 0.2, 0.8, 0.5 + Math.random() * 0.3);
-                colors[i * 3] = c.r;
-                colors[i * 3 + 1] = c.g;
-                colors[i * 3 + 2] = c.b;
-
-                sizes[i] = 0.02 + Math.random() * 0.06;
-            }
-
             const particleGeo = new THREE.BufferGeometry();
             particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
             particleGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
@@ -865,20 +846,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // ---- Orbiting dots ----
             const dotGroup = new THREE.Group();
             const dotCount = 0;
-            for (let i = 0; i < dotCount; i++) {
-                const dGeo = new THREE.SphereGeometry(0.035, 6, 6);
-                const dMat = new THREE.MeshPhysicalMaterial({
-                    color: new THREE.Color().setHSL(0.6 + Math.random() * 0.15, 0.9, 0.6),
-                    emissive: new THREE.Color().setHSL(0.6 + Math.random() * 0.15, 0.9, 0.3),
-                    emissiveIntensity: 0.5,
-                });
-                const dot = new THREE.Mesh(dGeo, dMat);
-                const angle = (i / dotCount) * Math.PI * 2;
-                const rad = 2.0 + Math.random() * 0.8;
-                dot.position.set(Math.cos(angle) * rad, 0.4 + Math.sin(angle * 2) * 0.5, Math.sin(angle) * rad);
-                dot.userData = { angle, rad, speed: 0.6 + Math.random() * 0.4 };
-                dotGroup.add(dot);
-            }
+
             scene.add(dotGroup);
 
             // ---- Scroll → Time ----
@@ -927,39 +895,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 wire.rotation.x = t * Math.PI * 5 + 0.5;
                 wire.rotation.y = t * Math.PI * 7 + 1.2;
 
-                particles.rotation.y = t * 0.8;
-                particles.rotation.x = 0.1 * Math.sin(t * 0.6);
-                const particlePos = particles.geometry.attributes.position;
-                const array = particlePos.array;
-                for (let i = 0; i < particleCount; i++) {
-                    const i3 = i * 3;
-                    const baseX = array[i3];
-                    const baseZ = array[i3 + 2];
-                    const angleOffset = t * 0.15;
-                    const rad = Math.sqrt(baseX * baseX + baseZ * baseZ);
-                    const ang = Math.atan2(baseZ, baseX) + angleOffset * 0.1;
-                    array[i3] = rad * Math.cos(ang);
-                    array[i3 + 2] = rad * Math.sin(ang);
-                    array[i3 + 1] += 0.001 * Math.sin(t * 2 + i * 0.01);
-                }
-                particlePos.needsUpdate = true;
-
                 rings.forEach((ring, idx) => {
                     ring.rotation.y = t * Math.PI * (1.2 + idx * 0.2);
                     ring.rotation.x = Math.PI * 0.3 + idx * 0.2 + 0.15 * Math.sin(t * 0.8 + idx);
                     const op = 0.08 + 0.1 * (0.5 + 0.5 * Math.sin(t * 1.2 + idx * 0.7));
                     ring.material.opacity = Math.min(op, 0.2);
-                });
-
-                dotGroup.children.forEach((dot, i) => {
-                    const data = dot.userData;
-                    const newAngle = data.angle + delta * data.speed * 0.4 + t * 0.05;
-                    const rad = data.rad + 0.15 * Math.sin(t * 1.5 + i * 0.3);
-                    dot.position.x = Math.cos(newAngle) * rad;
-                    dot.position.z = Math.sin(newAngle) * rad;
-                    dot.position.y = 0.4 + Math.sin(newAngle * 2 + t * 0.8) * 0.5;
-                    const s = 0.8 + 0.4 * (0.5 + 0.5 * Math.sin(t * 2 + i * 0.5));
-                    dot.scale.setScalar(s);
                 });
 
                 const camRadius = 8;
